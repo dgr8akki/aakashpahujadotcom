@@ -6,7 +6,7 @@ deploy:
     secure: j8pDN3vuuc6sHdX4mo4wcS+BmLBWhgNTlgoqvvBMiMumlRMvmsYhU6M8I89LfVdDvSU4QvCLnc/SYRA68SQ/KHQ5SRu9AagcDPVdXh+vCqfR2gvOUFDA5Be1tflCkXQxK6bBt/4I+kO1EHzqcsu1nwNDE2SdrUxqmteXTBiU8P90Phlg4KOuO3oWJRE/s6A97lA2fVS0u/q0Jg3Wgq3FaDIbgc3zE3qEMNp6H9rMh2miH0tA9Bp4uo1gZR3+4Gx9WkJeyO6QrWClaPMVXFDBZane17f9E98kAT6A3SHgpvUcQMCXaybvw8yUzIFNe5FYfoyb0CNJrygKvenUWdxxFRGJaqki2GpRia1sbhaiA9jAwWTnTGXDnOeIm//DsM4eosiiI+vY2sMhF/bBTuL+xGWKUJweEnZI6Se6hM3+k5sT3SAcourmlVyLo5hcXYiTewkPGGT6VX6X2lgXG/LGAsHAfkQGigax8oZE63zwhVrXok+ptG7u00e12IE9h1KmhvcY0jPN74Ur+JqB4oyFO5Zvst8ub/mm8lwcmVqABAxw/YQTO3QEoXj7IvjCSFaliXc89HiH4fizKt2fgu3IfqA0Fvdq1lGos1SYJKenH9Tt/4f+SegYDUyYzJGdss6DLbfeBknHQaZJYIHER+r5f/qORKkb2A7DCmn0JV5CXjE=
   bucket: arn:aws:s3:::dgr8akki
   key: arn:aws:s3:::dgr8akki
-  bundle_type: ''
+  bundle_type: 'zip'
   application: portfolio
   deployment_group: travis
   on:
