@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Logo from '../components/Logo';
+import ApHeader from '../components/ApHeader';
+import Homepage from './Homepage';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Logo />
+        <ApHeader />
+        <Homepage />
       </div>
     );
   }

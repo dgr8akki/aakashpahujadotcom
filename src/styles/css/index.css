@@ -9,14 +9,14 @@
   --bg-grad: linear-gradient(to left top, #0b0c10, #121419, #171b21, #1b212a, #1f2833);
 }
 
-body {
+body,html {
   font-size: 14px;
   font-family: var(--body-font);
   color: var(--text-body);
   margin: 0;
   padding: 0;
   background: var(--bg-grad);
-  height: 100vh;
+  height: 100%;
   width: 100%;
   cursor: url('../images/cur.png'), auto !important;
 }
@@ -33,5 +33,84 @@ h1,h2,h3,h4,h5,h6 {
   color: var(--heading);
   border: 3px solid var(--heading);
   font-family: var(--head-font);
-  padding: 2px 4px;
+  padding: 11px 5px;
+}
+
+i {
+  color: var(--heading) !important;
+}
+
+#header {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu span {
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+#menu {
+  display: flex;
+  align-items: center;
+}
+
+#homepageHeading h1 {
+  font-size: 160px;
+}
+
+#homepageHeading {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+#homepageDescription p {
+  width: 50%;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 16px;
+}
+
+#homepageMouse {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+
+.fa-mouse {
+  background: url('../images/mouse.png') no-repeat;
+  background-size: contain;
+  height: 32px;
+  width: 32px;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#btn button {
+  background: transparent;
+  color: var(--text-body);
+  border: 2px solid var(--outline);
+  border-radius: 3px;
+  margin: 0 10px;
+}
+
+#btn button:active {
+  background: var(--outline);
+  color: var(--text-body);
+  border: 2px solid var(--outline);
+  border-radius: 3px;
+  margin: 0 10px;
+}
+
+#homepageSocialButtons {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
 }
