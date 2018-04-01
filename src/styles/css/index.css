@@ -1,0 +1,37 @@
+:root {
+  --base: #0b0c10;
+  --base-light: #1f2833;
+  --text-body: #c5c6c7;
+  --heading: #66fcf1;
+  --outline: #45a29e;
+  --head-font: "IstokWeb Regular",Helvetica,sans-serif;
+  --body-font: "Lato",Helvetica,sans-serif;
+  --bg-grad: linear-gradient(to left top, #0b0c10, #121419, #171b21, #1b212a, #1f2833);
+}
+
+body {
+  font-size: 14px;
+  font-family: var(--body-font);
+  color: var(--text-body);
+  margin: 0;
+  padding: 0;
+  background: var(--bg-grad);
+  height: 100vh;
+  width: 100%;
+  cursor: url('../images/cur.png'), auto !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--heading);
+  font-family: var(--head-font);
+}
+
+#logo {
+  font-size: 24px;
+  width: max-content;
+  display: block;
+  color: var(--heading);
+  border: 3px solid var(--heading);
+  font-family: var(--head-font);
+  padding: 2px 4px;
+}
