@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "./index.css";
 
-const animationOnMenuClick = e => {
+const newLocal = e => {
   document
     .getElementsByClassName("menu__item--current")[0]
     .classList.remove("menu__item--current");
   e.target.parentElement.classList.add("menu__item--current");
+  e.preventDefault();
+  const scrollElementName = e.target.getAttribute("href").substr(1);
+  const scrollElement = document.getElementById(scrollElementName);
+  window.scroll({
+    top: scrollElement.offsetTop - 160,
+    behavior: "smooth"
+  });
 };
+const animationOnMenuClick = newLocal;
 class ApMenu extends Component {
   render() {
     return (
@@ -15,7 +23,7 @@ class ApMenu extends Component {
           <ul className="menu__list">
             <li className="menu__item menu__item--current">
               <a
-                href="#"
+                href="#home"
                 className="menu__link"
                 onClick={e => animationOnMenuClick(e)}
               >
@@ -24,7 +32,7 @@ class ApMenu extends Component {
             </li>
             <li className="menu__item">
               <a
-                href="#"
+                href="#work"
                 className="menu__link"
                 onClick={e => animationOnMenuClick(e)}
               >
@@ -33,7 +41,7 @@ class ApMenu extends Component {
             </li>
             <li className="menu__item">
               <a
-                href="#"
+                href="#experience"
                 className="menu__link"
                 onClick={e => animationOnMenuClick(e)}
               >
@@ -42,7 +50,7 @@ class ApMenu extends Component {
             </li>
             <li className="menu__item">
               <a
-                href="#"
+                href="#skills"
                 className="menu__link"
                 onClick={e => animationOnMenuClick(e)}
               >
@@ -51,7 +59,7 @@ class ApMenu extends Component {
             </li>
             <li className="menu__item">
               <a
-                href="#"
+                href="#contact"
                 className="menu__link"
                 onClick={e => animationOnMenuClick(e)}
               >
