@@ -4,16 +4,10 @@ import HomepageDescription from "../components/HomepageDescription";
 import HomepageMouse from "../components/HomepageMouse";
 import HomepageSocialButtons from "../components/HomepageSocialButtons";
 
-class Homepage extends Component {
+class MyWorkPage extends Component {
   render() {
-    return (
-      <div className="page" id="home">
-        <HomepageHeading />
-        <HomepageDescription />
-        <HomepageMouse />
-      </div>
-    );
+    return <div className="page" id="work" />;
   }
 }
 
-export default Homepage;
+export default MyWorkPage;
