@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 const Bot = () => (
   <div id="bot">
-    <Icon name='chat' size="large" />
+    <Icon name="chat" size="large" />
   </div>
 );
 

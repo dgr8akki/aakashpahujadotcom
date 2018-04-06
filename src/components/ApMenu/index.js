@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import "./index.css";
+import React, { Component } from 'react';
+import './index.css';
 
-const newLocal = e => {
+const newLocal = (e) => {
   document
-    .getElementsByClassName("menu__item--current")[0]
-    .classList.remove("menu__item--current");
-  e.target.parentElement.classList.add("menu__item--current");
+    .getElementsByClassName('menu__item--current')[0]
+    .classList.remove('menu__item--current');
+  e.target.parentElement.classList.add('menu__item--current');
   e.preventDefault();
-  const scrollElementName = e.target.getAttribute("href").substr(1);
+  const scrollElementName = e.target.getAttribute('href').substr(1);
   const scrollElement = document.getElementById(scrollElementName);
   window.scroll({
     top: scrollElement.offsetTop - 160,
-    behavior: "smooth"
+    behavior: 'smooth',
   });
 };
 const animationOnMenuClick = newLocal;
