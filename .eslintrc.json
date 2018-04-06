@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "airbnb",
+    "rules": {
+      "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+      "react/prop-types": 0
+    }
+}

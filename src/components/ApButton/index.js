@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 
-const clickHandler = e => {
+const clickHandler = (e) => {
   e.preventDefault();
   switch (e.target.innerText) {
     case 'Github': window.open('https://github.com/dgr8akki', '_blank');
@@ -15,7 +15,7 @@ const clickHandler = e => {
     default:
       break;
   }
-}
+};
 
 const ApButton = props => (
   <div id="btn">

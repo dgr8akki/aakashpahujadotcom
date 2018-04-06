@@ -11,6 +11,15 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    window.onload = function () {
+      try {
+        TagCanvas.Start("myCanvas");
+      } catch (e) {
+        document.getElementById("myCanvasContainer").style.display = "none";
+      }
+    };
+  </script>
 </body>
 
 </html>
