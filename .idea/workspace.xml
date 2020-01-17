@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d29b36d1-abbc-41f7-9cf5-a1284199e13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/featured/MakeYourOwnResume/resume.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/featured/Milli/milli.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/featured/Tinny.tech/tiny.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/MakeYourOwnResume/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/featured/MakeYourOwnResume/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/MakeYourOwnResume/octoprofile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/Milli/demo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/Milli/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/featured/Milli/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/Tinny.tech/demo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/Tinny.tech/halcyon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/featured/Tinny.tech/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/featured/Tinny.tech/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-144x144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-192x192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-36x36.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-36x36.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-48x48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-48x48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-72x72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/android-icon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/android-icon-96x96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-114x114.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-120x120.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-144x144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-152x152.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-180x180.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-180x180.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-57x57.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-57x57.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-60x60.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-60x60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-72x72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-76x76.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-76x76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon-precomposed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon-precomposed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/apple-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/apple-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/browserconfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/favicon-16x16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/favicon-32x32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/favicon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/favicon-96x96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/ms-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/ms-icon-144x144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/ms-icon-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/ms-icon-150x150.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/ms-icon-310x310.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/ms-icon-310x310.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/favicons/ms-icon-70x70.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/favicons/ms-icon-70x70.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +120,7 @@
       <workItem from="1578562744565" duration="6364000" />
       <workItem from="1578648258680" duration="192000" />
       <workItem from="1579256462482" duration="490000" />
-      <workItem from="1579338989949" duration="3015000" />
+      <workItem from="1579338989949" duration="3878000" />
     </task>
     <servers />
   </component>
