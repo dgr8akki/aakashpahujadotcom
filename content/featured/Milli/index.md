@@ -1,15 +1,14 @@
 ---
 date: '2'
-title: 'Milli - a terminal-based text editor'
-cover: './demo.png'
-github: 'https://github.com/dgr8akki/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+title: 'Milli - The text editor'
+cover: './milli.png'
+github: 'https://github.com/dgr8akki/Milli-The-text-editor'
+
 tech:
-  - React
-  - Node.js
-  - Express
-  - Spotify Web API
+  - C
+  - MakeFile
+
 showInProjects: true
 ---
 
-A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.
+Milli is a terminal-based text editor that aims to be easy to use and intuitive. It comes as one single, batteries-included, static binary with no dependencies, and you can download and use it right now.

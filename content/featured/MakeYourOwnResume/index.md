@@ -1,12 +1,12 @@
 ---
 date: '3'
 title: 'Make Your Own Resume'
-cover: './octoprofile.png'
-github: 'https://github.com/dgr8akki/octoprofile'
-external: 'https://octoprofile.now.sh'
+cover: './resume.png'
+github: 'https://github.com/dgr8akki/dgr8akki.github.io'
+external: 'https://aakashresume.netlify.com/'
 tech:
-  - Next.js
-  - Chart.js
+  - Gatsby.js
+  - React.js
   - GitHub API
 showInProjects: true
 ---

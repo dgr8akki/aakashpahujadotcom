@@ -9,21 +9,18 @@ const StyledMainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const IndexPage = ({ location, data }) => {
-  console.log(data, location);
-  return (
-    <Layout location={location}>
-      <StyledMainContainer className="fillHeight">
-        <Hero data={data.hero.edges} />
-        <About data={data.about.edges} />
-        <Jobs data={data.jobs.edges} />
-        <Featured data={data.featured.edges} />
-        {/*<Projects data={data.projects.edges} />*/}
-        <Contact data={data.contact.edges} />
-      </StyledMainContainer>
-    </Layout>
-  );
-}
+const IndexPage = ({ location, data }) => (
+  <Layout location={location}>
+    <StyledMainContainer className="fillHeight">
+      <Hero data={data.hero.edges} />
+      <About data={data.about.edges} />
+      <Jobs data={data.jobs.edges} />
+      <Featured data={data.featured.edges} />
+      {/*<Projects data={data.projects.edges} />*/}
+      <Contact data={data.contact.edges} />
+    </StyledMainContainer>
+  </Layout>
+);
 
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,
