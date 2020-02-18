@@ -1,7 +1,7 @@
 module.exports = {
   siteTitle: 'Aakash Pahuja | Software Engineer',
   siteDescription:
-    'Aakash Pahuja is a software engineer based in Hyderabad, IN who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.',
+    'Aakash Pahuja is a software engineer based in Bangalore, IN who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.',
   siteKeywords:
     'Aakash Pahuja, Aakash, Pahuja, dgr8akki, dgr8aakash, dgr8pahuja, software engineer, front-end engineer, web developer, javascript, india',
   siteUrl: 'https://aakashpahuja.live',
@@ -9,7 +9,7 @@ module.exports = {
   googleAnalyticsID: 'UA-155755445-1',
   googleVerification: '',
   name: 'Aakash Pahuja',
-  location: 'Hyderabad, IN',
+  location: 'Bangalore, IN',
   email: 'pahujaaakash5@gmail.com',
   github: 'https://github.com/dgr8akki',
   twitterHandle: '@ImAakashPahuja',

@@ -7,8 +7,8 @@ range: 'Aug 2017 - May 2019'
 url: 'https://www.kony.com/'
 ---
 
-- Worked on Kony Web portals (https://www.kony.com & https://community.kony.com/).
-- Develop Pixel-perfect front-end with the responsiveness of Kony Web portals.
-- Integrate Google Analytics and Google tag manager in Web portals to analyse customer interactions.
-- Develop APIs in Drupal in PHP as language.
-- Fix bugs in both front-end as well as in back-end to increase customer experience.
+- Worked on Kony Marketplace Platform (https://marketplace.kony.com).
+- Owned and Orchestrated the complete High-level Design and Architecture of Marketplace with optimized performance and Google Page Insight score of 95.
+- Develop Pixel-perfect front-end part of Marketplace platform using React, Redux, and Next.js for server side rendering for better SEO results and increased customer base.
+- Also, Enhance the marketplace platform by providing support of Private groups which enables the customers to view and share components only within their organization with high security.
+- Owned and Orchestrated the complete Design and development of Automation Testing Engine in Java which provides a daily report for Website and APIs tests status which resulted in increased customer base and enrich product quality.

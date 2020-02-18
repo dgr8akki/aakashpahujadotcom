@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d29b36d1-abbc-41f7-9cf5-a1284199e13d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/about/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/about/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/hero/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/hero/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/jobs/KonySE/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/jobs/KonySE/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/jobs/Samsung R &amp; D/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/jobs/Samsung R &amp; D/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/jobs/Temenos - Kony/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/jobs/Temenos - Kony/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/resume.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/static/resume.pdf" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,11 +28,17 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images/favicons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -35,26 +48,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/src/images/favicons" />
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/content/featured/Tinny.tech" />
       <recent name="$PROJECT_DIR$/content/featured/Milli" />
-      <recent name="$PROJECT_DIR$/content/featured/MakeYourOwnResume" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="npm.develop">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -62,6 +63,7 @@
         <script value="build" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
@@ -72,6 +74,7 @@
         <script value="develop" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
@@ -97,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.develop" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.develop" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.serve" />
       </list>
@@ -121,6 +124,8 @@
       <workItem from="1578648258680" duration="192000" />
       <workItem from="1579256462482" duration="490000" />
       <workItem from="1579338989949" duration="3878000" />
+      <workItem from="1580195932547" duration="62000" />
+      <workItem from="1582034559752" duration="1647000" />
     </task>
     <servers />
   </component>
@@ -142,5 +147,35 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="591" y="248" key="#build" timestamp="1582044042905">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="591" y="248" key="#build/0.23.1792.1054@0.23.1792.1054" timestamp="1582044042905" />
+    <state x="591" y="247" key="#develop" timestamp="1582034586360">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="591" y="247" key="#develop/0.23.1792.1054@0.23.1792.1054" timestamp="1582034586360" />
+    <state width="1771" height="271" key="GridCell.Tab.0.bottom" timestamp="1582044042958">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state width="1771" height="271" key="GridCell.Tab.0.bottom/0.23.1792.1054@0.23.1792.1054" timestamp="1582044042958" />
+    <state width="1771" height="271" key="GridCell.Tab.0.center" timestamp="1582044042958">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state width="1771" height="271" key="GridCell.Tab.0.center/0.23.1792.1054@0.23.1792.1054" timestamp="1582044042958" />
+    <state width="1771" height="271" key="GridCell.Tab.0.left" timestamp="1582044042957">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state width="1771" height="271" key="GridCell.Tab.0.left/0.23.1792.1054@0.23.1792.1054" timestamp="1582044042957" />
+    <state width="1771" height="271" key="GridCell.Tab.0.right" timestamp="1582044042958">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state width="1771" height="271" key="GridCell.Tab.0.right/0.23.1792.1054@0.23.1792.1054" timestamp="1582044042958" />
+    <state x="554" y="185" width="988" height="729" key="find.popup" timestamp="1582043990385">
+      <screen x="0" y="23" width="1792" height="1054" />
+    </state>
+    <state x="554" y="185" width="988" height="729" key="find.popup/0.23.1792.1054@0.23.1792.1054" timestamp="1582043990385" />
   </component>
 </project>
