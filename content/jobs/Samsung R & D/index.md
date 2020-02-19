@@ -8,4 +8,4 @@ url: 'https://research.samsung.com/sri-b'
 ---
 
 - Worked on IOT Web Platform.
-- Design and Develop Artificial Intelligence Editor to create Apps with Intelligence.
+- Working on web app editor and implementing new features.
