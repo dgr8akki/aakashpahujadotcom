@@ -8,4 +8,4 @@ url: 'https://research.samsung.com/sri-b'
 ---
 
 - Worked on IOT Web Platform.
-- Working on web app editor and implementing new features.
+- Working on Chromium web engine and Blink Architecture.
