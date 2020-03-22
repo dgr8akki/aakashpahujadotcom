@@ -25,6 +25,14 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        prefixDefault: true,
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-source-filesystem',
