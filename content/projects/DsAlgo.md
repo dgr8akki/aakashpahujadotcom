@@ -1,5 +1,5 @@
 ---
-date: '2018-01-22'
+date: '2020-04-22'
 title: 'DS Algo Made easy with Aakash'
 github: 'https://github.com/dgr8akki/DS-Algo-Made-Easy-With-Aakash'
 external: 'https://github.com/dgr8akki/DS-Algo-Made-Easy-With-Aakash'
