@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 import { Layout, Hero, About, Jobs, Featured, Projects, Contact } from '@components';
 import styled from 'styled-components';
 import { Main } from '@styles';
+import { connect } from 'react-redux';
+import { enableDarkMode } from '../actions/theme';
+import { changeLanguage } from '../actions/i18n';
+import LanguageSelector from '../components/languageSelector';
 
 const StyledMainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const IndexPage = ({ location, data }) => (
+const IndexPage = ({ location, data, darkMode, enableDarkMode, lang, changeLanguage }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
       <Hero data={data.hero.edges} />
@@ -19,6 +23,12 @@ const IndexPage = ({ location, data }) => (
       <Projects data={data.projects.edges} />
       <Contact data={data.contact.edges} />
     </StyledMainContainer>
+    <button
+      style={darkMode ? { backgroundColor: 'black', color: 'white' } : null}
+      onClick={() => enableDarkMode(!darkMode)}>
+      Dark Mode is {darkMode ? 'On' : 'Off'}
+    </button>
+    <LanguageSelector lang={lang} changeLanguage={changeLanguage} />
   </Layout>
 );
 
@@ -27,7 +37,12 @@ IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default IndexPage;
+const mapStateToProps = ({ i18n, theme }) => ({
+  darkMode: theme.isDarkMode,
+  lang: i18n.language,
+});
+
+export default connect(mapStateToProps, { enableDarkMode, changeLanguage })(IndexPage);
 
 export const pageQuery = graphql`
   {

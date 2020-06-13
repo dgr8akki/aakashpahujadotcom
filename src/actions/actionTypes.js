@@ -1,0 +1,4 @@
+export const types = {
+  ENABLE_DARK_MODE: 'ENABLE_DARK_MODE',
+  CHANGE_LANGUAGE: 'CHANGE_LANGUAGE',
+};
