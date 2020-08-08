@@ -56,9 +56,9 @@ module.exports = {
   ],
 
   navHeight: 100,
-  greenColor: '#64ffda',
-  navyColor: '#0a192f',
-  darkNavyColor: '#020c1b',
+  greenColor: '#FF9E64',
+  navyColor: '#000000',
+  darkNavyColor: '#000000',
 
   srConfig: (delay = 200) => ({
     origin: 'bottom',

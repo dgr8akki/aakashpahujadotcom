@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
+import { theme } from './theme';
 import media from './media';
 import mixins from './mixins';
 import FontFaces from './fonts';

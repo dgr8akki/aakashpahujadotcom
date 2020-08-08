@@ -36,7 +36,7 @@ const Skill = styled.li`
   margin-bottom: 10px;
   padding-left: 20px;
   font-family: ${fonts.SFMono};
-  font-size: ${fontSizes.smish};
+  font-size: ${fontSizes.md};
   color: ${colors.slate};
   &:before {
     content: '▹';
@@ -113,8 +113,8 @@ const StyledAvatarLink = styled.a`
 `;
 
 const About = ({ data }) => {
-  const { frontmatter, html } = data[0].node;
-  const { title, skills, avatar } = frontmatter;
+  const { frontmatter } = data[0].node;
+  const { title, skills } = frontmatter;
   const revealContainer = useRef(null);
   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
@@ -123,13 +123,10 @@ const About = ({ data }) => {
       <Heading>{title}</Heading>
       <StyledFlexContainer>
         <StyledContent>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <SkillsContainer>
+            {skills && skills.map((skill, i) => <Skill key={i}>{skill}</Skill>)}
+          </SkillsContainer>
         </StyledContent>
-        <StyledPic>
-          <StyledAvatarLink href={github}>
-            <StyledAvatar fluid={avatar.childImageSharp.fluid} alt="Avatar" />
-          </StyledAvatarLink>
-        </StyledPic>
       </StyledFlexContainer>
     </StyledContainer>
   );

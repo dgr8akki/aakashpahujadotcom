@@ -11,6 +11,7 @@ import Footer from './footer';
 // Sections
 import Hero from './sections/hero';
 import About from './sections/about';
+import Skills from './sections/skills';
 import Jobs from './sections/jobs';
 import Featured from './sections/featured';
 import Projects from './sections/projects';
@@ -27,6 +28,7 @@ export {
   Email,
   Hero,
   About,
+  Skills,
   Jobs,
   Featured,
   Projects,

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import theme from './theme';
+import { theme } from './theme';
 const { colors, fontSizes, fonts } = theme;
 
 const prismColors = {

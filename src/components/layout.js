@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Head, Loader, Nav, Social, Email, Footer } from '@components';
 import styled from 'styled-components';
@@ -114,4 +115,9 @@ Layout.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default Layout;
+const mapStateToProps = ({ i18n, theme }) => ({
+  darkMode: theme.isDarkMode,
+  lang: i18n.language,
+});
+
+export default connect(mapStateToProps)(Layout);
