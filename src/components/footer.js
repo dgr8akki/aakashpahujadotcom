@@ -24,6 +24,7 @@ const StyledContainer = styled.footer`
   height: auto;
   min-height: 70px;
 `;
+
 const StyledSocial = styled.div`
   color: ${colors.lightSlate};
   width: 100%;
