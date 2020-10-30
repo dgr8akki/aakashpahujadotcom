@@ -8,6 +8,7 @@ import Side from './side';
 import Social from './social';
 import Email from './email';
 import Footer from './footer';
+
 // Sections
 import Hero from './sections/hero';
 import About from './sections/about';
