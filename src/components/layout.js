@@ -44,6 +44,7 @@ const SkipToContent = styled.a`
     z-index: 99;
   }
 `;
+
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
