@@ -19,6 +19,7 @@ const StyledContainer = styled.div`
   right: 0;
   z-index: 99;
 `;
+
 const StyledLogo = styled.div`
   width: max-content;
   max-width: 100px;
