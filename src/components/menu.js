@@ -21,6 +21,7 @@ const StyledContainer = styled.div`
   display: none;
   ${media.tablet`display: block;`};
 `;
+
 const Sidebar = styled.aside`
   ${mixins.flexCenter};
   flex-direction: column;
@@ -37,6 +38,7 @@ const Sidebar = styled.aside`
   ${media.phablet`width: 75vw;`};
   ${media.tiny`padding: 10px;`};
 `;
+
 const NavLinks = styled.nav`
   ${mixins.flexBetween};
   width: 100%;
