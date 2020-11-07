@@ -14,6 +14,7 @@ const StyledContainer = styled(Section)`
   flex-direction: column;
   align-items: flex-start;
 `;
+
 const StyledTitle = styled.h4`
   margin: 0 auto;
   font-size: ${fontSizes.h3};
@@ -22,6 +23,7 @@ const StyledTitle = styled.h4`
     display: block;
   }
 `;
+
 const StyledArchiveLink = styled(Link)`
   ${mixins.inlineLink};
   text-align: center;
