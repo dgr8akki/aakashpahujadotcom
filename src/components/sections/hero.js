@@ -16,6 +16,7 @@ const StyledContainer = styled(Section)`
     width: 100%;
   }
 `;
+
 const StyledOverline = styled.h1`
   color: ${colors.green};
   margin: 0 0 20px 3px;
