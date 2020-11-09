@@ -10,11 +10,13 @@ const { colors, fontSizes, fonts } = theme;
 const StyledContainer = styled(Section)`
   position: relative;
 `;
+
 const StyledFlexContainer = styled.div`
   ${mixins.flexBetween};
   align-items: flex-start;
   ${media.tablet`display: block;`};
 `;
+
 const StyledContent = styled.div`
   width: 60%;
   max-width: 480px;
