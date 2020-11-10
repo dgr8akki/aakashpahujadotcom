@@ -23,11 +23,6 @@ const IndexPage = ({ location, data, darkMode, enableDarkMode, lang, changeLangu
       <Projects data={data.projects.edges} />
       <Contact data={data.contact.edges} />
     </StyledMainContainer>
-    {/* <button
-      style={darkMode ? { backgroundColor: 'black', color: 'white' } : null}
-      onClick={() => enableDarkMode(!darkMode)}>
-      Dark Mode is {darkMode ? 'On' : 'Off'}
-    </button> */}
   </Layout>
 );
 
