@@ -33,7 +33,9 @@ const Side = ({ children, isHome, orientation }) => {
       <TransitionGroup component={null}>
         {isMounted && (
           <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? 3000 : 0}>
-            {children}
+            {
+              children
+            }
           </CSSTransition>
         )}
       </TransitionGroup>
