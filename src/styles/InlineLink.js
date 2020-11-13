@@ -19,6 +19,7 @@ const InlineLink = styled.a`
       width: 100%;
     }
   }
+
   &:after {
     content: '';
     display: block;
