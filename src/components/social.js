@@ -28,6 +28,7 @@ const StyledList = styled.ul`
     margin-bottom: 20px;
   }
 `;
+
 const StyledLink = styled.a`
   padding: 10px;
   &:hover,
