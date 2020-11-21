@@ -8,7 +8,7 @@ const Navigation = () => {
 
   return (
     <div>
-      HII
+      Test
       <LocalizedLink to="/" aria-label={backToHome}>
         Homepage
       </LocalizedLink>
