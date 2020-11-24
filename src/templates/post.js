@@ -10,6 +10,7 @@ const { colors } = theme;
 const StyledPostContainer = styled(Main)`
   max-width: 1000px;
 `;
+
 const StyledPostHeader = styled.header`
   margin-bottom: 50px;
   .tag {
