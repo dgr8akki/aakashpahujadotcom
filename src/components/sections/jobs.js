@@ -10,6 +10,7 @@ const StyledContainer = styled(Section)`
   position: relative;
   max-width: 700px;
 `;
+
 const StyledTabs = styled.div`
   display: flex;
   align-items: flex-start;
@@ -18,6 +19,7 @@ const StyledTabs = styled.div`
     display: block;
   `};
 `;
+
 const StyledTabList = styled.ul`
   display: block;
   position: relative;
