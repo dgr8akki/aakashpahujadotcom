@@ -14,6 +14,7 @@ const StyledContainer = styled(Section)`
     ${mixins.inlineLink};
   }
 `;
+
 const StyledHeading = styled(Heading)`
   display: block;
   color: ${colors.green};
