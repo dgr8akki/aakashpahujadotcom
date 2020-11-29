@@ -13,6 +13,7 @@ const StyledContainer = styled(Section)`
   flex-direction: column;
   align-items: flex-start;
 `;
+
 const StyledContent = styled.div`
   position: relative;
   grid-column: 1 / 7;
