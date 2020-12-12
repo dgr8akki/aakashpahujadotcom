@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default IconCodepen = () => (
+const IconCodepen = () => (
   <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 31.665 31.665">
     <title>Codepen</title>
     <path
@@ -13,3 +13,5 @@ export default IconCodepen = () => (
     />
   </svg>
 );
+
+export default IconCodepen;
