@@ -105,6 +105,21 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+              name: `Aakash Pahuja`,
+              short_name: `Aakash Pahuja`,
+              description: `The official portfolio of Aakash Pahuja`,
+              lang: `en`,
+              display: `standalone`,
+              icon: `src/images/logo.png`,
+              start_url: `/`,
+              background_color: `#000000`,
+              theme_color: `#FF9E64`,
+            },
+          },
+          {
+            // https://www.gatsbyjs.org/packages/gatsby-remark-code-titles/
             resolve: 'gatsby-remark-code-titles',
           }, // IMPORTANT: this must be ahead of other plugins that use code blocks
           {

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { navLinks } from '@config';
 import styled from 'styled-components';
 import { theme, mixins, media } from '@styles';
+import { RESUME_LINK } from '../utils/constants';
 const { colors, fontSizes, fonts } = theme;
 
 const StyledContainer = styled.div`
@@ -109,7 +110,7 @@ const Menu = ({ menuOpen, toggleMenu }) => {
                 </NavListItem>
               ))}
           </NavList>
-          <ResumeLink href="/resume.pdf" target="_blank" rel="nofollow noopener noreferrer">
+          <ResumeLink href={RESUME_LINK} target="_blank" rel="nofollow noopener noreferrer">
             Resume
           </ResumeLink>
         </NavLinks>

@@ -9,6 +9,7 @@ import { Menu } from '@components';
 import { IconLogo } from '@components/icons';
 import styled from 'styled-components';
 import { theme, mixins, media } from '@styles';
+import { RESUME_LINK } from '../utils/constants';
 const { colors, fontSizes, fonts } = theme;
 
 const StyledContainer = styled.header`
@@ -294,7 +295,7 @@ class Nav extends Component {
                 <CSSTransition classNames={fadeDownClass} timeout={timeout}>
                   <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                     <StyledResumeButton
-                      href="/resume.pdf"
+                      href={RESUME_LINK}
                       target="_blank"
                       rel="nofollow noopener noreferrer">
                       Resume

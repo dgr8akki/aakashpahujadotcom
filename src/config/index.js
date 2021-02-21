@@ -4,7 +4,7 @@ module.exports = {
     'Aakash Pahuja is a software engineer based in Bangalore, IN who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.',
   siteKeywords:
     'Aakash Pahuja, Aakash, Pahuja, dgr8akki, dgr8aakash, dgr8pahuja, software engineer, front-end engineer, web developer, javascript, india',
-  siteUrl: 'https://aakashpahuja.live',
+  siteUrl: 'https://www.aakashpahuja.com',
   siteLanguage: 'en_US',
   googleAnalyticsID: 'UA-155755445-1',
   googleVerification: '',
@@ -40,6 +40,10 @@ module.exports = {
     {
       name: 'About',
       url: '/#about',
+    },
+    {
+      name: 'Skills',
+      url: '/#skills',
     },
     {
       name: 'Experience',

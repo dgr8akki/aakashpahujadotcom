@@ -12,7 +12,7 @@ const StyledMainContainer = styled(Main)`
   counter-reset: section;
 `;
 
-const IndexPage = ({ location, data, darkMode, enableDarkMode, lang, changeLanguage }) => (
+const IndexPage = ({ location, data }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
       <Hero data={data.hero.edges} />
