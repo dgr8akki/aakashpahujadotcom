@@ -1,7 +1,7 @@
 ---
 date: '2017-09-04'
 title: 'Software Engineer'
-company: 'SE @ Kony India Pvt. Ltd.'
+company: 'Kony India Pvt. Ltd.'
 location: 'Hyderabad, IN'
 range: 'Aug 2017 - May 2019'
 url: 'https://www.kony.com/'

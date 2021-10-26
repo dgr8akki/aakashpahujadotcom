@@ -1,7 +1,7 @@
 ---
 date: '2016-08-12'
 title: 'Associate Software Engineer'
-company: 'Intern @ Kony India Pvt. Ltd.'
+company: 'Kony India Pvt. Ltd. (Intern)'
 location: 'Hyderabad, IN'
 range: 'Aug 2016 - Aug 2017'
 url: 'https://www.kony.com/'

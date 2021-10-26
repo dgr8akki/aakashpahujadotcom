@@ -1,7 +1,7 @@
 ---
 date: '2020-01-31'
 title: 'Senior Software Engineer'
-company: 'SSE @ Temenos - Kony'
+company: 'Temenos - Kony'
 location: 'Hyderabad, IN'
 range: 'May 2019 - Jan 2020'
 url: 'https://www.temenos.com/'
