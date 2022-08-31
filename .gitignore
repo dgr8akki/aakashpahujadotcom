@@ -9,5 +9,6 @@ public
 public/*
 .DS_Store
 
+# Editors
 .vscode/
 .idea/
