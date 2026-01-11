@@ -1,15 +1,17 @@
 ---
 date: '2020-01-31'
-title: 'Senior Software Engineer'
-company: 'Temenos - Kony'
+title: 'Senior Software Development Engineer'
+company: 'Kony, Inc.'
 location: 'Hyderabad, IN'
-range: 'May 2019 - Jan 2020'
-url: 'https://www.temenos.com/'
+range: 'June 2019 - January 2020'
+url: 'https://www.kony.com/'
 ---
 
-- Worked on App Factory (Kony’s CI/CD tool).
-- Develop plugins for App Factory (Jenkins) for Continous Integration (CI/CD) in groovy to help in nightly builds and smooth releases.
-- Add support for Git Clone in the custom pipeline with SSH and Custom git hosts in Jenkins with help of DSL and Groovy.
-- Setup and managed server with 99.95% uptime. Use GIT and AWS to cutoff release time by 20%.
-- Owned and Orchestrated the complete development of Code Analyzer and Code Coverage Engine for React JS, which checks for the amount of code covered in the current pull request and helps in increased product quality.
-- Integrate Amazon’s Elastic Search in place of default database lookup which cut-off API’s response time by 75% and also cut-off website load time.
+**App Factory (Kony's CI/CD Tool):**
+- Developed plugins for App Factory (Jenkins) using Groovy, improving CI/CD for nightly builds and releases
+- Added support for Git Clone with SSH in custom pipelines using DSL and Groovy
+
+**Kony Marketplace Platform:**
+- Managed server with 99.95% uptime, using GIT and AWS, reducing release time by 20%
+- Designed and developed Code Analyzer and Code Coverage Engine for React JS to improve product quality
+- Integrated Amazon's Elastic Search, reducing API response time by 75% and website load time

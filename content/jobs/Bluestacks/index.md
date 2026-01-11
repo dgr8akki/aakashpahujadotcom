@@ -1,12 +1,13 @@
 ---
 date: '2021-04-19'
-title: 'Member of Technical Staff'
+title: 'Member of Technical Staff - Development'
 company: 'Bluestacks'
 location: 'Gurugram, IN'
 range: 'April 2021 - July 2022'
 url: 'https://bluestacks.com'
 ---
 
-- Design and orchestrated the front-end of two very famous Discord BOTs known as YAGPDB BOT (
-  https://yagpdb.xyz/ ) and CARL BOT ( https://carl.gg/ ).
-- Architecture and developed the Auth management system for all providers of bluestacks.
+- Designed and developed the front-end of three popular Discord Bots: YAGPDB Bot (https://yagpdb.xyz/), CARL Bot (https://carl.gg/), and Piggy Bot (https://piggy.gg)
+- Developed and orchestrated complete engine for Authentication and Authorization with Single Sign-On support
+- Successfully handled 1M daily token exchanges with seamless login experience
+- Architected the authentication management system for all BlueStacks providers

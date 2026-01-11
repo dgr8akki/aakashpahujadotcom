@@ -78,14 +78,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-hotjar`,
-      options: {
-        includeInDevelopment: true,
-        id: 2255924,
-        sv: 6,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

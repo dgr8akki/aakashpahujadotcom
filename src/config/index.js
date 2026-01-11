@@ -1,16 +1,17 @@
 module.exports = {
-  siteTitle: 'Aakash Pahuja | Software Engineer',
+  siteTitle: 'Aakash Pahuja | Senior Software Engineer',
   siteDescription:
-    'Aakash Pahuja is a software engineer based in Bangalore, IN who specializes in developing (and occasionally designing) exceptional, high-quality websites and applications.',
+    'Aakash Pahuja is a Senior Software Engineer at Squarespace based in Dublin, Ireland, specializing in building exceptional, scalable, and user-centric web platforms. Open to opportunities in Gurugram, India.',
   siteKeywords:
-    'Aakash Pahuja, Aakash, Pahuja, dgr8akki, dgr8aakash, dgr8pahuja, software engineer, front-end engineer, web developer, javascript, india',
+    'Aakash Pahuja, Aakash, Pahuja, dgr8akki, dgr8aakash, dgr8pahuja, senior software engineer, front-end engineer, web developer, javascript, react, full-stack, squarespace, intercom, dublin, ireland, gurugram, india',
   siteUrl: 'https://www.aakashpahuja.com',
   siteLanguage: 'en_US',
   googleAnalyticsID: 'UA-155755445-1',
   googleVerification: '',
   name: 'Aakash Pahuja',
-  location: 'Bangalore, IN',
+  location: 'Dublin, IE',
   email: 'pahujaaakash5@gmail.com',
+  phone: '+91 7995924034',
   github: 'https://github.com/dgr8akki',
   twitterHandle: '@ImAakashPahuja',
   socialMedia: [

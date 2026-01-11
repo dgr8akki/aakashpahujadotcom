@@ -17,6 +17,7 @@ import Jobs from './sections/jobs';
 import Featured from './sections/featured';
 import Projects from './sections/projects';
 import Contact from './sections/contact';
+import GitHubStats from './sections/githubStats';
 
 export {
   Head,
@@ -34,5 +35,6 @@ export {
   Featured,
   Projects,
   Contact,
+  GitHubStats,
   Footer,
 };

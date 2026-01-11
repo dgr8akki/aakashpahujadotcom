@@ -1,16 +1,26 @@
 ---
-title: 'Technical Skills I got'
+title: 'Technical Skills & Expertise'
 skills:
-  - JavaScript
-  - Java
-  - HTML & (S)CSS
-  - React
+  - JavaScript (ES6+)
+  - TypeScript
+  - React.js
   - Redux
-  - React Native
+  - Next.js
   - Node.js
-  - Windows
-  - Mac OS
-  - Linux
-  - AWS
-  - Selenium
+  - HTML5 & CSS3
+  - Styled Components
+  - GraphQL
+  - RESTful APIs
+  - Git & GitHub
+  - CI/CD (Jenkins)
+  - AWS (Amazon Web Services)
+  - Docker
+  - Webpack
+  - Jest & Testing
+  - Drupal
+  - PostgreSQL
+  - MongoDB
+  - Agile/Scrum
+  - System Architecture
+  - Performance Optimization
 ---
