@@ -40,6 +40,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+
+  // Create individual blog post pages
+  const posts = result.data.postsRemark.edges;
+  posts.forEach(({ node }) => {
+    const { slug } = node.frontmatter;
+    createPage({
+      path: slug,
+      component: postTemplate,
+      context: {
+        path: slug,
+      },
+    });
+  });
+
+  // Create tag pages
+  const tags = result.data.tagsGroup.group;
+  tags.forEach(tag => {
+    createPage({
+      path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
+      },
+    });
+  });
 };
 
 // https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig

@@ -55,6 +55,10 @@ module.exports = {
       url: '/#projects',
     },
     {
+      name: 'Blog',
+      url: '/pensieve',
+    },
+    {
       name: 'Contact',
       url: '/#contact',
     },
