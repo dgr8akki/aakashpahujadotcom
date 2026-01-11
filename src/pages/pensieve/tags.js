@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
-import { Layout } from '@components';
+import { Layout, SEO } from '@components';
 import styled from 'styled-components';
 import { theme, mixins, Main } from '@styles';
 const { colors, fontSizes } = theme;
@@ -40,6 +40,7 @@ const TagsPage = ({
   },
 }) => (
   <Layout location={location}>
+    <SEO title="Blog Tags | Aakash Pahuja" description="Browse blog posts by topic and category." pathname="/pensieve/tags" />
     <StyledMainContainer>
       <span className="breadcrumb">
         <span className="arrow">&larr;</span>

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
-import { Layout } from '@components';
+import { Layout, SEO } from '@components';
 import styled from 'styled-components';
 import { Main, theme } from '@styles';
 const { colors } = theme;
@@ -37,10 +37,11 @@ const StyledPostContent = styled.div`
 
 const PostTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark;
-  const { title, date, tags } = frontmatter;
+  const { title, description, date, slug, tags } = frontmatter;
 
   return (
     <Layout location={location}>
+      <SEO title={title} description={description} pathname={slug} />
       <StyledPostContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>

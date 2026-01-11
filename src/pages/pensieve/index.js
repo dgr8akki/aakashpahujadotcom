@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
-import { Layout } from '@components';
+import { Layout, SEO } from '@components';
 import styled from 'styled-components';
 import { theme, mixins, Main } from '@styles';
 const { colors, fontSizes } = theme;
@@ -51,6 +51,7 @@ const PensievePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
+      <SEO title="Blog | Aakash Pahuja" description="Thoughts, learnings, and perspectives on software engineering, AI, and technology from a senior software engineer." pathname="/pensieve" />
       <StyledMainContainer>
         <header>
           <h1 className="big-title">Blog</h1>
