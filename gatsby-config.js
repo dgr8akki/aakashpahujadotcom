@@ -190,6 +190,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`, // Temporarily disabled to fix CSS caching issues
   ],
 };
