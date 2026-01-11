@@ -55,7 +55,6 @@ module.exports = {
         windowKey: '__PRELOADED_STATE__',
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -191,5 +190,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-offline`,
   ],
 };

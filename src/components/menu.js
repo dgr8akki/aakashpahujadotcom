@@ -76,6 +76,11 @@ const NavLink = styled(Link)`
   padding: 3px 20px 20px;
   width: 100%;
 `;
+const NavAnchorLink = styled.a`
+  ${mixins.link};
+  padding: 3px 20px 20px;
+  width: 100%;
+`;
 const ResumeLink = styled.a`
   ${mixins.bigButton};
   padding: 18px 50px;
@@ -106,7 +111,11 @@ const Menu = ({ menuOpen, toggleMenu }) => {
             {navLinks &&
               navLinks.map(({ url, name }, i) => (
                 <NavListItem key={i}>
-                  <NavLink to={url}>{name}</NavLink>
+                  {url.startsWith('/#') ? (
+                    <NavAnchorLink href={url}>{name}</NavAnchorLink>
+                  ) : (
+                    <NavLink to={url}>{name}</NavLink>
+                  )}
                 </NavListItem>
               ))}
           </NavList>

@@ -155,6 +155,9 @@ const StyledListItem = styled.li`
 const StyledListLink = styled(Link)`
   padding: 12px 10px;
 `;
+const StyledAnchorLink = styled.a`
+  padding: 12px 10px;
+`;
 const StyledResumeButton = styled.a`
   ${mixins.smallButton};
   margin-left: 10px;
@@ -300,7 +303,11 @@ class Nav extends Component {
                       <StyledListItem
                         key={i}
                         style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                        <StyledListLink to={url}>{name}</StyledListLink>
+                        {url.startsWith('/#') ? (
+                          <StyledAnchorLink href={url}>{name}</StyledAnchorLink>
+                        ) : (
+                          <StyledListLink to={url}>{name}</StyledListLink>
+                        )}
                       </StyledListItem>
                     </CSSTransition>
                   ))}
