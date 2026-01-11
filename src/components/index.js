@@ -1,5 +1,5 @@
 // Components
-import Head from './head';
+import SEO from './seo';
 import Layout from './layout';
 import Loader from './loader';
 import Nav from './nav';
@@ -20,7 +20,7 @@ import Contact from './sections/contact';
 import GitHubStats from './sections/githubStats';
 
 export {
-  Head,
+  SEO,
   Layout,
   Loader,
   Nav,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import { Layout } from '@components';
+import { Layout, SEO } from '@components';
 import styled from 'styled-components';
 import { theme, mixins, media, Main } from '@styles';
 const { colors, fonts } = theme;
@@ -60,3 +60,10 @@ NotFoundPage.propTypes = {
 };
 
 export default NotFoundPage;
+
+export const Head = () => (
+  <SEO 
+    title="404: Not Found | Aakash Pahuja" 
+    description="Page not found"
+  />
+);

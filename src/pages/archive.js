@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
-import { Layout } from '@components';
+import { Layout, SEO } from '@components';
 import { IconGitHub, IconExternal } from '@components/icons';
 import styled from 'styled-components';
 import { theme, mixins, media, Main } from '@styles';
@@ -98,11 +97,6 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet>
-        <title>Archive | Aakash Pahuja</title>
-        <link rel="canonical" href="https://aakashpahuja.com/archive" />
-      </Helmet>
-
       <StyledMainContainer>
         <header ref={revealTitle}>
           <h1 className="big-title">Archive</h1>
@@ -187,6 +181,14 @@ ArchivePage.propTypes = {
 
 export default ArchivePage;
 
+export const Head = () => (
+  <SEO 
+    title="Archive | Aakash Pahuja" 
+    description="A big list of things I've worked on"
+    pathname="/archive"
+  />
+);
+
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
@@ -194,7 +196,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/projects/" }
         frontmatter: { showInProjects: { ne: false } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

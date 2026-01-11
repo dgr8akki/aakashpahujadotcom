@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Layout, Hero, About, Jobs, Featured, Projects, Contact, Skills, GitHubStats } from '@components';
+import { Layout, Hero, About, Jobs, Featured, Projects, Contact, Skills, GitHubStats, SEO } from '@components';
 import styled from 'styled-components';
 import { Main } from '@styles';
 import { connect } from 'react-redux';
@@ -39,6 +39,8 @@ const mapStateToProps = ({ i18n, theme }) => ({
 
 export default connect(mapStateToProps, { enableDarkMode, changeLanguage })(IndexPage);
 
+export const Head = () => <SEO />;
+
 export const pageQuery = graphql`
   {
     hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
@@ -61,9 +63,11 @@ export const pageQuery = graphql`
             title
             avatar {
               childImageSharp {
-                fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#FF9E64" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                gatsbyImageData(
+                  width: 500
+                  placeholder: DOMINANT_COLOR
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
             skills
@@ -84,7 +88,7 @@ export const pageQuery = graphql`
     }
     jobs: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/jobs/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
@@ -101,7 +105,7 @@ export const pageQuery = graphql`
     }
     featured: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/featured/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
@@ -109,9 +113,11 @@ export const pageQuery = graphql`
             title
             cover {
               childImageSharp {
-                fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#FF9E64" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                gatsbyImageData(
+                  width: 700
+                  placeholder: DOMINANT_COLOR
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
             tech
@@ -127,7 +133,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: "/projects/" }
         frontmatter: { showInProjects: { ne: false } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import anime from 'animejs';
 import { IconLoader } from '@components/icons';
@@ -79,14 +78,25 @@ const Loader = ({ finishLoading }) => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 10);
+    
+    // Add hidden class to body
+    if (typeof document !== 'undefined') {
+      document.body.classList.add('hidden');
+    }
+    
     animate();
-    return () => clearTimeout(timeout);
+    
+    return () => {
+      clearTimeout(timeout);
+      // Remove hidden class when unmounting
+      if (typeof document !== 'undefined') {
+        document.body.classList.remove('hidden');
+      }
+    };
   }, []);
 
   return (
     <StyledContainer className="loader">
-      <Helmet bodyAttributes={{ class: `hidden` }} />
-
       <StyledLogo isMounted={isMounted}>
         <IconLoader />
       </StyledLogo>

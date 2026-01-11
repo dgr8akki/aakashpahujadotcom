@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
-import Helmet from 'react-helmet';
+import { Script } from 'gatsby';
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { throttle } from '@utils';
@@ -184,12 +184,31 @@ class Nav extends Component {
   }
 
   componentWillUnmount() {
+    this.removeBodyBlur();
     window.removeEventListener('scroll', () => this.handleScroll());
     window.removeEventListener('resize', () => this.handleResize());
     window.removeEventListener('keydown', e => this.handleKeydown(e));
   }
 
-  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+  toggleMenu = () => {
+    const newMenuState = !this.state.menuOpen;
+    this.setState({ menuOpen: newMenuState });
+    
+    // Toggle body blur class
+    if (typeof document !== 'undefined') {
+      if (newMenuState) {
+        document.body.classList.add('blur');
+      } else {
+        document.body.classList.remove('blur');
+      }
+    }
+  };
+
+  removeBodyBlur = () => {
+    if (typeof document !== 'undefined') {
+      document.body.classList.remove('blur');
+    }
+  };
 
   handleScroll = () => {
     const { isMounted, menuOpen, scrollDirection, lastScrollTop } = this.state;
@@ -240,9 +259,6 @@ class Nav extends Component {
 
     return (
       <StyledContainer scrollDirection={scrollDirection}>
-        <Helmet>
-          <body className={menuOpen ? 'blur' : ''} />
-        </Helmet>
         <StyledNav>
           <TransitionGroup component={null}>
             {isMounted && (
