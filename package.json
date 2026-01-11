@@ -11,6 +11,10 @@
     "gatsby"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -29,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "animejs": "^3.2.2",
+    "animejs": "^3.2.1",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
