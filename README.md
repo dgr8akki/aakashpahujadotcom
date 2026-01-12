@@ -1,19 +1,13 @@
 <div align="center">
-  <img alt="Logo" src="src/images/logo.png" width="100" />
+  <img alt="Logo" src="public/images/logo.png" width="100" />
 </div>
 
 <h1 align="center">
-  aakashpahuja.com
+  aakashpahuja.com v2
 </h1>
 
 <p align="center">
-  The second iteration of my personal portfolio website built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>.
-</p>
-
-<p align="center">
-  <a href="https://app.netlify.com/sites/mystifying-heyrovsky-c7b1fb/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/8e088d83-91da-467b-90b5-bcdc87ac8ddf/deploy-status" alt="Netlify Status" />
-  </a>
+  The second iteration of my personal portfolio website built with <a href="https://nextjs.org/" target="_blank">Next.js 15</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 </p>
 
 <p align="center">
@@ -28,33 +22,41 @@
 
 | Category | Technology |
 |----------|------------|
-| Framework | [Gatsby](https://www.gatsbyjs.org/) |
-| Styling | [Styled Components](https://styled-components.com/) |
-| State Management | [Redux](https://redux.js.org/) |
-| Content | Markdown |
-| Deployment | [Netlify](https://www.netlify.com/) |
-| Analytics | Google Analytics |
+| Framework | [Next.js 15](https://nextjs.org/) (App Router) |
+| Styling | [Tailwind CSS](https://tailwindcss.com/) |
+| Animations | [Framer Motion](https://www.framer.com/motion/) |
+| Content | Markdown + gray-matter |
+| Language | TypeScript |
+| Deployment | [Vercel](https://vercel.com/) |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-├── content/              # Markdown content for pages
+├── app/                  # Next.js App Router pages
+│   ├── blog/             # Blog pages
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Homepage
+├── components/           # React components
+│   ├── layout/           # Layout components
+│   ├── sections/         # Homepage sections
+│   ├── ui/               # UI components
+│   └── blog/             # Blog components
+├── content/              # Markdown content
 │   ├── posts/            # Blog posts
 │   ├── jobs/             # Work experience
-│   ├── projects/         # Project showcases
+│   ├── projects/         # Projects
 │   └── ...
-├── src/
-│   ├── components/       # React components
-│   ├── pages/            # Page components
-│   ├── styles/           # Global styles and theme
-│   ├── templates/        # Page templates (blog, tags)
-│   └── utils/            # Utility functions
-├── static/               # Static assets
-├── gatsby-config.js      # Gatsby configuration
-├── gatsby-node.js        # Gatsby Node APIs
-└── netlify.toml          # Netlify configuration
+├── lib/                  # Utilities
+│   ├── config.ts         # Site configuration
+│   ├── content.ts        # Content fetching
+│   └── utils.ts          # Helper functions
+├── public/               # Static assets
+│   ├── fonts/            # Custom fonts
+│   └── images/           # Images
+└── tailwind.config.ts    # Tailwind configuration
 ```
 
 ---
@@ -63,31 +65,24 @@
 
 ### Prerequisites
 
-- Node.js >= 22.0.0
-- npm >= 10.0.0
+- Node.js >= 20.0.0
+- npm or pnpm
 
 ### Installation
 
-1. **Clone the repository**
+```bash
+# Clone the repository
+git clone https://github.com/dgr8akki/portfolio.git
+cd portfolio
 
-   ```bash
-   git clone https://github.com/dgr8akki/portfolio.git
-   cd portfolio
-   ```
+# Install dependencies
+npm install
 
-2. **Install dependencies**
+# Start development server
+npm run dev
+```
 
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-
-   ```bash
-   npm start
-   ```
-
-   The site will be running at `http://localhost:8000`
+The site will be running at `http://localhost:3000`
 
 ---
 
@@ -95,11 +90,10 @@
 
 | Command | Description |
 |---------|-------------|
-| `npm start` | Start development server |
+| `npm run dev` | Start development server |
 | `npm run build` | Build for production |
-| `npm run serve` | Serve production build locally |
-| `npm run clean` | Clear Gatsby cache |
-| `npm run format` | Format code with Prettier |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
 ---
 
@@ -113,9 +107,8 @@ Create a new folder in `content/posts/` with an `index.md` file:
 ---
 title: Your Post Title
 description: A brief description
-date: 'YYYY-MM-DD'
+date: '2026-01-11'
 draft: false
-slug: '/pensieve/your-post-slug'
 tags:
   - Tag1
   - Tag2
@@ -124,45 +117,33 @@ tags:
 Your content here...
 ```
 
-### Work Experience
-
-Add a new folder in `content/jobs/` with company details in `index.md`.
-
-### Projects
-
-Add project details in `content/projects/` or `content/featured/`.
-
 ---
 
 ## 🎨 Customization
 
 ### Colors & Theme
 
-Edit `src/styles/theme.js` to customize colors, fonts, and other theme variables.
+Edit `tailwind.config.ts` to customize colors, fonts, and other design tokens.
 
-### Site Metadata
+### Site Configuration
 
-Update `src/config/index.js` for site title, description, social links, and navigation.
+Update `lib/config.ts` for site title, description, social links, and navigation.
 
 ---
 
 ## 📦 Deployment
 
-The site automatically deploys to Netlify on every push to the `master` branch.
-
-To deploy manually:
+The site is configured for automatic deployment to Vercel.
 
 ```bash
 npm run build
 ```
 
-The production build will be in the `public/` directory.
-
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 

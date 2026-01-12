@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'Calibre';
+  src: url('/fonts/Calibre/Calibre-Regular.woff2') format('woff2'),
+    url('/fonts/Calibre/Calibre-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/fonts/Calibre/Calibre-Medium.woff2') format('woff2'),
+    url('/fonts/Calibre/Calibre-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/fonts/Calibre/Calibre-Semibold.woff2') format('woff2'),
+    url('/fonts/Calibre/Calibre-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('/fonts/Calibre/Calibre-RegularItalic.woff2') format('woff2'),
+    url('/fonts/Calibre/Calibre-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  src: url('/fonts/SFMono/SFMono-Regular.woff2') format('woff2'),
+    url('/fonts/SFMono/SFMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  src: url('/fonts/SFMono/SFMono-Medium.woff2') format('woff2'),
+    url('/fonts/SFMono/SFMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  src: url('/fonts/SFMono/SFMono-Semibold.woff2') format('woff2'),
+    url('/fonts/SFMono/SFMono-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    @apply bg-navy text-slate font-calibre text-xl leading-relaxed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(41, 61, 90, 0.99);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold text-slate-lightest m-0;
+  }
+
+  a {
+    @apply text-inherit no-underline transition-colors duration-300 ease-custom;
+  }
+
+  a:hover,
+  a:focus {
+    @apply text-accent;
+  }
+
+  button {
+    @apply cursor-pointer border-0;
+  }
+
+  img {
+    @apply max-w-full align-middle;
+  }
+
+  svg {
+    @apply fill-current align-middle;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Numbered Heading */
+  .numbered-heading {
+    @apply flex items-center relative w-full text-3xl font-semibold text-slate-lightest mb-10;
+  }
+
+  .numbered-heading::before {
+    @apply relative mr-3 text-accent font-mono text-xl font-normal;
+    counter-increment: section;
+    content: '0' counter(section) '.';
+  }
+
+  .numbered-heading::after {
+    @apply block relative w-[300px] h-px ml-5 bg-grey-dark;
+    content: '';
+  }
+
+  /* Inline Link */
+  .inline-link {
+    @apply relative text-accent transition-all duration-300 ease-custom;
+  }
+
+  .inline-link::after {
+    @apply absolute w-0 h-px bottom-0 left-0 bg-accent transition-all duration-300 ease-custom;
+    content: '';
+  }
+
+  .inline-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-block font-mono text-sm py-3 px-4 border border-accent rounded text-accent bg-transparent transition-all duration-300 ease-custom;
+  }
+
+  .btn:hover {
+    @apply bg-accent/10;
+  }
+
+  .btn-lg {
+    @apply py-4 px-6 text-base;
+  }
+
+  /* Section */
+  .section {
+    @apply max-w-[1000px] mx-auto py-[100px] px-[150px];
+    counter-increment: section;
+  }
+
+  @media (max-width: 1080px) {
+    .section {
+      @apply px-[100px];
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      @apply px-[50px] py-[80px];
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section {
+      @apply px-[25px] py-[60px];
+    }
+  }
+
+  /* Fancy List */
+  .fancy-list {
+    @apply p-0 m-0 list-none text-lg;
+  }
+
+  .fancy-list li {
+    @apply relative pl-8 mb-3;
+  }
+
+  .fancy-list li::before {
+    @apply absolute left-0 text-accent;
+    content: '▹';
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    @apply flex items-center mb-12 text-accent;
+  }
+
+  .breadcrumb .arrow {
+    @apply block mr-3 pt-1;
+  }
+
+  .breadcrumb a {
+    @apply inline-link font-mono text-sm font-bold uppercase tracking-widest;
+  }
+
+  /* Tag */
+  .tag {
+    @apply inline-link font-mono text-sm mr-3;
+  }
+
+  /* Overline text */
+  .overline {
+    @apply text-accent font-mono text-base font-normal;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    @apply text-accent font-mono text-base font-normal leading-relaxed;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent-yellow bg-clip-text text-transparent;
+  }
+}
+
+/* Prose Overrides for Blog */
+.prose {
+  @apply text-slate-light;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply text-slate-lightest;
+}
+
+.prose a {
+  @apply text-accent no-underline;
+}
+
+.prose a:hover {
+  @apply underline;
+}
+
+.prose code {
+  @apply bg-navy-light text-text-primary px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-navy-light rounded-md overflow-x-auto;
+}
+
+.prose blockquote {
+  @apply border-l-accent text-slate-light italic;
+}
+
+.prose strong {
+  @apply text-slate-lightest;
+}
+
+.prose ul > li::marker {
+  @apply text-accent;
+}
+
+.prose ol > li::marker {
+  @apply text-accent;
+}
