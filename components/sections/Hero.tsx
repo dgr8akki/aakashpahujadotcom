@@ -46,7 +46,7 @@ export function Hero({ data }: HeroProps) {
         animate="visible"
         className="max-w-[1000px]"
       >
-        <motion.h1 variants={itemVariants} className="overline mb-5 ml-1">
+        <motion.h1 variants={itemVariants} className="mb-5 ml-1">
           {title}
         </motion.h1>
 

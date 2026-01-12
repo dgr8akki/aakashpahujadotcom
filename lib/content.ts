@@ -186,13 +186,20 @@ export function getFeaturedProjects(): FeaturedProject[] {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data, content } = matter(fileContents);
 
+      // Convert relative cover path to absolute path for Next.js Image
+      let coverPath = data.cover || '';
+      if (coverPath && coverPath.startsWith('./')) {
+        // Convert ./image.png to /images/featured/image.png (served from public folder)
+        coverPath = `/images/featured/${coverPath.slice(2)}`;
+      }
+
       return {
         title: data.title || '',
         description: data.description || '',
         tech: data.tech || [],
         github: data.github || '',
         external: data.external || '',
-        cover: data.cover || '',
+        cover: coverPath,
         content,
         order: data.order || 0,
       };
@@ -272,7 +279,7 @@ export function getAboutContent(): { title: string; skills: string[]; content: s
 }
 
 // Skills Content
-export function getSkillsContent(): { title: string; skills: { name: string; level: number }[]; content: string } | null {
+export function getSkillsContent(): { title: string; skills: string[]; content: string } | null {
   const filePath = path.join(contentDirectory, 'skills', 'index.md');
   
   if (!fs.existsSync(filePath)) {

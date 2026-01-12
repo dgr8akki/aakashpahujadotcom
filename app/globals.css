@@ -167,8 +167,7 @@
 
   /* Section */
   .section {
-    @apply max-w-[1000px] mx-auto py-[100px] px-[150px];
-    counter-increment: section;
+    @apply max-w-[1600px] mx-auto py-[100px] px-[150px];
   }
 
   @media (max-width: 1080px) {

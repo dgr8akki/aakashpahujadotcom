@@ -100,6 +100,10 @@ const config: Config = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        dash: {
+          '0%': { strokeDashoffset: '1000' },
+          '100%': { strokeDashoffset: '0' },
+        },
       },
       boxShadow: {
         nav: '0 10px 30px -10px rgba(2, 12, 27, 0.7)',

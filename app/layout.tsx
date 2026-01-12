@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/config';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { SideSocial } from '@/components/layout/SideSocial';
-import { SideEmail } from '@/components/layout/SideEmail';
+import { ClientLayout } from '@/components/layout/ClientLayout';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -54,12 +51,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-navy text-slate font-calibre antialiased">
-        <div id="root" className="min-h-screen flex flex-col">
-          <Navbar />
-          <SideSocial />
-          <SideEmail />
-          <main className="flex-1">{children}</main>
-          <Footer />
+        <div id="root">
+          <ClientLayout>{children}</ClientLayout>
         </div>
       </body>
     </html>

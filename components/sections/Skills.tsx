@@ -2,15 +2,10 @@
 
 import { motion } from 'framer-motion';
 
-interface Skill {
-  name: string;
-  level: number;
-}
-
 interface SkillsProps {
   data: {
     title: string;
-    skills: Skill[];
+    skills: string[];
     content: string;
   };
 }
@@ -28,36 +23,20 @@ export function Skills({ data }: SkillsProps) {
       >
         <h2 className="numbered-heading">{title}</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-3 p-0 list-none">
           {skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: -20 }}
+            <motion.li
+              key={skill}
+              initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
+              transition={{ duration: 0.3, delay: i * 0.03 }}
               viewport={{ once: true }}
-              className="group"
+              className="relative pl-5 font-mono text-sm text-slate-light before:content-['▹'] before:absolute before:left-0 before:text-accent"
             >
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-mono text-sm text-slate-lightest">
-                  {skill.name}
-                </span>
-                <span className="font-mono text-xs text-accent">
-                  {skill.level}%
-                </span>
-              </div>
-              <div className="h-2 bg-navy-light rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1, delay: i * 0.05, ease: 'easeOut' }}
-                  viewport={{ once: true }}
-                  className="h-full bg-gradient-to-r from-accent to-accent-yellow rounded-full"
-                />
-              </div>
-            </motion.div>
+              {skill}
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </motion.div>
     </section>
   );
