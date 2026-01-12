@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Folder, ExternalLink, Github } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFolder, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import type { Project } from '@/lib/content';
 
 interface ProjectsProps {
@@ -40,7 +42,7 @@ export function Projects({ projects }: ProjectsProps) {
               className="group relative bg-navy-light rounded p-7 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-xl"
             >
               <div className="flex justify-between items-start mb-8">
-                <Folder size={40} className="text-accent" />
+                <FontAwesomeIcon icon={faFolder} className="text-accent" style={{ width: 40, height: 40 }} />
                 <div className="flex gap-3">
                   {project.github && (
                     <a
@@ -50,7 +52,7 @@ export function Projects({ projects }: ProjectsProps) {
                       aria-label="GitHub"
                       className="text-slate-light hover:text-accent transition-colors"
                     >
-                      <Github size={20} />
+                      <FontAwesomeIcon icon={faGithub} style={{ width: 20, height: 20 }} />
                     </a>
                   )}
                   {project.external && (
@@ -61,7 +63,7 @@ export function Projects({ projects }: ProjectsProps) {
                       aria-label="External Link"
                       className="text-slate-light hover:text-accent transition-colors"
                     >
-                      <ExternalLink size={20} />
+                      <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: 20, height: 20 }} />
                     </a>
                   )}
                 </div>

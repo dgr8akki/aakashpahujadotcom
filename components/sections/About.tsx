@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 import { siteConfig } from '@/lib/config';
 
 interface AboutProps {
@@ -28,10 +29,30 @@ export function About({ data }: AboutProps) {
         <div className="flex flex-col md:flex-row gap-12">
           {/* Content */}
           <div className="md:w-3/5">
-            <div
-              className="text-slate leading-relaxed [&>p]:mb-4 [&>a]:inline-link"
-              dangerouslySetInnerHTML={{ __html: content.replace(/\n\n/g, '</p><p>').replace(/^/, '<p>').replace(/$/, '</p>') }}
-            />
+            <div className="text-slate leading-relaxed">
+              <ReactMarkdown
+                components={{
+                  p: ({ children }) => (
+                    <p className="mb-4">{children}</p>
+                  ),
+                  a: ({ href, children }) => (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline"
+                    >
+                      {children}
+                    </a>
+                  ),
+                  strong: ({ children }) => (
+                    <strong className="font-semibold text-slate-lightest">{children}</strong>
+                  ),
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+            </div>
 
             {skills.length > 0 && (
               <ul className="grid grid-cols-2 gap-x-4 gap-y-2 mt-5 p-0 list-none">

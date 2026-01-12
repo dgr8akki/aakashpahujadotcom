@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ExternalLink, Github, Folder } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
 import type { FeaturedProject } from '@/lib/content';
 
 interface FeaturedProjectsProps {
@@ -57,7 +59,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                   </a>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <Folder size={48} className="text-accent" />
+                    <FontAwesomeIcon icon={faFolder} className="text-accent" style={{ width: 48, height: 48 }} />
                   </div>
                 )}
               </div>
@@ -116,7 +118,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                       aria-label="GitHub"
                       className="text-slate-lightest hover:text-accent transition-colors"
                     >
-                      <Github size={20} />
+                      <FontAwesomeIcon icon={faGithub} style={{ width: 20, height: 20 }} />
                     </a>
                   )}
                   {project.external && (
@@ -127,7 +129,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                       aria-label="External Link"
                       className="text-slate-lightest hover:text-accent transition-colors"
                     >
-                      <ExternalLink size={20} />
+                      <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: 20, height: 20 }} />
                     </a>
                   )}
                 </div>

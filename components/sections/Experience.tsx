@@ -15,7 +15,7 @@ export function Experience({ jobs }: ExperienceProps) {
   if (jobs.length === 0) return null;
 
   return (
-    <section id="jobs" className="section max-w-[700px]">
+    <section id="jobs" className="section max-w-[900px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
