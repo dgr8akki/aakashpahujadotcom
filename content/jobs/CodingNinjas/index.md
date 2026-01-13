@@ -5,6 +5,7 @@ company: 'Coding Ninjas India'
 location: 'Hyderabad, IN'
 range: 'May 2019 - August 2019'
 url: 'https://www.codingninjas.com/'
+order: 6
 ---
 
 - Joined as Teaching Assistant for the course of Competitive Programming

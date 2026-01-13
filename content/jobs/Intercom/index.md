@@ -5,6 +5,7 @@ company: 'Intercom'
 location: 'Dublin, IE'
 range: 'August 2022 - March 2024'
 url: 'https://www.intercom.com'
+order: 3
 ---
 
 - Designed and developed user onboarding experience, increasing user activation rate by 20%

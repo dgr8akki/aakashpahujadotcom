@@ -5,6 +5,7 @@ company: 'Bluestacks'
 location: 'Gurugram, IN'
 range: 'April 2021 - July 2022'
 url: 'https://bluestacks.com'
+order: 4
 ---
 
 - Designed and developed the front-end of three popular Discord Bots: YAGPDB Bot (https://yagpdb.xyz/), CARL Bot (https://carl.gg/), and Piggy Bot (https://piggy.gg)

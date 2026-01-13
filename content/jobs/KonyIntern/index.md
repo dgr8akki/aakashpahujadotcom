@@ -5,6 +5,7 @@ company: 'Kony, Inc.'
 location: 'Hyderabad, IN'
 range: 'August 2016 - September 2017'
 url: 'https://www.kony.com/'
+order: 9
 ---
 
 **Community Forum:**

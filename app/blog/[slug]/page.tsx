@@ -44,7 +44,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <main className="section pt-[150px] max-w-[800px]">
+    <main className="section pt-[150px]">
       <span className="breadcrumb">
         <span className="arrow">←</span>
         <Link href="/blog">All posts</Link>

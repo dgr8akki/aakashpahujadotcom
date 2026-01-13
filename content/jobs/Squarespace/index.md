@@ -5,6 +5,7 @@ company: 'Squarespace'
 location: 'Dublin, IE'
 range: 'February 2025 - Present'
 url: 'https://www.squarespace.com'
+order: 1
 ---
 
 - Enhancing the website platform by developing a Component Development Kit

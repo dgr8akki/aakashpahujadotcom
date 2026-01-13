@@ -5,6 +5,7 @@ company: 'Kony, Inc.'
 location: 'Hyderabad, IN'
 range: 'June 2019 - January 2020'
 url: 'https://www.kony.com/'
+order: 7
 ---
 
 **App Factory (Kony's CI/CD Tool):**

@@ -5,6 +5,7 @@ company: 'Intercom'
 location: 'Dublin, IE'
 range: 'March 2024 - January 2025'
 url: 'https://www.intercom.com'
+order: 2
 ---
 
 - Led major projects including Helpdesk (Inbox) revamp, WhatsApp & Meta Integration

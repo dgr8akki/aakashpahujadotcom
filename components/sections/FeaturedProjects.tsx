@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import type { FeaturedProject } from '@/lib/content';
 
 interface FeaturedProjectsProps {
@@ -87,7 +88,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                   </a>
                 </h3>
 
-                <div className="bg-navy-light rounded p-6 shadow-xl mb-4">
+                <div className="mb-4">
                   <p className="text-slate-light text-sm leading-relaxed">
                     {project.description}
                   </p>

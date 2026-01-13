@@ -5,6 +5,7 @@ company: 'Samsung R & D'
 location: 'Bangalore, IN'
 range: 'February 2020 - April 2021'
 url: 'https://research.samsung.com/sri-b'
+order: 5
 ---
 
 - Worked on IOT Web Platform with Chromium web engine and Blink architecture to keep Tizen OS aligned with latest Chromium updates

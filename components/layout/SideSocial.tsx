@@ -10,9 +10,9 @@ export function SideSocial() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: 1.5 }}
-      className="hidden md:flex fixed bottom-0 left-6 lg:left-10 flex-col items-center gap-5 z-10"
+      className="hidden md:flex fixed bottom-0 left-6 lg:left-10 flex-col items-center gap-2 z-10"
     >
-      <ul className="flex flex-col items-center gap-5 list-none m-0 p-0 after:content-[''] after:block after:w-px after:h-24 after:bg-slate-light after:mt-5">
+      <ul className="flex flex-col items-center gap-2 list-none m-0 p-0 after:content-[''] after:block after:w-px after:h-24 after:bg-slate-light after:mt-2">
         {socialLinks.map((social) => (
           <li key={social.name}>
             <a

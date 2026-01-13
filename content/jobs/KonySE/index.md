@@ -5,6 +5,7 @@ company: 'Kony, Inc.'
 location: 'Hyderabad, IN'
 range: 'September 2017 - May 2019'
 url: 'https://www.kony.com/'
+order: 8
 ---
 
 **App Preview 2.0 (React.js):**
