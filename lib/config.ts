@@ -1,9 +1,9 @@
 export const siteConfig = {
   title: 'Aakash Pahuja | Senior Software Engineer',
   description:
-    'Aakash Pahuja is a Senior Software Engineer at Squarespace based in Dublin, Ireland, specializing in building exceptional, scalable, and user-centric web platforms. Open to opportunities in Gurugram, India.',
+    'Aakash Pahuja is a Senior Software Engineer at Squarespace based in Dublin, Ireland, specializing in building exceptional, scalable, and user-centric web platforms.',
   keywords:
-    'Aakash Pahuja, Aakash, Pahuja, dgr8akki, senior software engineer, front-end engineer, web developer, javascript, react, full-stack, squarespace, intercom, dublin, ireland, gurugram, india',
+    'Aakash Pahuja, Aakash, Pahuja, dgr8akki, senior software engineer, front-end engineer, web developer, javascript, react, full-stack, squarespace, intercom, dublin, ireland',
   siteUrl: 'https://www.aakashpahuja.com',
   language: 'en-US',
   author: 'Aakash Pahuja',

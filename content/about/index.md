@@ -5,8 +5,6 @@ avatar: './me.jpeg'
 
 Hello! I'm Aakash, a Senior Frontend Engineer at [Squarespace](https://www.squarespace.com/) based in Dublin, Ireland. I focus on enhancing the website platform by developing a Component Development Kit, empowering users with seamless and scalable solutions. My expertise in frontend technologies ensures a dynamic and efficient platform experience.
 
-**I'm currently open to exciting opportunities in Gurugram, India**, where I previously worked with BlueStacks and am looking to return.
-
 As an **Extension Developer for Chrome & Mozilla**, I've created browser tools that enhance developer productivity. I'm also passionate about **teaching and mentoring** - I've tutored over 300 students in competitive programming at Coding Ninjas, helping them improve their coding skills and land their dream jobs.
 
 Previously, at [Intercom](https://www.intercom.com/) as a Product Engineer 3, I played a key role in optimizing the onboarding process, leading to a **20% increase in user activation rates**. My contributions to features like AI Chatbot and Helpdesk significantly boosted the paid customer base by **12%**, and our team collectively onboarded **1,000+ new logos per month**.
