@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
         </p>
       </header>
 
-      <article className="prose prose-invert prose-lg max-w-none">
+      <article className="prose prose-invert prose-xl max-w-none">
         <MDXContent content={post.content} />
       </article>
     </main>

@@ -11,8 +11,8 @@ export const siteConfig = {
   location: 'Dublin, IE',
   github: 'https://github.com/dgr8akki',
   twitterHandle: '@ImAakashPahuja',
-  googleAnalyticsId: 'UA-155755445-1',
-  resumeLink: 'https://drive.google.com/file/d/1uKOeZTiuXLXqJAfndvuXBqBZTJP_1g0V/view',
+  googleAnalyticsId: 'G-DZ799GZXR4',
+  resumeLink: '/resume.pdf',
 };
 
 export const navLinks = [

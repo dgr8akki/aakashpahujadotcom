@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { siteConfig } from '@/lib/config';
 import { ClientLayout } from '@/components/layout/ClientLayout';
 import './globals.css';
@@ -50,6 +51,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${siteConfig.googleAnalyticsId}');
+          `}
+        </Script>
+      </head>
       <body className="bg-navy text-slate font-calibre antialiased">
         <div id="root">
           <ClientLayout>{children}</ClientLayout>
