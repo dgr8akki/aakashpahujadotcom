@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { navLinks, siteConfig } from '@/lib/config';
 
 interface MobileMenuProps {
@@ -15,7 +15,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -25,7 +25,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           />
 
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -35,7 +35,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <nav className="flex flex-col items-center justify-center h-full p-12">
               <ol className="list-none m-0 p-0 w-full text-center">
                 {navLinks.map((link, i) => (
-                  <motion.li
+                  <m.li
                     key={link.name}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -62,11 +62,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         {link.name}
                       </Link>
                     )}
-                  </motion.li>
+                  </m.li>
                 ))}
               </ol>
 
-              <motion.a
+              <m.a
                 href={siteConfig.resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -76,9 +76,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className="btn btn-lg mt-10"
               >
                 Resume
-              </motion.a>
+              </m.a>
             </nav>
-          </motion.aside>
+          </m.aside>
         </>
       )}
     </AnimatePresence>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
 import { navLinks, siteConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
@@ -49,7 +49,7 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
+      <m.header
         initial={{ y: -100 }}
         animate={{ y: hidden ? -100 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -63,7 +63,7 @@ export function Navbar() {
       >
         <nav className="flex items-center justify-between h-full max-w-[1600px] mx-auto">
           {/* Logo */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: mounted ? 1 : 0 }}
             transition={{ duration: 0.3 }}
@@ -71,13 +71,13 @@ export function Navbar() {
             <Link href="/" aria-label="Home" className="block">
               <Logo className="hover:opacity-80 transition-opacity" />
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             <ol className="flex items-center gap-1 list-none m-0 p-0">
               {navLinks.map((link, i) => (
-                <motion.li
+                <m.li
                   key={link.name}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
@@ -101,11 +101,11 @@ export function Navbar() {
                       {link.name}
                     </Link>
                   )}
-                </motion.li>
+                </m.li>
               ))}
             </ol>
             
-            <motion.a
+            <m.a
               href={siteConfig.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -115,11 +115,11 @@ export function Navbar() {
               className="btn ml-4"
             >
               Resume
-            </motion.a>
+            </m.a>
           </div>
 
           {/* Mobile Hamburger */}
-          <motion.button
+          <m.button
             initial={{ opacity: 0 }}
             animate={{ opacity: mounted ? 1 : 0 }}
             className="md:hidden relative z-50 w-9 h-6 flex flex-col justify-between"
@@ -144,9 +144,9 @@ export function Navbar() {
                 menuOpen && '-rotate-45 translate-x-px'
               )}
             />
-          </motion.button>
+          </m.button>
         </nav>
-      </motion.header>
+      </m.header>
 
       {/* Mobile Menu */}
       <MobileMenu isOpen={menuOpen} onClose={() => toggleMenu()} />

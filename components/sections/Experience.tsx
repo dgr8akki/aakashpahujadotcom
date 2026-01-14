@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import type { Job } from '@/lib/content';
 import { cn } from '@/lib/utils';
 
@@ -16,7 +16,7 @@ export function Experience({ jobs }: ExperienceProps) {
 
   return (
     <section id="jobs" className="section">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -57,7 +57,7 @@ export function Experience({ jobs }: ExperienceProps) {
               {jobs.map(
                 (job, i) =>
                   activeTab === i && (
-                    <motion.div
+                    <m.div
                       key={job.company}
                       role="tabpanel"
                       id={`panel-${i}`}
@@ -91,13 +91,13 @@ export function Experience({ jobs }: ExperienceProps) {
                         className="[&>ul]:fancy-list [&>ul]:mt-0 text-slate"
                         dangerouslySetInnerHTML={{ __html: formatContent(job.content) }}
                       />
-                    </motion.div>
+                    </m.div>
                   )
               )}
             </AnimatePresence>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

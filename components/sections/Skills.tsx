@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface SkillsProps {
   data: {
@@ -15,7 +15,7 @@ export function Skills({ data }: SkillsProps) {
 
   return (
     <section id="skills" className="section">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -25,7 +25,7 @@ export function Skills({ data }: SkillsProps) {
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-3 p-0 list-none">
           {skills.map((skill, i) => (
-            <motion.li
+            <m.li
               key={skill}
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -34,10 +34,10 @@ export function Skills({ data }: SkillsProps) {
               className="relative pl-5 font-mono text-sm text-slate-light before:content-['▹'] before:absolute before:left-0 before:text-accent"
             >
               {skill}
-            </motion.li>
+            </m.li>
           ))}
         </ul>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

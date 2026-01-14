@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -17,7 +17,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
   return (
     <section id="projects" className="section">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -27,7 +27,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
         <div className="space-y-24">
           {projects.map((project, i) => (
-            <motion.div
+            <m.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -135,10 +135,10 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

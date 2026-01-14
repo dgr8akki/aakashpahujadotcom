@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { siteConfig } from '@/lib/config';
 
 interface HeroProps {
@@ -40,45 +40,45 @@ export function Hero({ data }: HeroProps) {
 
   return (
     <section className="flex items-center justify-start min-h-screen section pt-[150px] md:pt-[100px]">
-      <motion.div
+      <m.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="max-w-[1000px]"
       >
-        <motion.h1 variants={itemVariants} className="mb-5 ml-1 font-mono text-accent">
+        <m.h1 variants={itemVariants} className="mb-5 ml-1 font-mono text-accent">
           {title}
-        </motion.h1>
+        </m.h1>
 
-        <motion.h2
+        <m.h2
           variants={itemVariants}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-slate-lightest m-0 leading-tight"
         >
           {name}.
-        </motion.h2>
+        </m.h2>
 
-        <motion.h3
+        <m.h3
           variants={itemVariants}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-slate m-0 mt-2 leading-tight"
         >
           {subtitle}
-        </motion.h3>
+        </m.h3>
 
-        <motion.div
+        <m.div
           variants={itemVariants}
           className="mt-6 max-w-[540px] text-slate leading-relaxed"
           dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />') }}
         />
 
-        <motion.div variants={itemVariants} className="mt-12">
+        <m.div variants={itemVariants} className="mt-12">
           <a
             href={`mailto:${siteConfig.email}`}
             className="btn btn-lg"
           >
             Get In Touch
           </a>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

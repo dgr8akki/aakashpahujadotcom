@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { siteConfig } from '@/lib/config';
 
 export function SideEmail() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: 1.5 }}
@@ -19,6 +19,6 @@ export function SideEmail() {
         {siteConfig.email}
       </a>
       <div className="w-px h-24 bg-slate-light" />
-    </motion.div>
+    </m.div>
   );
 }

@@ -41,7 +41,7 @@ const config: Config = {
       },
       fontFamily: {
         calibre: [
-          'Calibre',
+          'var(--font-calibre)',
           'San Francisco',
           'SF Pro Text',
           '-apple-system',
@@ -49,7 +49,7 @@ const config: Config = {
           'sans-serif',
         ],
         mono: [
-          'SF Mono',
+          'var(--font-sf-mono)',
           'Fira Code',
           'Fira Mono',
           'Roboto Mono',

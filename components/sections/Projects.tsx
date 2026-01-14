@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +22,7 @@ export function Projects({ projects }: ProjectsProps) {
 
   return (
     <section className="section">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -34,7 +34,7 @@ export function Projects({ projects }: ProjectsProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {visibleProjects.map((project, i) => (
-            <motion.div
+            <m.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export function Projects({ projects }: ProjectsProps) {
                   ))}
                 </ul>
               )}
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
@@ -103,7 +103,7 @@ export function Projects({ projects }: ProjectsProps) {
             </button>
           </div>
         )}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

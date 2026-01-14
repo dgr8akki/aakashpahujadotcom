@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import { siteConfig } from '@/lib/config';
@@ -18,7 +18,7 @@ export function About({ data }: AboutProps) {
 
   return (
     <section id="about" className="section">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -70,7 +70,7 @@ export function About({ data }: AboutProps) {
 
           {/* Image */}
           <div className="md:w-2/5 max-w-[300px] mx-auto md:mx-0">
-            <motion.a
+            <m.a
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -88,10 +88,10 @@ export function About({ data }: AboutProps) {
                 />
               </div>
               <div className="absolute inset-0 rounded border-2 border-accent translate-x-5 translate-y-5 -z-10 transition-transform duration-300 group-hover:translate-x-4 group-hover:translate-y-4" />
-            </motion.a>
+            </m.a>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

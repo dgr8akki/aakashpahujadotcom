@@ -1,12 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { socialLinks } from '@/lib/config';
 import { Icon, IconName } from '@/components/ui/Icons';
 
 export function SideSocial() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: 1.5 }}
@@ -27,6 +27,6 @@ export function SideSocial() {
           </li>
         ))}
       </ul>
-    </motion.div>
+    </m.div>
   );
 }

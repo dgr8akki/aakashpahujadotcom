@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { siteConfig } from '@/lib/config';
+import { calibre, sfMono } from '@/lib/fonts';
 import { ClientLayout } from '@/components/layout/ClientLayout';
 import './globals.css';
 
@@ -50,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${calibre.variable} ${sfMono.variable}`}>
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}

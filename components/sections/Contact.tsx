@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { siteConfig } from '@/lib/config';
 
 interface ContactProps {
@@ -15,7 +15,7 @@ export function Contact({ data }: ContactProps) {
 
   return (
     <section id="contact" className="section text-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -32,7 +32,7 @@ export function Contact({ data }: ContactProps) {
         <a href={`mailto:${siteConfig.email}`} className="btn btn-lg">
           Say Hello
         </a>
-      </motion.div>
+      </m.div>
     </section>
   );
 }
