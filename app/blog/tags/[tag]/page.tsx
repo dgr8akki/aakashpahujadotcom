@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllTags, getPostsByTag } from '@/lib/content';
 import { formatDate, kebabCase } from '@/lib/utils';
+import { TrackedBlogLink, TrackedTagLink } from '@/components/blog/TrackedLinks';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -49,12 +50,14 @@ export default async function TagPage({ params }: Props) {
           <li key={post.slug} className="!pl-0 !before:hidden">
             <article>
               <h2 className="text-2xl font-medium mb-2">
-                <Link
+                <TrackedBlogLink
                   href={`/blog/${post.slug}`}
+                  slug={post.slug}
+                  title={post.title}
                   className="text-slate-light hover:text-accent transition-colors"
                 >
                   {post.title}
-                </Link>
+                </TrackedBlogLink>
               </h2>
               <p className="subtitle flex flex-wrap items-center gap-2">
                 <time>{formatDate(post.date)}</time>
@@ -62,13 +65,14 @@ export default async function TagPage({ params }: Props) {
                 <span>{post.readingTime}</span>
                 <span>—</span>
                 {post.tags.map((t) => (
-                  <Link
+                  <TrackedTagLink
                     key={t}
                     href={`/blog/tags/${kebabCase(t)}`}
+                    tag={t}
                     className="tag"
                   >
                     #{t}
-                  </Link>
+                  </TrackedTagLink>
                 ))}
               </p>
             </article>

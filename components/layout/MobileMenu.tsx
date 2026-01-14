@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { m, AnimatePresence } from 'framer-motion';
 import { navLinks, siteConfig } from '@/lib/config';
+import { analytics } from '@/lib/analytics';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -48,7 +49,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     {link.url.startsWith('/#') ? (
                       <a
                         href={link.url}
-                        onClick={onClose}
+                        onClick={() => {
+                          analytics.trackMenuClick(link.name);
+                          onClose();
+                        }}
                         className="text-slate-lightest text-lg font-medium hover:text-accent transition-colors"
                       >
                         {link.name}
@@ -56,7 +60,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     ) : (
                       <Link
                         href={link.url}
-                        onClick={onClose}
+                        onClick={() => {
+                          analytics.trackMenuClick(link.name);
+                          onClose();
+                        }}
                         className="text-slate-lightest text-lg font-medium hover:text-accent transition-colors"
                       >
                         {link.name}
@@ -70,6 +77,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 href={siteConfig.resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.trackResumeDownload()}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}

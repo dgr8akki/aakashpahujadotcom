@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllTags } from '@/lib/content';
 import { kebabCase } from '@/lib/utils';
+import { TrackedTagLink } from '@/components/blog/TrackedLinks';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -25,13 +26,14 @@ export default function TagsPage() {
       <ul className="fancy-list space-y-4">
         {tags.map(({ tag, count }) => (
           <li key={tag} className="!pl-0 !before:hidden text-2xl">
-            <Link
+            <TrackedTagLink
               href={`/blog/tags/${kebabCase(tag)}`}
+              tag={tag}
               className="text-slate-light hover:text-accent transition-colors"
             >
               {tag}{' '}
               <span className="font-mono text-base text-slate">({count})</span>
-            </Link>
+            </TrackedTagLink>
           </li>
         ))}
       </ul>

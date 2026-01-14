@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/content';
 import { formatDate, kebabCase } from '@/lib/utils';
+import { TrackedBlogLink, TrackedTagLink } from '@/components/blog/TrackedLinks';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -30,12 +31,14 @@ export default function BlogPage() {
           <li key={post.slug} className="!pl-0 !before:hidden">
             <article>
               <h2 className="text-2xl font-medium mb-2">
-                <Link
+                <TrackedBlogLink
                   href={`/blog/${post.slug}`}
+                  slug={post.slug}
+                  title={post.title}
                   className="text-slate-light hover:text-accent transition-colors"
                 >
                   {post.title}
-                </Link>
+                </TrackedBlogLink>
               </h2>
               <p className="subtitle flex flex-wrap items-center gap-2">
                 <time>{formatDate(post.date)}</time>
@@ -43,13 +46,14 @@ export default function BlogPage() {
                 <span>{post.readingTime}</span>
                 <span>—</span>
                 {post.tags.map((tag) => (
-                  <Link
+                  <TrackedTagLink
                     key={tag}
                     href={`/blog/tags/${kebabCase(tag)}`}
+                    tag={tag}
                     className="tag"
                   >
                     #{tag}
-                  </Link>
+                  </TrackedTagLink>
                 ))}
               </p>
             </article>

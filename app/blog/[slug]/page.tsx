@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '@/lib/content';
 import { formatDate, kebabCase } from '@/lib/utils';
 import { MDXContent } from '@/components/blog/MDXContent';
+import { TrackedTagLink } from '@/components/blog/TrackedLinks';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -60,13 +61,14 @@ export default async function BlogPostPage({ params }: Props) {
           <span>{post.readingTime}</span>
           <span>—</span>
           {post.tags.map((tag) => (
-            <Link
+            <TrackedTagLink
               key={tag}
               href={`/blog/tags/${kebabCase(tag)}`}
+              tag={tag}
               className="tag"
             >
               #{tag}
-            </Link>
+            </TrackedTagLink>
           ))}
         </p>
       </header>

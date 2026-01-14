@@ -6,6 +6,7 @@ import { m } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
 import { navLinks, siteConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
 
 export function Navbar() {
@@ -87,6 +88,7 @@ export function Navbar() {
                   {link.url.startsWith('/#') ? (
                     <a
                       href={link.url}
+                      onClick={() => analytics.trackMenuClick(link.name)}
                       className="px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-colors"
                     >
                       <span className="text-accent mr-1">0{i + 1}.</span>
@@ -95,6 +97,7 @@ export function Navbar() {
                   ) : (
                     <Link
                       href={link.url}
+                      onClick={() => analytics.trackMenuClick(link.name)}
                       className="px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-colors"
                     >
                       <span className="text-accent mr-1">0{i + 1}.</span>
@@ -109,6 +112,7 @@ export function Navbar() {
               href={siteConfig.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.trackResumeDownload()}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
               transition={{ duration: 0.3, delay: mounted ? navLinks.length * 0.1 : 0 }}
