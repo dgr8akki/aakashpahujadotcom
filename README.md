@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-  My personal portfolio website built with <a href="https://nextjs.org/" target="_blank">Next.js 15</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
+  My personal portfolio website built with <a href="https://nextjs.org/" target="_blank">Next.js</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>.
 </p>
 
 <p align="center">
