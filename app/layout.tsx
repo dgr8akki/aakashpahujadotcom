@@ -76,7 +76,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="bg-navy text-slate font-calibre antialiased">
+      <body className="bg-navy text-slate font-sans antialiased">
         <div id="root">
           <ClientLayout>{children}</ClientLayout>
         </div>

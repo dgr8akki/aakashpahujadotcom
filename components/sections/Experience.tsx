@@ -57,7 +57,7 @@ export function Experience({ jobs }: ExperienceProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={cn(
-                  'relative flex items-center whitespace-nowrap px-6 py-4 font-mono text-sm rounded-2xl text-left transition-all duration-500 ease-apple-spring overflow-hidden group',
+                  'relative flex items-center whitespace-nowrap px-6 py-4 font-mono text-sm rounded-2xl text-left transition-all duration-500 ease-apple-spring group shrink-0',
                   activeTab === i
                     ? 'text-slate-lightest bg-accent/10 border border-accent/30 shadow-glow'
                     : 'text-slate border border-slate/10 hover:text-slate-lightest hover:border-accent/20 backdrop-blur-sm bg-navy-light/20'

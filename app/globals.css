@@ -1,6 +1,125 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* Tailwind v4 Theme Configuration */
+@theme {
+  /* Colors - Navy */
+  --color-navy: #000000;
+  --color-navy-light: #1f1611;
+  --color-navy-dark: #000000;
+  --color-navy-darkest: #01050b;
+
+  /* Colors - Slate */
+  --color-slate: #8892b0;
+  --color-slate-light: #a8b2d1;
+  --color-slate-lightest: #ccd6f6;
+
+  /* Colors - Grey */
+  --color-grey: #4c5772;
+  --color-grey-light: #606a86;
+  --color-grey-medium: #2d3952;
+  --color-grey-dark: #333f58;
+
+  /* Colors - Accent */
+  --color-accent: #FF9E64;
+  --color-accent-pink: #FF647F;
+  --color-accent-yellow: #FFC464;
+  --color-accent-blue: #71AFFF;
+  --color-accent-dark: #1D7FFC;
+
+  /* Colors - Text */
+  --color-text-primary: #ccd6f6;
+  --color-text-secondary: #a8b2d1;
+  --color-text-muted: #8892b0;
+
+  /* Colors - Light mode */
+  --color-light-bg: #ffffff;
+  --color-light-bg-secondary: #f8f9fa;
+  --color-light-bg-tertiary: #e9ecef;
+  --color-light-text: #1a202c;
+  --color-light-text-secondary: #4a5568;
+  --color-light-text-muted: #718096;
+  --color-light-border: #e2e8f0;
+
+  /* Font Family - using 'sans' and 'mono' to work with Tailwind v4 */
+  --font-sans: var(--font-calibre), 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+  --font-mono: var(--font-sf-mono), 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+  /* Spacing */
+  --spacing-nav: 100px;
+  --spacing-nav-scroll: 70px;
+
+  /* Transition Timing */
+  --ease-custom: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-apple-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-apple-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Animations */
+  --animate-fade-up: fadeUp 0.5s ease-out forwards;
+  --animate-fade-down: fadeDown 0.5s ease-out forwards;
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-in: slideIn 0.3s ease-out forwards;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scale-in: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+
+  /* Box Shadows */
+  --shadow-nav: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-glow: 0 0 20px rgba(255, 158, 100, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(255, 158, 100, 0.4);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-soft-lg: 0 8px 48px rgba(0, 0, 0, 0.15);
+
+  /* Border Radius */
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  /* Backdrop Blur */
+  --blur-xs: 2px;
+  --blur-3xl: 64px;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    50% { opacity: 0.8; filter: brightness(1.2); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  @keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+}
 
 /* Base Styles */
 @layer base {
@@ -17,7 +136,7 @@
   }
 
   body {
-    @apply bg-navy text-slate font-calibre text-xl leading-relaxed;
+    @apply bg-navy text-slate font-sans text-xl leading-relaxed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     counter-reset: section;
@@ -166,12 +285,30 @@
   }
 
   .breadcrumb a {
-    @apply inline-link font-mono text-sm font-bold uppercase tracking-widest;
+    @apply relative text-accent transition-all duration-300 ease-custom font-mono text-sm font-bold uppercase tracking-widest;
+  }
+
+  .breadcrumb a::after {
+    @apply absolute w-0 h-px bottom-0 left-0 bg-accent transition-all duration-300 ease-custom;
+    content: '';
+  }
+
+  .breadcrumb a:hover::after {
+    @apply w-full;
   }
 
   /* Tag */
   .tag {
-    @apply inline-link font-mono text-sm mr-3;
+    @apply relative text-accent transition-all duration-300 ease-custom font-mono text-sm mr-3;
+  }
+
+  .tag::after {
+    @apply absolute w-0 h-px bottom-0 left-0 bg-accent transition-all duration-300 ease-custom;
+    content: '';
+  }
+
+  .tag:hover::after {
+    @apply w-full;
   }
 
   /* Overline text */

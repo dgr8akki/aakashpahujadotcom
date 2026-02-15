@@ -51,25 +51,27 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
           </div>
         </m.div>
 
-        {/* Horizontal scroll container */}
+        {/* Vertical scroll container */}
         <div className="relative">
           <m.div
-            variants={fadeInUp}
-            className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={defaultViewport}
+            className="flex flex-col gap-12"
           >
             {projects.map((project, i) => (
               <m.div
                 key={project.title}
+                variants={fadeInUp}
                 initial="rest"
                 whileHover="hover"
-                variants={cardHover}
-                className="group relative min-w-[90vw] sm:min-w-[600px] lg:min-w-[700px] snap-center"
+                className="group relative w-full"
               >
-                <div className="glass-card p-0 overflow-hidden h-full">
-                  <div className="grid lg:grid-cols-5 gap-0 lg:gap-6 h-full">
+                <div className="glass-card p-0 overflow-hidden">
+                  <div className="grid lg:grid-cols-5 gap-0 lg:gap-6">
                     {/* Project Image */}
-                    <div className="lg:col-span-3 relative aspect-video lg:aspect-auto lg:h-full min-h-[300px]">
+                    <div className="lg:col-span-3 relative aspect-video lg:aspect-auto lg:h-full min-h-[200px]">
                       <div className="relative w-full h-full overflow-hidden">
                         {project.cover ? (
                           <a
@@ -182,19 +184,6 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             ))}
           </m.div>
 
-          {/* Scroll hint */}
-          <m.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center gap-2 mt-8 text-slate font-mono text-xs"
-          >
-            <span>Scroll horizontally</span>
-            <svg className="w-4 h-4 animate-bounce" style={{ transform: 'rotate(-90deg)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </m.div>
         </div>
       </m.div>
     </section>
