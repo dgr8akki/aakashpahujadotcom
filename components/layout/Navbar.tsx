@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { m } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { navLinks, siteConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
@@ -56,9 +57,9 @@ export function Navbar() {
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className={cn(
           'fixed top-0 left-0 right-0 z-40 px-6 md:px-10 lg:px-12',
-          'transition-all duration-300 ease-custom',
+          'transition-all duration-500 ease-apple-smooth',
           scrolled
-            ? 'h-[70px] bg-navy/90 backdrop-blur-md shadow-nav'
+            ? 'h-[70px] bg-navy/60 backdrop-blur-2xl border-b border-slate/5 shadow-soft'
             : 'h-[100px] bg-transparent'
         )}
       >
@@ -75,7 +76,7 @@ export function Navbar() {
           </m.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-4">
             <ol className="flex items-center gap-1 list-none m-0 p-0">
               {navLinks.map((link, i) => (
                 <m.li
@@ -89,24 +90,35 @@ export function Navbar() {
                     <a
                       href={link.url}
                       onClick={() => analytics.trackMenuClick(link.name)}
-                      className="px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-colors"
+                      className="relative px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-apple group"
                     >
-                      <span className="text-accent mr-1">0{i + 1}.</span>
+                      <span className="text-accent mr-1 font-semibold">0{i + 1}.</span>
                       {link.name}
+                      <span className="absolute bottom-2 left-4 right-4 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-apple-spring" />
                     </a>
                   ) : (
                     <Link
                       href={link.url}
                       onClick={() => analytics.trackMenuClick(link.name)}
-                      className="px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-colors"
+                      className="relative px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-apple group"
                     >
-                      <span className="text-accent mr-1">0{i + 1}.</span>
+                      <span className="text-accent mr-1 font-semibold">0{i + 1}.</span>
                       {link.name}
+                      <span className="absolute bottom-2 left-4 right-4 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-apple-spring" />
                     </Link>
                   )}
                 </m.li>
               ))}
             </ol>
+            
+            {/* Theme Toggle */}
+            <m.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
+              transition={{ duration: 0.3, delay: mounted ? (navLinks.length - 0.5) * 0.1 : 0 }}
+            >
+              <ThemeToggle />
+            </m.div>
             
             <m.a
               href={siteConfig.resumeLink}
@@ -116,7 +128,9 @@ export function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
               transition={{ duration: 0.3, delay: mounted ? navLinks.length * 0.1 : 0 }}
-              className="btn ml-4"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-4 px-6 py-2.5 bg-accent/10 hover:bg-accent hover:text-navy border border-accent rounded-xl font-mono text-sm font-semibold transition-all duration-300 ease-apple-spring backdrop-blur-sm"
             >
               Resume
             </m.a>
