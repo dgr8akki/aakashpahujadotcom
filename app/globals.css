@@ -22,6 +22,21 @@
     -moz-osx-font-smoothing: grayscale;
     counter-reset: section;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light mode styles */
+  .light body {
+    @apply bg-light-bg text-light-text;
+  }
+
+  .light h1,
+  .light h2,
+  .light h3,
+  .light h4,
+  .light h5,
+  .light h6 {
+    @apply text-light-text;
   }
 
   ::selection {
@@ -204,10 +219,35 @@
     animation: gradientShift 15s ease infinite;
   }
 
+  .light .gradient-bg {
+    background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #dee2e6, #f8f9fa);
+  }
+
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  /* Light mode overrides */
+  .light .glass {
+    @apply bg-white/40 border-light-border;
+  }
+
+  .light .glass-card {
+    @apply bg-white/50 border-light-border shadow-sm;
+  }
+
+  .light .text-slate {
+    @apply text-light-text-secondary;
+  }
+
+  .light .text-slate-light {
+    @apply text-light-text-muted;
+  }
+
+  .light .text-slate-lightest {
+    @apply text-light-text;
   }
 }
 
