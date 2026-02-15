@@ -7,6 +7,7 @@
   html {
     scroll-behavior: smooth;
     box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   *,
@@ -20,6 +21,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     counter-reset: section;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -165,6 +167,47 @@
   /* Subtitle */
   .subtitle {
     @apply text-accent font-mono text-base font-normal leading-relaxed;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-navy/40 backdrop-blur-xl border border-slate/10;
+  }
+
+  .glass-card {
+    @apply bg-navy-light/30 backdrop-blur-2xl border border-slate/10 rounded-3xl shadow-glass;
+  }
+
+  /* Apple-style smooth transitions */
+  .transition-apple {
+    @apply transition-all duration-500 ease-apple-smooth;
+  }
+
+  .transition-spring {
+    @apply transition-all duration-700 ease-apple-spring;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-apple-smooth hover:scale-105 hover:shadow-glow;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent via-accent-yellow to-accent-pink bg-clip-text text-transparent;
+  }
+
+  /* Animated gradient background */
+  .gradient-bg {
+    background: linear-gradient(-45deg, #000000, #1f1611, #2d1810, #000000);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
 
