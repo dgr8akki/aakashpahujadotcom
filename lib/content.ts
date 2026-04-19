@@ -241,6 +241,108 @@ export function getOtherProjects(): Project[] {
   return projects;
 }
 
+// GitHub OSS Feed
+export interface GithubRepo {
+  name: string;
+  description: string;
+  stars: number;
+  language: string;
+  url: string;
+}
+
+function fallbackRepos(): GithubRepo[] {
+  return getOtherProjects()
+    .slice(0, 4)
+    .map((p) => ({
+      name: p.title,
+      description: p.description,
+      stars: 0,
+      language: p.tech[0] || 'Code',
+      url: p.github || p.external || '',
+    }));
+}
+
+export interface GithubProfile {
+  repos: GithubRepo[];
+  publicRepoCount: number;
+  username: string;
+  htmlUrl: string;
+  fetchedAt: string;
+  live: boolean;
+}
+
+export async function getGithubProfile(
+  username = 'dgr8akki'
+): Promise<GithubProfile> {
+  const base = 'https://api.github.com';
+  const headers: HeadersInit = {
+    'User-Agent': 'aakashpahujadotcom-build',
+    Accept: 'application/vnd.github+json',
+  };
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+
+  try {
+    const [userRes, repoRes] = await Promise.all([
+      fetch(`${base}/users/${username}`, {
+        headers,
+        next: { revalidate: 3600 },
+      }),
+      fetch(
+        `${base}/users/${username}/repos?per_page=100&type=owner&sort=updated`,
+        { headers, next: { revalidate: 3600 } }
+      ),
+    ]);
+
+    if (!userRes.ok || !repoRes.ok) throw new Error('github non-200');
+
+    const user = (await userRes.json()) as {
+      public_repos: number;
+      html_url: string;
+    };
+    const repos = (await repoRes.json()) as Array<{
+      name: string;
+      description: string | null;
+      stargazers_count: number;
+      language: string | null;
+      html_url: string;
+      fork: boolean;
+      archived: boolean;
+    }>;
+
+    const top = repos
+      .filter((r) => !r.fork && !r.archived)
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+      .slice(0, 4)
+      .map<GithubRepo>((r) => ({
+        name: r.name,
+        description: r.description ?? '',
+        stars: r.stargazers_count,
+        language: r.language ?? 'Code',
+        url: r.html_url,
+      }));
+
+    return {
+      repos: top.length ? top : fallbackRepos(),
+      publicRepoCount: user.public_repos,
+      username,
+      htmlUrl: user.html_url,
+      fetchedAt: new Date().toISOString(),
+      live: top.length > 0,
+    };
+  } catch {
+    return {
+      repos: fallbackRepos(),
+      publicRepoCount: 119,
+      username,
+      htmlUrl: `https://github.com/${username}`,
+      fetchedAt: new Date().toISOString(),
+      live: false,
+    };
+  }
+}
+
 // Hero Content
 export function getHeroContent(): { title: string; name: string; subtitle: string; content: string } | null {
   const filePath = path.join(contentDirectory, 'hero', 'index.md');
