@@ -118,6 +118,7 @@ export function Hero({ data }: HeroProps) {
 
             <m.div
               variants={fadeUp}
+              data-hero-sub
               className="mt-[18px] font-serif font-normal leading-[1.15] tracking-[-0.015em] max-w-[18ch] text-ink"
               style={{ fontSize: 'clamp(28px,3.6vw,46px)' }}
             >
