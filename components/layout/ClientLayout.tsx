@@ -6,6 +6,7 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { SideSocial } from './SideSocial';
 import { SideEmail } from './SideEmail';
+import { TweaksPanel } from '@/components/ui/TweaksPanel';
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export function ClientLayout({ children }: ClientLayoutProps) {
           <SideEmail />
           <main className="flex-1">{children}</main>
           <Footer />
+          <TweaksPanel />
         </div>
       </MotionProvider>
     </ThemeProvider>

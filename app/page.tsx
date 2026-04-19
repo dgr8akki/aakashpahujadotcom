@@ -4,6 +4,7 @@ import { Skills } from '@/components/sections/Skills';
 import { Experience } from '@/components/sections/Experience';
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
 import { Projects } from '@/components/sections/Projects';
+import { BlogList } from '@/components/sections/BlogList';
 import { Contact } from '@/components/sections/Contact';
 import {
   getHeroContent,
@@ -11,18 +12,23 @@ import {
   getSkillsContent,
   getAllJobs,
   getFeaturedProjects,
-  getOtherProjects,
+  getAllPosts,
   getContactContent,
+  getGithubProfile,
 } from '@/lib/content';
 
-export default function HomePage() {
+// Re-fetch GitHub profile hourly at runtime while keeping ISG.
+export const revalidate = 3600;
+
+export default async function HomePage() {
   const heroContent = getHeroContent();
   const aboutContent = getAboutContent();
   const skillsContent = getSkillsContent();
   const jobs = getAllJobs();
   const featuredProjects = getFeaturedProjects();
-  const otherProjects = getOtherProjects();
+  const posts = getAllPosts();
   const contactContent = getContactContent();
+  const githubProfile = await getGithubProfile();
 
   return (
     <>
@@ -31,7 +37,8 @@ export default function HomePage() {
       {skillsContent && <Skills data={skillsContent} />}
       <Experience jobs={jobs} />
       <FeaturedProjects projects={featuredProjects} />
-      <Projects projects={otherProjects} />
+      <Projects profile={githubProfile} />
+      <BlogList posts={posts} />
       {contactContent && <Contact data={contactContent} />}
     </>
   );

@@ -5,8 +5,9 @@ import {
   faGithub,
   faLinkedin,
   faInstagram,
-  faTwitter,
+  faXTwitter,
   faCodepen,
+  faStackOverflow,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faExternalLinkAlt,
@@ -14,6 +15,7 @@ import {
   faStar,
   faCodeBranch,
   faMapMarkerAlt,
+  faLayerGroup,
 } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -21,8 +23,11 @@ const iconMap: Record<string, IconDefinition> = {
   Github: faGithub,
   Linkedin: faLinkedin,
   Instagram: faInstagram,
-  Twitter: faTwitter,
+  Twitter: faXTwitter,
+  X: faXTwitter,
   Codepen: faCodepen,
+  Stack: faLayerGroup,
+  StackOverflow: faStackOverflow,
   ExternalLink: faExternalLinkAlt,
   Folder: faFolder,
   Star: faStar,
@@ -54,16 +59,4 @@ export function Icon({ name, size = 20, className = '' }: IconProps) {
   );
 }
 
-// Export individual icons for direct use
-export const Icons = {
-  Github: faGithub,
-  Linkedin: faLinkedin,
-  Instagram: faInstagram,
-  Twitter: faTwitter,
-  Codepen: faCodepen,
-  ExternalLink: faExternalLinkAlt,
-  Folder: faFolder,
-  Star: faStar,
-  GitFork: faCodeBranch,
-  MapPin: faMapMarkerAlt,
-};
+export const Icons = iconMap;

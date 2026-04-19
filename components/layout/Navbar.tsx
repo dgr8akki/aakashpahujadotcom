@@ -1,52 +1,44 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { m } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { navLinks, siteConfig } from '@/lib/config';
-import { cn } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
 import { MobileMenu } from './MobileMenu';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > 100) {
+    let lastY = 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > 100) {
         setScrolled(true);
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          setHidden(true);
-        } else {
-          setHidden(false);
-        }
+        setHidden(y > lastY && y > 100);
       } else {
         setScrolled(false);
         setHidden(false);
       }
-      
-      setLastScrollY(currentScrollY);
+      lastY = y;
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    document.body.style.overflow = !menuOpen ? 'hidden' : 'unset';
+    setMenuOpen((open) => {
+      document.body.style.overflow = !open ? 'hidden' : 'unset';
+      return !open;
+    });
   };
 
   return (
@@ -55,119 +47,103 @@ export function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: hidden ? -100 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={cn(
-          'fixed top-0 left-0 right-0 z-40 px-6 md:px-10 lg:px-12',
-          'transition-all duration-500 ease-apple-smooth',
-          scrolled
-            ? 'h-[70px] bg-navy/60 backdrop-blur-2xl border-b border-slate/5 shadow-soft'
-            : 'h-[100px] bg-transparent'
-        )}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-[14px] backdrop-saturate-[140%]"
+        style={{
+          background: 'color-mix(in srgb, var(--color-bg) 55%, transparent)',
+          borderBottom:
+            '1px solid color-mix(in srgb, var(--color-line) 60%, transparent)',
+        }}
       >
-        <nav className="flex items-center justify-between h-full max-w-[1600px] mx-auto">
-          {/* Logo */}
+        <nav
+          className="flex items-center justify-between mx-auto transition-all duration-500"
+          style={{
+            maxWidth: 1400,
+            padding: scrolled ? '10px 40px' : '14px 40px',
+          }}
+        >
           <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: mounted ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Link href="/" aria-label="Home" className="block">
-              <Logo className="hover:opacity-80 transition-opacity" />
+            <Link href="/" aria-label="Home">
+              <Logo />
             </Link>
           </m.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
-            <ol className="flex items-center gap-1 list-none m-0 p-0">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-7">
+            <ol className="flex items-center gap-7 list-none m-0 p-0">
               {navLinks.map((link, i) => (
                 <m.li
                   key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
-                  transition={{ duration: 0.3, delay: mounted ? i * 0.1 : 0 }}
-                  className="font-mono text-sm"
+                  initial={{ opacity: 0, y: -12 }}
+                  animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -12 }}
+                  transition={{ duration: 0.3, delay: mounted ? i * 0.08 : 0 }}
+                  className="font-mono text-[12.5px] text-ink-dim hover:text-amber transition-colors"
                 >
                   {link.url.startsWith('/#') ? (
                     <a
                       href={link.url}
                       onClick={() => analytics.trackMenuClick(link.name)}
-                      className="relative px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-apple group"
                     >
-                      <span className="text-accent mr-1 font-semibold">0{i + 1}.</span>
+                      <span className="text-amber mr-1">0{i + 1}.</span>
                       {link.name}
-                      <span className="absolute bottom-2 left-4 right-4 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-apple-spring" />
                     </a>
                   ) : (
                     <Link
                       href={link.url}
                       onClick={() => analytics.trackMenuClick(link.name)}
-                      className="relative px-4 py-3 inline-block text-slate-lightest hover:text-accent transition-apple group"
                     >
-                      <span className="text-accent mr-1 font-semibold">0{i + 1}.</span>
+                      <span className="text-amber mr-1">0{i + 1}.</span>
                       {link.name}
-                      <span className="absolute bottom-2 left-4 right-4 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-apple-spring" />
                     </Link>
                   )}
                 </m.li>
               ))}
             </ol>
-            
-            {/* Theme Toggle */}
-            <m.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
-              transition={{ duration: 0.3, delay: mounted ? (navLinks.length - 0.5) * 0.1 : 0 }}
-            >
-              <ThemeToggle />
-            </m.div>
-            
+
+            <ThemeToggle />
+
             <m.a
               href={siteConfig.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => analytics.trackResumeDownload()}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
-              transition={{ duration: 0.3, delay: mounted ? navLinks.length * 0.1 : 0 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2.5 bg-accent/10 hover:bg-accent hover:text-navy border border-accent rounded-xl font-mono text-sm font-semibold transition-all duration-300 ease-apple-spring backdrop-blur-sm"
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -12 }}
+              transition={{ duration: 0.3, delay: mounted ? 0.7 : 0 }}
+              whileHover={{
+                boxShadow: '0 0 0 4px rgba(244,165,82,.08)',
+                backgroundColor: 'rgba(244,165,82,.14)',
+              }}
+              className="font-mono text-[12.5px] px-4 py-[9px] border border-amber rounded-lg text-amber"
+              style={{ background: 'rgba(244,165,82,0.04)' }}
             >
-              Resume
+              Resume ↗
             </m.a>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile burger */}
           <m.button
             initial={{ opacity: 0 }}
             animate={{ opacity: mounted ? 1 : 0 }}
-            className="md:hidden relative z-50 w-9 h-6 flex flex-col justify-between"
+            className="md:hidden w-10 h-10 rounded-[10px] border border-line-2 grid place-items-center text-ink"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <span
-              className={cn(
-                'block w-full h-0.5 bg-accent rounded transition-all duration-300 origin-left',
-                menuOpen && 'rotate-45 translate-x-px'
-              )}
-            />
-            <span
-              className={cn(
-                'block w-full h-0.5 bg-accent rounded transition-all duration-300',
-                menuOpen && 'opacity-0'
-              )}
-            />
-            <span
-              className={cn(
-                'block w-full h-0.5 bg-accent rounded transition-all duration-300 origin-left',
-                menuOpen && '-rotate-45 translate-x-px'
-              )}
-            />
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+              <path
+                d="M0 1h20M0 7h20M0 13h12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+            </svg>
           </m.button>
         </nav>
       </m.header>
 
-      {/* Mobile Menu */}
-      <MobileMenu isOpen={menuOpen} onClose={() => toggleMenu()} />
+      <MobileMenu isOpen={menuOpen} onClose={toggleMenu} />
     </>
   );
 }

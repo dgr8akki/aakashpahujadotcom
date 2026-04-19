@@ -6,26 +6,29 @@ interface LogoProps {
   className?: string;
 }
 
+/**
+ * Hex-clipped brand mark with an amber serif "A" — matches the Portfolio
+ * design handoff's `.brand-mark` element.
+ */
 export function Logo({ className = '' }: LogoProps) {
   return (
-    <svg
-      width="42"
-      height="48"
-      viewBox="0 0 220 253"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M110.058 4.125L4 63.9528V186.328L110.058 248.875L216.117 189.047V66.6722L110.058 4.125Z"
-        fill="#000000"
-        stroke="#FF9E64"
-        strokeWidth="7"
-      />
-      <path
-        d="M107.826 85.7122H121.826L154.866 171.672H140.026L131.206 147.872H98.3061L89.4861 171.672H74.7861L107.826 85.7122ZM114.686 103.492L102.926 135.272H126.446L114.686 103.492Z"
-        fill="#FF9E64"
-      />
-    </svg>
+    <span className={`inline-flex items-center gap-2.5 font-mono text-[13px] text-ink ${className}`}>
+      <span
+        aria-hidden
+        className="relative grid place-items-center w-[34px] h-[34px] border border-line-2"
+        style={{
+          background: 'linear-gradient(135deg,#1a1124,#231732)',
+          clipPath:
+            'polygon(25% 6%,75% 6%,98% 50%,75% 94%,25% 94%,2% 50%)',
+          boxShadow:
+            'inset 0 1px 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(0,0,0,.5),0 4px 18px -6px rgba(244,165,82,.3)',
+        }}
+      >
+        <span className="font-serif text-[20px] leading-none text-amber">A</span>
+      </span>
+      <span>
+        aakashpahuja<span className="text-amber">.dev</span>
+      </span>
+    </span>
   );
 }

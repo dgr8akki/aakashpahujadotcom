@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { siteConfig } from '@/lib/config';
-import { calibre, sfMono } from '@/lib/fonts';
+import { geist, geistMono, instrumentSerif } from '@/lib/fonts';
 import { ClientLayout } from '@/components/layout/ClientLayout';
 import './globals.css';
 
@@ -51,7 +51,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${calibre.variable} ${sfMono.variable}`}>
+    <html
+      lang="en"
+      className={`scroll-smooth ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+    >
       <head>
         {/* Prevent flash of wrong theme */}
         <Script id="theme-init" strategy="beforeInteractive">
@@ -76,7 +79,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="bg-navy text-slate font-sans antialiased">
+      <body className="bg-bg text-ink font-sans antialiased">
         <div id="root">
           <ClientLayout>{children}</ClientLayout>
         </div>
