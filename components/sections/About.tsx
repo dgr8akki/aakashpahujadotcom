@@ -145,16 +145,6 @@ export function About({ data }: AboutProps) {
                     'linear-gradient(170deg,rgba(244,165,82,0.12),transparent 55%)',
                 }}
               />
-              <div className="absolute inset-x-4 top-4 flex justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-ink-mute">
-                <span>PORTRAIT · 04/26</span>
-                <span className="flex items-center gap-1.5 text-sage">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-sage"
-                    style={{ boxShadow: '0 0 8px var(--color-sage)' }}
-                  />
-                  LIVE
-                </span>
-              </div>
             </div>
           </m.div>
         </div>
