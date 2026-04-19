@@ -6,27 +6,24 @@ import { Icon, IconName } from '@/components/ui/Icons';
 
 export function SideSocial() {
   return (
-    <m.div
+    <m.aside
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: 1.5 }}
-      className="hidden md:flex fixed bottom-0 left-6 lg:left-10 flex-col items-center gap-2 z-10"
+      transition={{ duration: 0.3, delay: 1.2 }}
+      className="hidden xl:flex fixed bottom-0 left-[30px] z-30 flex-col items-center gap-[18px] after:content-[''] after:w-px after:h-[110px] after:bg-gradient-to-b after:from-line-2 after:to-transparent"
     >
-      <ul className="flex flex-col items-center gap-2 list-none m-0 p-0 after:content-[''] after:block after:w-px after:h-24 after:bg-slate-light after:mt-2">
-        {socialLinks.map((social) => (
-          <li key={social.name}>
-            <a
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.name}
-              className="p-2.5 inline-block text-slate-light hover:text-accent hover:-translate-y-1 transition-all duration-300"
-            >
-              <Icon name={social.icon as IconName} size={20} />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </m.div>
+      {socialLinks.map((social) => (
+        <a
+          key={social.name}
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={social.name}
+          className="grid place-items-center w-7 h-7 text-ink-mute hover:text-amber hover:-translate-y-0.5 transition-all duration-200"
+        >
+          <Icon name={social.icon as IconName} size={20} />
+        </a>
+      ))}
+    </m.aside>
   );
 }

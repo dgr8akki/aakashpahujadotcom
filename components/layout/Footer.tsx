@@ -5,9 +5,8 @@ import { Icon, IconName } from '@/components/ui/Icons';
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center py-6 px-6 text-center">
-      {/* Mobile Social Icons */}
-      <div className="flex items-center justify-center gap-4 mb-4 md:hidden">
+    <footer className="relative z-10 py-8 text-center border-t border-line">
+      <div className="flex xl:hidden items-center justify-center gap-6 mb-4">
         {socialLinks.map((social) => (
           <a
             key={social.name}
@@ -15,21 +14,15 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            className="p-2 text-slate-light hover:text-accent hover:-translate-y-1 transition-all duration-300"
+            className="text-ink-mute hover:text-amber transition-colors"
           >
-            <Icon name={social.icon as IconName} size={20} />
+            <Icon name={social.icon as IconName} size={18} />
           </a>
         ))}
       </div>
-
-      <a
-        href="https://github.com/dgr8akki/portfolio"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-mono text-xs text-slate hover:text-accent transition-colors"
-      >
-        <div>Designed & Built by Aakash Pahuja</div>
-      </a>
+      <p className="font-mono text-[11.5px] text-ink-mute m-0">
+        Designed &amp; built with care by Aakash Pahuja · Dublin · © {new Date().getFullYear()}
+      </p>
     </footer>
   );
 }

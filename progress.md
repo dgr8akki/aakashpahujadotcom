@@ -20,8 +20,8 @@ Target: existing Next.js 16 + Tailwind v4 + Framer Motion repo. Preserve content
 ## Stages
 
 - [x] Stage 0 — Branch checked out (`claude/implement-portfolio-design-kdept`), design bundle inspected.
-- [ ] Stage 1 — Design tokens (globals.css), fonts (Instrument Serif/Geist via next/font/google).
-- [ ] Stage 2 — Navbar + mobile sheet + side rails (aubergine + amber).
+- [x] Stage 1 — Design tokens (globals.css), fonts (Instrument Serif/Geist via next/font/google).
+- [x] Stage 2 — Navbar + mobile sheet + side rails (aubergine + amber).
 - [ ] Stage 3 — Hero 3D stage.
 - [ ] Stage 4 — About + stats + portrait card.
 - [ ] Stage 5 — Skills grid with proficiency bars.
