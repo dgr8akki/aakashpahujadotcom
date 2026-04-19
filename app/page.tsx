@@ -4,6 +4,7 @@ import { Skills } from '@/components/sections/Skills';
 import { Experience } from '@/components/sections/Experience';
 import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
 import { Projects } from '@/components/sections/Projects';
+import { BlogList } from '@/components/sections/BlogList';
 import { Contact } from '@/components/sections/Contact';
 import {
   getHeroContent,
@@ -12,6 +13,7 @@ import {
   getAllJobs,
   getFeaturedProjects,
   getOtherProjects,
+  getAllPosts,
   getContactContent,
 } from '@/lib/content';
 
@@ -22,6 +24,7 @@ export default function HomePage() {
   const jobs = getAllJobs();
   const featuredProjects = getFeaturedProjects();
   const otherProjects = getOtherProjects();
+  const posts = getAllPosts();
   const contactContent = getContactContent();
 
   return (
@@ -32,6 +35,7 @@ export default function HomePage() {
       <Experience jobs={jobs} />
       <FeaturedProjects projects={featuredProjects} />
       <Projects projects={otherProjects} />
+      <BlogList posts={posts} />
       {contactContent && <Contact data={contactContent} />}
     </>
   );

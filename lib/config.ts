@@ -20,7 +20,7 @@ export const navLinks = [
   { name: 'Skills', url: '/#skills' },
   { name: 'Experience', url: '/#jobs' },
   { name: 'Work', url: '/#projects' },
-  { name: 'Blog', url: '/blog' },
+  { name: 'Blog', url: '/#blog' },
   { name: 'Contact', url: '/#contact' },
 ];
 
