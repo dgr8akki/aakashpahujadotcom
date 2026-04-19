@@ -1,158 +1,152 @@
 'use client';
 
-import { useState } from 'react';
 import { m } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import type { Project } from '@/lib/content';
-import { fadeInUp, scaleIn, fastStaggerContainer, defaultViewport, cardHover, buttonHover } from '@/lib/animations';
+import { siteConfig } from '@/lib/config';
 
 interface ProjectsProps {
   projects: Project[];
 }
 
+const LANG_SWATCH: Record<string, string> = {
+  javascript: '#f1e05a',
+  typescript: '#2b7489',
+  shell: '#89e051',
+  css: '#563d7c',
+  html: '#e34c26',
+  python: '#3572A5',
+  go: '#00ADD8',
+  ruby: '#701516',
+  java: '#b07219',
+  rust: '#dea584',
+};
+
+function pickLang(tech: string[]): { label: string; swatch: string } {
+  for (const t of tech) {
+    const key = t.toLowerCase();
+    if (LANG_SWATCH[key]) return { label: t, swatch: LANG_SWATCH[key] };
+  }
+  return { label: tech[0] || 'Code', swatch: '#f4a552' };
+}
+
 export function Projects({ projects }: ProjectsProps) {
-  const [showMore, setShowMore] = useState(false);
-  const INITIAL_COUNT = 6;
-
   if (projects.length === 0) return null;
-
-  const visibleProjects = showMore ? projects : projects.slice(0, INITIAL_COUNT);
+  // Top 4 mirror the Portfolio.html OSS strip; the rest become the archive.
+  const strip = projects.slice(0, 4);
 
   return (
-    <section className="section relative py-32">
-      {/* Background decoration */}
-      <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-accent-yellow/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-[60px]">
+      <div className="wrap">
+        <m.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="oss-strip relative overflow-hidden rounded-[24px] p-8 md:p-10 border border-line-2"
+          style={{
+            background:
+              'linear-gradient(180deg,rgba(244,165,82,0.06),rgba(184,168,240,0.04))',
+          }}
+        >
+          <span className="oss-halo" aria-hidden />
 
-      <m.div
-        variants={fastStaggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={defaultViewport}
-        className="relative z-10"
-      >
-        {/* Section heading */}
-        <m.div variants={fadeInUp} className="mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-lightest mb-2">
-            Other Noteworthy Projects
-          </h2>
-          <p className="text-slate font-mono text-sm">
-            View the archive
-          </p>
-        </m.div>
-
-        {/* Projects grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleProjects.map((project, i) => (
-            <m.div
-              key={project.title}
-              variants={scaleIn}
-              initial="rest"
-              whileHover="hover"
-              className="group"
-            >
-              <m.div
-                variants={cardHover}
-                className="glass-card p-8 h-full flex flex-col relative overflow-hidden"
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_2fr] items-center">
+            <div>
+              <div className="eyebrow">The OSS workshop</div>
+              <h3 className="mt-3 font-serif font-normal text-[40px] leading-[1.05] tracking-[-0.02em]">
+                119+ repos,
+                <br />
+                <span className="text-gradient">one engineer.</span>
+              </h3>
+              <p className="mt-3.5 max-w-[42ch] text-[16px] leading-[1.65] text-ink-dim">
+                From tiny zsh plugins to full component libraries. A sampling of
+                what&apos;s cooking in{' '}
+                <span className="text-amber">
+                  {siteConfig.github.replace('https://', '')}
+                </span>{' '}
+                — updated weekly.
+              </p>
+              <a
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 font-mono text-[12px] text-amber hover:text-amber-2 transition-colors"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-pink/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                Browse all 119 repos →
+              </a>
+            </div>
 
-                {/* Header */}
-                <div className="flex justify-between items-start mb-6 relative z-10">
-                  <div className="p-3 rounded-2xl bg-accent/10 border border-accent/20">
-                    <FontAwesomeIcon
-                      icon={faFolder}
-                      className="text-accent"
-                      style={{ width: 28, height: 28 }}
-                    />
-                  </div>
-                  <div className="flex gap-3">
-                    {project.github && (
-                      <m.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="text-slate-light hover:text-accent transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faGithub} style={{ width: 20, height: 20 }} />
-                      </m.a>
-                    )}
-                    {project.external && (
-                      <m.a
-                        href={project.external}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="External Link"
-                        whileHover={{ scale: 1.1, rotate: -5 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="text-slate-light hover:text-accent transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: 20, height: 20 }} />
-                      </m.a>
-                    )}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-slate-lightest mb-3 group-hover:text-accent transition-colors relative z-10">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {strip.map((repo) => {
+                const { label, swatch } = pickLang(repo.tech);
+                const href = repo.github || repo.external || '#';
+                return (
                   <a
-                    href={project.external || project.github || '#'}
+                    key={repo.title}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="before:absolute before:inset-0"
+                    className="repo-card block rounded-[16px] border border-line-2 p-[18px] transition-all duration-200 hover:-translate-y-[3px] hover:border-amber"
+                    style={{
+                      background:
+                        'linear-gradient(180deg,rgba(20,14,28,0.85),rgba(15,10,22,0.9))',
+                    }}
                   >
-                    {project.title}
-                  </a>
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-light text-sm leading-relaxed mb-6 flex-grow relative z-10">
-                  {project.description}
-                </p>
-
-                {/* Tech stack */}
-                {project.tech.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-auto relative z-10">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 font-mono text-xs text-slate-light"
-                      >
-                        {tech}
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span className="font-mono text-[13px] font-medium text-ink">
+                        {repo.title}
                       </span>
-                    ))}
-                  </div>
-                )}
+                    </div>
+                    <p className="text-[13px] leading-[1.55] text-ink-dim m-0 mb-3.5">
+                      {repo.description}
+                    </p>
+                    <div className="flex items-center gap-1.5 font-mono text-[11px] text-ink-mute">
+                      <span
+                        aria-hidden
+                        className="w-2 h-2 rounded-full inline-block"
+                        style={{ background: swatch }}
+                      />
+                      {label}
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </m.div>
 
-                {/* Accent corner */}
-                <div className="absolute top-0 right-0 w-3 h-3 bg-accent rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </m.div>
-            </m.div>
-          ))}
+        <div className="mt-[70px] text-center">
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 font-mono text-[13px] text-amber border border-amber rounded-[10px] px-[22px] py-[14px] transition-all hover:bg-[rgba(244,165,82,0.1)] hover:shadow-[0_0_0_4px_rgba(244,165,82,0.08)]"
+          >
+            View the Full Archive →
+          </a>
         </div>
+      </div>
 
-        {/* Show More Button */}
-        {projects.length > INITIAL_COUNT && (
-          <m.div variants={fadeInUp} className="text-center mt-16">
-            <m.button
-              onClick={() => setShowMore(!showMore)}
-              variants={buttonHover}
-              initial="rest"
-              whileHover="hover"
-              whileTap="tap"
-              className="px-8 py-4 bg-accent/10 hover:bg-accent hover:text-navy border border-accent rounded-2xl font-mono text-sm font-semibold transition-all duration-300 ease-apple-spring"
-            >
-              {showMore ? '← Show Less' : 'Show More →'}
-            </m.button>
-          </m.div>
-        )}
-      </m.div>
+      <style jsx>{`
+        .oss-strip :global(.oss-halo) {
+          content: '';
+          position: absolute;
+          inset: -40%;
+          background: conic-gradient(
+            from 180deg at 50% 50%,
+            transparent 0deg,
+            rgba(244, 165, 82, 0.15) 60deg,
+            transparent 120deg
+          );
+          animation: halo-spin 22s linear infinite;
+          opacity: 0.6;
+          pointer-events: none;
+        }
+        @keyframes halo-spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }
