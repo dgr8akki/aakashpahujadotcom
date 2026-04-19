@@ -1,14 +1,11 @@
 'use client';
 
-import { m, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { m } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import type { FeaturedProject } from '@/lib/content';
-import { fadeInUp, scaleIn, staggerContainer, defaultViewport, cardHover } from '@/lib/animations';
 
 interface FeaturedProjectsProps {
   projects: FeaturedProject[];
@@ -17,175 +14,168 @@ interface FeaturedProjectsProps {
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   if (projects.length === 0) return null;
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   return (
-    <section id="projects" ref={containerRef} className="section relative py-32 overflow-hidden">
-      {/* Background decoration */}
-      <m.div
-        style={{ x }}
-        className="absolute top-1/3 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"
-      />
-
-      <m.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={defaultViewport}
-        className="relative z-10"
-      >
-        {/* Section heading */}
-        <m.div variants={fadeInUp} className="mb-16">
-          <div className="flex items-center gap-4 mb-3">
-            <span className="font-mono text-accent text-xl font-semibold">04.</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-lightest m-0">
-              Some Things I've Built
-            </h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate/20 to-transparent" />
-          </div>
+    <section id="projects" className="py-[110px]">
+      <div className="wrap">
+        <m.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="flex items-end mb-[60px]"
+        >
+          <h2 className="section-title">
+            <span className="num">04.</span>
+            Things I&apos;ve Built
+          </h2>
+          <span className="section-rule" />
         </m.div>
 
-        {/* Vertical scroll container */}
-        <div className="relative">
-          <m.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={defaultViewport}
-            className="flex flex-col gap-12"
-          >
-            {projects.map((project, i) => (
-              <m.div
+        <div className="flex flex-col gap-20">
+          {projects.map((project, i) => {
+            const reversed = i % 2 === 1;
+            return (
+              <m.article
                 key={project.title}
-                variants={fadeInUp}
-                initial="rest"
-                whileHover="hover"
-                className="group relative w-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.55 }}
+                className={`grid items-center gap-5 lg:gap-5 ${
+                  reversed
+                    ? 'lg:grid-cols-[5fr_7fr]'
+                    : 'lg:grid-cols-[7fr_5fr]'
+                }`}
               >
-                <div className="glass-card p-0 overflow-hidden">
-                  <div className="grid lg:grid-cols-5 gap-0 lg:gap-6">
-                    {/* Project Image */}
-                    <div className="lg:col-span-3 relative aspect-video lg:aspect-auto lg:h-full min-h-[200px]">
-                      <div className="relative w-full h-full overflow-hidden">
-                        {project.cover ? (
-                          <a
-                            href={project.external || project.github || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full h-full"
-                          >
-                            {/* Glow effect on hover */}
-                            <div className="absolute -inset-2 bg-gradient-to-r from-accent/20 to-accent-pink/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-                            
-                            <div className="relative w-full h-full">
-                              <Image
-                                src={project.cover}
-                                alt={project.title}
-                                fill
-                                className="object-cover transform transition-transform duration-700 group-hover:scale-110"
-                              />
-                              {/* Gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-accent-pink/20 opacity-60 group-hover:opacity-20 transition-opacity duration-500" />
-                            </div>
-                          </a>
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-navy-light to-navy">
-                            <FontAwesomeIcon
-                              icon={faFolder}
-                              className="text-accent"
-                              style={{ width: 64, height: 64 }}
-                            />
-                          </div>
-                        )}
-                      </div>
+                {/* Visual */}
+                <div
+                  className={`project-visual relative overflow-hidden rounded-[24px] border border-line-2 aspect-[16/10] ${
+                    reversed ? 'order-1 lg:order-2' : ''
+                  }`}
+                  style={{
+                    background: 'linear-gradient(160deg,#1e1430,#0f0a18)',
+                    boxShadow: '0 30px 60px -28px rgba(0,0,0,0.8)',
+                  }}
+                >
+                  {project.cover ? (
+                    <a
+                      href={project.external || project.github || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block absolute inset-0"
+                    >
+                      <Image
+                        src={project.cover}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            'linear-gradient(160deg,rgba(244,165,82,0.18),transparent 60%),linear-gradient(0deg,rgba(15,10,24,0.45),transparent 60%)',
+                        }}
+                      />
+                    </a>
+                  ) : (
+                    <div
+                      className="absolute inset-0 flex items-center justify-center font-serif text-5xl"
+                      style={{
+                        background:
+                          'linear-gradient(135deg,#F4A552,#E87B7B 50%,#B8A8F0)',
+                      }}
+                    >
+                      <span
+                        className="px-6 py-2 rounded-md text-white font-mono text-sm"
+                        style={{ background: 'rgba(0,0,0,0.35)' }}
+                      >
+                        {project.title}
+                      </span>
                     </div>
+                  )}
+                </div>
 
-                    {/* Project Content */}
-                    <div className="lg:col-span-2 p-8 lg:p-6 flex flex-col justify-center">
-                      {/* Featured badge */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                        <p className="font-mono text-xs text-accent uppercase tracking-widest">
-                          Featured Project
-                        </p>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-2xl lg:text-3xl font-bold text-slate-lightest mb-3 group-hover:text-gradient transition-all duration-300">
-                        <a
-                          href={project.external || project.github || '#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                {/* Content */}
+                <div
+                  className={`relative z-[2] ${
+                    reversed
+                      ? 'order-2 lg:order-1 lg:text-right'
+                      : ''
+                  }`}
+                >
+                  <span className="font-mono text-[11.5px] uppercase tracking-[0.18em] text-amber inline-flex items-center gap-2">
+                    <span aria-hidden>✦</span>
+                    Featured Project
+                  </span>
+                  <h3 className="mt-2.5 mb-[18px] font-serif font-normal text-[36px] leading-tight tracking-[-0.015em]">
+                    <a
+                      href={project.external || project.github || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-amber transition-colors"
+                    >
+                      {project.title}
+                    </a>
+                  </h3>
+                  <div
+                    className="glass-card px-[22px] py-[22px] text-ink-dim text-[15px] leading-[1.6]"
+                  >
+                    {project.description}
+                  </div>
+                  {project.tech.length > 0 && (
+                    <div
+                      className={`mt-4 flex flex-wrap gap-2 font-mono text-[11.5px] text-ink-mute ${
+                        reversed ? 'lg:justify-end' : ''
+                      }`}
+                    >
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="px-2.5 py-1 rounded-md border border-line-2 bg-white/[0.02]"
                         >
-                          {project.title}
-                        </a>
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-light text-sm lg:text-base leading-relaxed mb-6">
-                        {project.description}
-                      </p>
-
-                      {/* Tech stack */}
-                      {project.tech.length > 0 && (
-                        <div className="mb-6">
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech) => (
-                              <span
-                                key={tech}
-                                className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent rounded-full border border-accent/20"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Links */}
-                      <div className="flex gap-4 mt-auto">
-                        {project.github && (
-                          <m.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="text-slate-light hover:text-accent transition-colors"
-                          >
-                            <FontAwesomeIcon icon={faGithub} style={{ width: 24, height: 24 }} />
-                          </m.a>
-                        )}
-                        {project.external && (
-                          <m.a
-                            href={project.external}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="External Link"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="text-slate-light hover:text-accent transition-colors"
-                          >
-                            <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: 24, height: 24 }} />
-                          </m.a>
-                        )}
-                      </div>
+                          {t}
+                        </span>
+                      ))}
                     </div>
+                  )}
+                  <div
+                    className={`mt-4 flex gap-3.5 ${
+                      reversed ? 'lg:justify-end' : ''
+                    }`}
+                  >
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                        className="text-ink hover:text-amber hover:-translate-y-0.5 transition-all"
+                      >
+                        <FontAwesomeIcon icon={faGithub} style={{ width: 22, height: 22 }} />
+                      </a>
+                    )}
+                    {project.external && (
+                      <a
+                        href={project.external}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="External"
+                        className="text-ink hover:text-amber hover:-translate-y-0.5 transition-all"
+                      >
+                        <FontAwesomeIcon
+                          icon={faExternalLinkAlt}
+                          style={{ width: 20, height: 20 }}
+                        />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </m.div>
-            ))}
-          </m.div>
-
+              </m.article>
+            );
+          })}
         </div>
-      </m.div>
+      </div>
     </section>
   );
 }
