@@ -16,11 +16,40 @@ function formatBullets(content: string): string[] {
     .map((line) => line.trim().replace(/^[-*]\s*/, ''));
 }
 
+function levelSuffix(title: string): string {
+  // Matches "P3", "PE3", "SE2", "L5", "Staff", "Senior II", "Intern", etc.
+  const patterns = [
+    /\bPE\s*\d\b/i,
+    /\bP\s*\d\b/i,
+    /\bSE\s*\d\b/i,
+    /\bL\s*\d\b/i,
+    /\b(Senior|Staff|Principal|Intern|Lead)\b/i,
+  ];
+  for (const re of patterns) {
+    const match = title.match(re);
+    if (match) return match[0].replace(/\s+/g, '').toUpperCase();
+  }
+  const numeric = title.match(/\b([A-Z][a-z]+)\s*(\d)\b/);
+  if (numeric) return `${numeric[1][0].toUpperCase()}${numeric[2]}`;
+  return '';
+}
+
+function tabLabel(job: { company: string; title: string }, companyCount: number): string {
+  if (companyCount <= 1) return job.company;
+  const suffix = levelSuffix(job.title);
+  return suffix ? `${job.company} — ${suffix}` : job.company;
+}
+
 export function Experience({ jobs }: ExperienceProps) {
   const [active, setActive] = useState(0);
   if (jobs.length === 0) return null;
   const job = jobs[active];
   const bullets = formatBullets(job.content);
+
+  const companyCounts = jobs.reduce<Record<string, number>>((acc, j) => {
+    acc[j.company] = (acc[j.company] || 0) + 1;
+    return acc;
+  }, {});
 
   return (
     <section id="jobs" className="py-[110px]">
@@ -60,10 +89,7 @@ export function Experience({ jobs }: ExperienceProps) {
                     : 'text-ink-mute hover:text-ink hover:bg-[rgba(244,165,82,0.04)]',
                 ].join(' ')}
               >
-                {j.company}
-                {j.title?.toLowerCase().includes('p3') || j.title?.toLowerCase().includes('p2')
-                  ? ` — ${j.title.match(/P\d/)?.[0] ?? ''}`
-                  : ''}
+                {tabLabel(j, companyCounts[j.company] || 1)}
               </button>
             ))}
           </div>
