@@ -8,7 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFolder } from '@fortawesome/free-regular-svg-icons';
 import type { FeaturedProject } from '@/lib/content';
-import { fadeInUp, scaleIn, staggerContainer, defaultViewport, cardHover } from '@/lib/animations';
+import { fadeInUp, staggerContainer, defaultViewport, easings } from '@/lib/animations';
 
 interface FeaturedProjectsProps {
   projects: FeaturedProject[];
@@ -64,8 +64,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
               <m.div
                 key={project.title}
                 variants={fadeInUp}
-                initial="rest"
-                whileHover="hover"
+                whileHover={{ y: -8, transition: { duration: 0.4, ease: easings.spring } }}
                 className="group relative w-full"
               >
                 <div className="glass-card p-0 overflow-hidden">
