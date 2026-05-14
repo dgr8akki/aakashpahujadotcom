@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { m } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
-import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { navLinks, siteConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { analytics } from '@/lib/analytics';
@@ -111,16 +110,7 @@ export function Navbar() {
               ))}
             </ol>
             
-            {/* Theme Toggle */}
-            <m.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : -20 }}
-              transition={{ duration: 0.3, delay: mounted ? (navLinks.length - 0.5) * 0.1 : 0 }}
-            >
-              <ThemeToggle />
-            </m.div>
-            
-            <m.a
+<m.a
               href={siteConfig.resumeLink}
               target="_blank"
               rel="noopener noreferrer"
