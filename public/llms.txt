@@ -1,0 +1,42 @@
+# Aakash Pahuja
+
+> Senior Software Engineer at Squarespace, based in Dublin, Ireland. I build exceptional, scalable, and user-centric web platforms. This is my personal portfolio and blog, covering frontend architecture, AI in software engineering, developer tools, and browser extensions.
+
+I'm a Senior Frontend Engineer specializing in scalable web platforms (currently building a Component Development Kit at Squarespace). Previously a Product Engineer at Intercom, with prior work at BlueStacks and Samsung R&D. I'm an active open-source contributor (119+ public repositories), a Chrome & Mozilla extension developer, and have tutored 300+ students in competitive programming. The blog focuses heavily on AI's impact on software engineering, careers, and developer productivity.
+
+## Main
+
+- [Home](https://www.aakashpahuja.com/): Overview, hero, and introduction
+- [About](https://www.aakashpahuja.com/#about): Background, experience, and career highlights
+- [Skills](https://www.aakashpahuja.com/#skills): Technologies and areas of expertise
+- [Experience](https://www.aakashpahuja.com/#jobs): Work history (Squarespace, Intercom, BlueStacks, Samsung R&D, Coding Ninjas)
+- [Work](https://www.aakashpahuja.com/#projects): Featured projects and open-source work
+- [Contact](https://www.aakashpahuja.com/#contact): Get in touch
+- [Resume](https://www.aakashpahuja.com/resume.pdf): Full résumé (PDF)
+
+## Blog
+
+- [Blog Index](https://www.aakashpahuja.com/blog): All posts
+- [Blog Tags](https://www.aakashpahuja.com/blog/tags): Posts organized by topic
+- [Agentic and Autonomous AI: The Future of Software Development and Productivity](https://www.aakashpahuja.com/blog/agentic-autonomous-ai)
+- [AI Hiring Trends: The Rise of AI-Forward Talent and Skills in 2026](https://www.aakashpahuja.com/blog/ai-hiring-trends-2026)
+- [Regulation and Ethics: How New Laws and Policy Affect AI and Development Practices](https://www.aakashpahuja.com/blog/ai-regulation-ethics)
+- [How AI Tools Are Changing Developer Productivity and Workflows](https://www.aakashpahuja.com/blog/ai-tools-developer-productivity)
+- [The Atomic De Coding: Why Your Daily Commit Habit is a Career Trap](https://www.aakashpahuja.com/blog/atomic-de-coding-daily-commit-habit-career-trap)
+- [Auraform UI: Building an Accessible Neumorphic Component Library From Scratch](https://www.aakashpahuja.com/blog/auraform-ui-neumorphic-accessibility)
+- [Evolving IT Roles: How AI is Redefining Skills for Software Engineers and CIOs](https://www.aakashpahuja.com/blog/evolving-it-roles)
+- [I Built a ZSH Plugin That Screams FAAAH When Your Command Fails](https://www.aakashpahuja.com/blog/faahzsh-terminal-error-sound)
+- [The Get Grok Gone War: Apple and Google vs X](https://www.aakashpahuja.com/blog/get-grok-gone-war-apple-google-vs-x)
+- [The Human vs Machine Coding Timeline: When Will AI Truly Replace Software Developers?](https://www.aakashpahuja.com/blog/human-vs-machine-coding-timeline)
+- [Is AGI Becoming Obsolete? What Today's Leaders Are Saying](https://www.aakashpahuja.com/blog/is-agi-becoming-obsolete)
+- [Senior Software Engineers and AI Adoption: Overcoming Skepticism in Tech Teams](https://www.aakashpahuja.com/blog/senior-engineers-ai-adoption)
+- [The Talent Pipeline Crisis: Fewer Junior Developers Today, Fewer Seniors Tomorrow](https://www.aakashpahuja.com/blog/talent-pipeline-crisis)
+- [Verification Debt and Risks With AI-Generated Code: What Developers Must Know](https://www.aakashpahuja.com/blog/verification-debt-ai-generated-code)
+
+## Links
+
+- [GitHub](https://github.com/dgr8akki)
+- [LinkedIn](https://www.linkedin.com/in/dgr8akki)
+- [Twitter/X](https://twitter.com/ImAakashPahuja)
+- [CodePen](https://codepen.io/dgr8akki)
+- [Sitemap](https://www.aakashpahuja.com/sitemap.xml)
