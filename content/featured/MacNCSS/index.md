@@ -9,6 +9,7 @@ tech:
   - CSS3
   - Pure CSS
   - UI/UX
+order: 11
 showInProjects: true
 ---
 

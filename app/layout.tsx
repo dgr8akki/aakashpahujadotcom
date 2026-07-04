@@ -53,15 +53,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${calibre.variable} ${sfMono.variable}`}>
       <head>
-        {/* Prevent flash of wrong theme */}
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`
-            (function() {
-              const theme = localStorage.getItem('theme') || 'dark';
-              document.documentElement.classList.add(theme);
-            })();
-          `}
-        </Script>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.googleAnalyticsId}`}
           strategy="afterInteractive"

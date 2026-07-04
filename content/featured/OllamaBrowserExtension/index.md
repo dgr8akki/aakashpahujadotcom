@@ -8,6 +8,7 @@ tech:
   - Plasmo
   - AI/ML
   - Browser Extension
+order: 14
 showInProjects: true
 ---
 

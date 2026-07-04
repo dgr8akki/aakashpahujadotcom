@@ -3,11 +3,11 @@ date: '3'
 title: 'Make Your Own Resume'
 cover: './resume.png'
 github: 'https://github.com/dgr8akki/dgr8akki.github.io'
-external: 'https://aakashresume.netlify.com/'
 tech:
   - Gatsby.js
   - React.js
   - GitHub API
+order: 12
 showInProjects: true
 ---
 

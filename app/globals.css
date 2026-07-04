@@ -31,14 +31,6 @@
   --color-text-secondary: #a8b2d1;
   --color-text-muted: #8892b0;
 
-  /* Colors - Light mode */
-  --color-light-bg: #ffffff;
-  --color-light-bg-secondary: #f8f9fa;
-  --color-light-bg-tertiary: #e9ecef;
-  --color-light-text: #1a202c;
-  --color-light-text-secondary: #4a5568;
-  --color-light-text-muted: #718096;
-  --color-light-border: #e2e8f0;
 
   /* Font Family - using 'sans' and 'mono' to work with Tailwind v4 */
   --font-sans: var(--font-calibre), 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
@@ -144,19 +136,6 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Light mode styles */
-  .light body {
-    @apply bg-light-bg text-light-text;
-  }
-
-  .light h1,
-  .light h2,
-  .light h3,
-  .light h4,
-  .light h5,
-  .light h6 {
-    @apply text-light-text;
-  }
 
   ::selection {
     background-color: rgba(41, 61, 90, 0.99);
@@ -356,9 +335,6 @@
     animation: gradientShift 15s ease infinite;
   }
 
-  .light .gradient-bg {
-    background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #dee2e6, #f8f9fa);
-  }
 
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -366,26 +342,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* Light mode overrides */
-  .light .glass {
-    @apply bg-white/40 border-light-border;
-  }
-
-  .light .glass-card {
-    @apply bg-white/50 border-light-border shadow-sm;
-  }
-
-  .light .text-slate {
-    @apply text-light-text-secondary;
-  }
-
-  .light .text-slate-light {
-    @apply text-light-text-muted;
-  }
-
-  .light .text-slate-lightest {
-    @apply text-light-text;
-  }
 }
 
 /* Utility Classes */

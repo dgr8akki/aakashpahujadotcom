@@ -49,7 +49,6 @@ export function Projects({ projects }: ProjectsProps) {
             <m.div
               key={project.title}
               variants={scaleIn}
-              initial="rest"
               whileHover="hover"
               className="group"
             >

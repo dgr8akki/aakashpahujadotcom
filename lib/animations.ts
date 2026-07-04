@@ -204,7 +204,7 @@ export const parallaxConfig = {
 export const defaultViewport = {
   once: true,
   margin: '-100px',
-  amount: 0.3,
+  amount: 'some' as const,
 };
 
 /**

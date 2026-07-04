@@ -48,7 +48,7 @@ export function Experience({ jobs }: ExperienceProps) {
           >
             {jobs.map((job, i) => (
               <m.button
-                key={job.company}
+                key={job.id}
                 role="tab"
                 aria-selected={activeTab === i}
                 aria-controls={`panel-${i}`}
@@ -90,7 +90,7 @@ export function Experience({ jobs }: ExperienceProps) {
                 (job, i) =>
                   activeTab === i && (
                     <m.div
-                      key={job.company}
+                      key={job.id}
                       role="tabpanel"
                       id={`panel-${i}`}
                       aria-labelledby={`tab-${i}`}

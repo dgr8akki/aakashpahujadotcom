@@ -17,6 +17,7 @@ export interface Post {
 }
 
 export interface Job {
+  id: string;
   company: string;
   title: string;
   location: string;
@@ -146,6 +147,7 @@ export function getAllJobs(): Job[] {
       const { data, content } = matter(fileContents);
 
       return {
+        id: folder,
         company: data.company || folder,
         title: data.title || '',
         location: data.location || '',
