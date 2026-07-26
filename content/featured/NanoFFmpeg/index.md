@@ -7,7 +7,7 @@ tech:
   - FFmpeg
   - TUI
   - CLI
-order: 1
+order: 2
 showInProjects: true
 ---
 

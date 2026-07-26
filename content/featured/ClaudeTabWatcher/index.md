@@ -7,7 +7,7 @@ tech:
   - Zsh
   - iTerm2
   - Productivity
-order: 6
+order: 7
 showInProjects: true
 ---
 
