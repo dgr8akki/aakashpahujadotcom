@@ -9,7 +9,7 @@ tech:
   - LLM
   - ChromaDB
   - Gradio
-order: 1
+order: 2
 showInProjects: true
 ---
 

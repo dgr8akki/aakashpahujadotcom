@@ -7,7 +7,7 @@ tech:
   - Zsh
   - iTerm2
   - CLI
-order: 8
+order: 9
 showInProjects: true
 ---
 

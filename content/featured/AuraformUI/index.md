@@ -8,7 +8,7 @@ tech:
   - React.js
   - CSS
   - Accessibility
-order: 5
+order: 6
 showInProjects: true
 ---
 

@@ -7,7 +7,7 @@ tech:
   - Semantic Search
   - MCP
   - LLM
-order: 3
+order: 4
 showInProjects: true
 ---
 

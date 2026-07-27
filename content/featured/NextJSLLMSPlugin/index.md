@@ -7,7 +7,7 @@ tech:
   - Next.js
   - Node.js
   - AI Agents
-order: 6
+order: 7
 showInProjects: true
 ---
 
