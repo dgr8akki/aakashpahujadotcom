@@ -60,7 +60,7 @@ antigen bundle dgr8akki/faahzsh
 If you prefer Homebrew I set up a tap for that too.
 
 ```sh
-brew tap dgr8akki/faahzsh
+brew tap dgr8akki/tap
 brew install faahzsh
 ```
 
@@ -92,7 +92,7 @@ GitHub: [github.com/dgr8akki/faahzsh](https://github.com/dgr8akki/faahzsh)
 
 ```sh
 # Quick start
-brew tap dgr8akki/faahzsh && brew install faahzsh
+brew tap dgr8akki/tap && brew install faahzsh
 
 # Or with antigen
 antigen bundle dgr8akki/faahzsh
