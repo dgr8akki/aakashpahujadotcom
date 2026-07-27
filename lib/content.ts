@@ -230,7 +230,7 @@ export function getOtherProjects(): Project[] {
 
       return {
         title: data.title || '',
-        description: data.description || '',
+        description: data.description || content.trim(),
         tech: data.tech || [],
         github: data.github || '',
         external: data.external || '',

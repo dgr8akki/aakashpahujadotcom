@@ -9,13 +9,4 @@ company: 'dgr8akki'
 showInProjects: true
 ---
 
-This repo contains solution to the problems asked in the following portals:
-
-- Hackerrank
-- Geeks for geeks
-- Cracking the coding interview
-- Elements of Programming interview
-- Data structures and algorithms made easy in Java
-- LeetCode
-- Practice folder - This contains a separate file used for practising solved problems
-- CodingNinjas
+Solutions to data structure and algorithm problems from HackerRank, GeeksforGeeks, LeetCode, CodingNinjas, Cracking the Coding Interview, and Elements of Programming Interviews, plus a separate folder for problems solved independently.
