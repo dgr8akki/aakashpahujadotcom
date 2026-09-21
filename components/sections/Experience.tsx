@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { m, AnimatePresence } from 'framer-motion';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import type { Job } from '@/lib/content';
 import { cn } from '@/lib/utils';
 import { fadeInUp, slideInRight, staggerContainer, defaultViewport } from '@/lib/animations';
@@ -139,10 +140,11 @@ export function Experience({ jobs }: ExperienceProps) {
                       </div>
 
                       {/* Responsibilities */}
-                      <div
-                        className="text-slate-light leading-relaxed [&>ul]:space-y-4 [&>ul]:list-none [&>ul]:p-0 [&>ul>li]:flex [&>ul>li]:gap-3 [&>ul>li]:items-start [&>ul>li:before]:content-['▹'] [&>ul>li:before]:text-accent [&>ul>li:before]:text-xl [&>ul>li:before]:leading-6 [&>ul>li:before]:flex-shrink-0"
-                        dangerouslySetInnerHTML={{ __html: formatContent(job.content) }}
-                      />
+                      <div className="text-slate-light leading-relaxed">
+                        <ReactMarkdown components={jobMarkdownComponents}>
+                          {job.content}
+                        </ReactMarkdown>
+                      </div>
                     </m.div>
                   )
               )}
@@ -154,13 +156,31 @@ export function Experience({ jobs }: ExperienceProps) {
   );
 }
 
-function formatContent(content: string): string {
-  // Convert markdown list items to HTML
-  const lines = content.trim().split('\n');
-  const listItems = lines
-    .filter((line) => line.trim().startsWith('-'))
-    .map((line) => `<li>${line.trim().substring(1).trim()}</li>`)
-    .join('');
-
-  return listItems ? `<ul>${listItems}</ul>` : content;
-}
+const jobMarkdownComponents: Components = {
+  ul: ({ children }) => <ul className="space-y-4 list-none p-0">{children}</ul>,
+  li: ({ children }) => (
+    <li className="flex gap-3 items-start">
+      <span aria-hidden className="text-accent text-xl leading-6 flex-shrink-0">
+        ▹
+      </span>
+      {/* ponytail: span keeps the bullet text one flex item so inline <strong> stays in flow */}
+      <span>{children}</span>
+    </li>
+  ),
+  p: ({ children }) => (
+    <p className="text-slate-lightest mt-8 mb-3 first:mt-0">{children}</p>
+  ),
+  strong: ({ children }) => (
+    <strong className="text-slate-lightest font-semibold">{children}</strong>
+  ),
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target={href?.startsWith('http') ? '_blank' : undefined}
+      rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+      className="text-accent hover:underline"
+    >
+      {children}
+    </a>
+  ),
+};
