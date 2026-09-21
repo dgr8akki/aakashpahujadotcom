@@ -1,8 +1,8 @@
 ---
 date: '2020-02-01'
-title: 'Senior Software Engineer'
+title: 'Senior Engineer'
 company: 'Samsung R & D'
-location: 'Bangalore, IN'
+location: 'Bengaluru, IN'
 range: 'February 2020 - April 2021'
 url: 'https://research.samsung.com/sri-b'
 order: 5

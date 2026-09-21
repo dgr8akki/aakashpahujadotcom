@@ -3,7 +3,7 @@ date: '2022-08-08'
 title: 'Product Engineer 2'
 company: 'Intercom'
 location: 'Dublin, IE'
-range: 'August 2022 - March 2024'
+range: 'August 2022 - February 2024'
 url: 'https://www.intercom.com'
 order: 3
 ---

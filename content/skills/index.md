@@ -1,26 +1,28 @@
 ---
 title: 'Technical Skills & Expertise'
 skills:
-  - JavaScript (ES6+)
   - TypeScript
+  - JavaScript (ES6+)
   - React.js
-  - Redux
   - Next.js
-  - Node.js
+  - Vite
+  - Redux
+  - Ember.js
+  - Tailwind CSS
   - HTML5 & CSS3
-  - Styled Components
-  - GraphQL
+  - Node.js
+  - Bun
+  - tRPC
   - RESTful APIs
-  - Git & GitHub
-  - CI/CD (Jenkins)
+  - Drizzle ORM
+  - PostgreSQL
+  - BullMQ
+  - LLM Tooling & MCP
   - AWS (Amazon Web Services)
   - Docker
-  - Webpack
+  - CI/CD (Jenkins)
+  - Playwright
   - Jest & Testing
-  - Drupal
-  - PostgreSQL
-  - MongoDB
-  - Agile/Scrum
-  - System Architecture
+  - Accessibility (WCAG 2.1 AA)
   - Performance Optimization
 ---

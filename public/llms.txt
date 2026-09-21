@@ -1,8 +1,8 @@
 # Aakash Pahuja
 
-> Senior Software Engineer at Squarespace, based in Dublin, Ireland. I build exceptional, scalable, and user-centric web platforms. This is my personal portfolio and blog, covering frontend architecture, AI in software engineering, developer tools, and browser extensions.
+> Senior Software Engineer at Squarespace, based in Dublin, Ireland. I build AI-first web platforms — LLM agent tooling, accessible editors, and rich text at scale. This is my personal portfolio and blog, covering frontend architecture, AI in software engineering, developer tools, and browser extensions.
 
-I'm a Senior Frontend Engineer specializing in scalable web platforms (currently building a Component Development Kit at Squarespace). Previously a Product Engineer at Intercom, with prior work at BlueStacks and Samsung R&D. I'm an active open-source contributor (119+ public repositories), a Chrome & Mozilla extension developer, and have tutored 300+ students in competitive programming. The blog focuses heavily on AI's impact on software engineering, careers, and developer productivity.
+I'm a Senior Software Engineer working across the stack on an AI-first website builder at Squarespace, where an LLM agent edits the site through typed tools. I lead the migration of the core rich text component from ProseMirror to Tiptap across millions of live sites, and shipped WCAG 2.1 AA compliance for the editor. Previously a Product Engineer at Intercom, with prior work at BlueStacks and Samsung R&D. I'm an active open-source contributor (145+ public repositories), a Chrome & Mozilla extension developer, and have tutored 300+ students in competitive programming. The blog focuses heavily on AI's impact on software engineering, careers, and developer productivity.
 
 ## Main
 

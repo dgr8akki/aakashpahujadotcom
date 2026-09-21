@@ -1,9 +1,9 @@
 ---
-date: '2024-03-01'
+date: '2024-02-01'
 title: 'Product Engineer 3'
 company: 'Intercom'
 location: 'Dublin, IE'
-range: 'March 2024 - January 2025'
+range: 'February 2024 - January 2025'
 url: 'https://www.intercom.com'
 order: 2
 ---
