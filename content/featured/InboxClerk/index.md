@@ -1,6 +1,7 @@
 ---
 date: '2026-07-28'
 title: 'Inbox Clerk'
+cover: './inbox-clerk.webp'
 github: 'https://github.com/dgr8akki/inbox-clerk'
 tech:
   - Python

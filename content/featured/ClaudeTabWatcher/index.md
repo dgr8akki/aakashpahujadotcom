@@ -1,6 +1,7 @@
 ---
 date: '2026-05-25'
 title: 'Claude Tab Watcher'
+cover: './claude-tab-watcher.webp'
 github: 'https://github.com/dgr8akki/claude-tab-watcher'
 tech:
   - Shell

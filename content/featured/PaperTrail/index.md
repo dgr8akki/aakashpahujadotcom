@@ -1,6 +1,7 @@
 ---
 date: '2026-07-26'
 title: 'PaperTrail'
+cover: './papertrail.webp'
 github: 'https://github.com/dgr8akki/papertrail'
 external: 'https://papertrail-ljg4.onrender.com/'
 tech:

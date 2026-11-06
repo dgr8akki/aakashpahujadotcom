@@ -1,6 +1,7 @@
 ---
 date: '2026-04-16'
 title: 'Faahzsh'
+cover: './faahzsh.webp'
 github: 'https://github.com/dgr8akki/faahzsh'
 tech:
   - Shell

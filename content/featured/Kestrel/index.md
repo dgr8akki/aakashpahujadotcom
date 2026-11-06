@@ -1,6 +1,7 @@
 ---
 date: '2026-04-25'
 title: 'Kestrel'
+cover: './kestrel.webp'
 github: 'https://github.com/dgr8akki/kestrel'
 tech:
   - Swift

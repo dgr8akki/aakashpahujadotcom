@@ -1,6 +1,7 @@
 ---
 date: '2026-06-08'
 title: 'Next.js LLMs Plugin'
+cover: './nextjs-llms-plugin.webp'
 github: 'https://github.com/dgr8akki/nextjs-llms-plugin'
 tech:
   - TypeScript

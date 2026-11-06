@@ -1,6 +1,7 @@
 ---
 date: '2026-07-01'
 title: 'nano-ffmpeg'
+cover: './nano-ffmpeg.webp'
 github: 'https://github.com/dgr8akki/nano-ffmpeg'
 tech:
   - Go

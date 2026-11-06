@@ -1,6 +1,7 @@
 ---
 date: '2026-06-24'
 title: 'Engram'
+cover: './engram.webp'
 github: 'https://github.com/dgr8akki/engram'
 tech:
   - Python

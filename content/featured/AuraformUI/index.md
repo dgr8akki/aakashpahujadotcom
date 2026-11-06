@@ -1,6 +1,7 @@
 ---
 date: '2026-03-21'
 title: 'Auraform UI'
+cover: './auraform.webp'
 github: 'https://github.com/dgr8akki/auraform-ui'
 external: 'https://dgr8akki.github.io/auraform-ui/'
 tech:
