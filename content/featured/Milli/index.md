@@ -1,6 +1,6 @@
 ---
 date: '2'
-title: 'Milli - The text editor'
+title: 'Milli'
 cover: './milli.png'
 github: 'https://github.com/dgr8akki/Milli-The-text-editor'
 

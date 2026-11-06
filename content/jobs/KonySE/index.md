@@ -19,7 +19,7 @@ order: 8
 **Reusable Components for Kony Visualizer:**
 - Range Slider v2.0: Allows users to filter lists by specifying boundaries
 - Apple Pay Integration: Simplified integration of Apple Pay in e-Commerce apps
-- QR & Barcode Reader/Generator: Enabled apps to scan and generate codes seamlessly
+- QR & Barcode Reader/Generator: Enabled apps to scan and generate codes
 
 **Other Responsibilities:**
 - Provided team support, peer code/design reviews, and addressed customer issues and CI build failures

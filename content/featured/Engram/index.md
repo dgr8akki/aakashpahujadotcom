@@ -11,4 +11,4 @@ order: 4
 showInProjects: true
 ---
 
-A local-first personal knowledge system equipped with semantic search. It integrates seamlessly with modern AI coding tools like Claude Code, Cursor, and Windsurf via the Model Context Protocol (MCP) to provide context-aware, semantic retrieval of personal documentation.
+A local-first personal knowledge system equipped with semantic search. It integrates with modern AI coding tools like Claude Code, Cursor, and Windsurf via the Model Context Protocol (MCP) to provide context-aware, semantic retrieval of personal documentation.

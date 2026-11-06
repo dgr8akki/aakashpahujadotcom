@@ -1,6 +1,6 @@
 ---
 date: '4'
-title: 'Copy2Clip Pass - Chrome & Firefox Extension'
+title: 'Copy2Clip Pass'
 cover: './pass.png'
 external: 'https://addons.mozilla.org/en-US/firefox/addon/copy-to-clip-pass/'
 tech:

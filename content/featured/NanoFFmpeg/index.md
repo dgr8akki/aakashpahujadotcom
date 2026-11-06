@@ -11,4 +11,4 @@ order: 3
 showInProjects: true
 ---
 
-A keyboard-driven terminal dashboard that wraps the full power of FFmpeg. No more googling obscure CLI flags—simply browse your files, configure presets, customize quality settings, and watch a live visual progress bar encode your media in real-time.
+A keyboard-driven terminal dashboard that wraps the full power of FFmpeg. No more googling obscure CLI flags: browse your files, configure presets, customize quality settings, and watch a live visual progress bar encode your media in real-time.
