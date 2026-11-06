@@ -212,6 +212,40 @@ export function getFeaturedProjects(): FeaturedProject[] {
   return projects;
 }
 
+// Chrome extensions
+export interface Extension {
+  title: string;
+  description: string;
+  store: string;
+  github: string;
+  cover: string;
+  coverAlt: string;
+  order: number;
+}
+
+export function getExtensions(): Extension[] {
+  const dir = path.join(contentDirectory, 'extensions');
+  if (!fs.existsSync(dir)) return [];
+
+  return fs
+    .readdirSync(dir)
+    .filter((folder) => fs.existsSync(path.join(dir, folder, 'index.md')))
+    .map((folder) => {
+      const { data, content } = matter(fs.readFileSync(path.join(dir, folder, 'index.md'), 'utf8'));
+      const cover: string = data.cover || '';
+      return {
+        title: data.title || folder,
+        description: content.trim(),
+        store: data.store || '',
+        github: data.github || '',
+        cover: cover.startsWith('./') ? `/images/extensions/${cover.slice(2)}` : cover,
+        coverAlt: data.coverAlt || '',
+        order: data.order || 0,
+      };
+    })
+    .sort((a, b) => a.order - b.order);
+}
+
 // Other Projects
 export function getOtherProjects(): Project[] {
   const projectsDirectory = path.join(contentDirectory, 'projects');

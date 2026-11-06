@@ -16,11 +16,12 @@ export const siteConfig = {
 };
 
 export const navLinks = [
+  { name: 'Extensions', url: '/#extensions' },
+  { name: 'Work', url: '/#projects' },
+  { name: 'Experience', url: '/#jobs' },
+  { name: 'Blog', url: '/blog' },
   { name: 'About', url: '/#about' },
   { name: 'Skills', url: '/#skills' },
-  { name: 'Experience', url: '/#jobs' },
-  { name: 'Work', url: '/#projects' },
-  { name: 'Blog', url: '/blog' },
   { name: 'Contact', url: '/#contact' },
 ];
 
