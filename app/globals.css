@@ -1,40 +1,41 @@
+/* Rim (Hallmark theme) restyle: token values only; every layout, component and class name is unchanged. */
 @import 'tailwindcss';
 
 /* Tailwind v4 Theme Configuration */
 @theme {
   /* Colors - Navy */
-  --color-navy: #000000;
-  --color-navy-light: #1f1611;
-  --color-navy-dark: #000000;
-  --color-navy-darkest: #01050b;
+  --color-navy: oklch(9% 0.008 75);
+  --color-navy-light: oklch(12.5% 0.009 75);
+  --color-navy-dark: oklch(6.5% 0.007 75);
+  --color-navy-darkest: oklch(6.5% 0.007 75);
 
   /* Colors - Slate */
-  --color-slate: #8892b0;
-  --color-slate-light: #a8b2d1;
-  --color-slate-lightest: #ccd6f6;
+  --color-slate: oklch(68% 0.012 80);
+  --color-slate-light: oklch(84% 0.011 80);
+  --color-slate-lightest: oklch(94% 0.010 80);
 
   /* Colors - Grey */
-  --color-grey: #4c5772;
-  --color-grey-light: #606a86;
-  --color-grey-medium: #2d3952;
-  --color-grey-dark: #333f58;
+  --color-grey: oklch(50% 0.010 80);
+  --color-grey-light: oklch(58% 0.011 80);
+  --color-grey-medium: oklch(25% 0.010 78);
+  --color-grey-dark: oklch(25% 0.010 78);
 
   /* Colors - Accent */
-  --color-accent: #FF9E64;
-  --color-accent-pink: #FF647F;
-  --color-accent-yellow: #FFC464;
-  --color-accent-blue: #71AFFF;
-  --color-accent-dark: #1D7FFC;
+  --color-accent: oklch(72% 0.17 45);
+  --color-accent-pink: oklch(66% 0.17 40);
+  --color-accent-yellow: oklch(78% 0.15 50);
+  --color-accent-blue: oklch(74% 0.12 250);
+  --color-accent-dark: oklch(60% 0.13 250);
 
   /* Colors - Text */
-  --color-text-primary: #ccd6f6;
-  --color-text-secondary: #a8b2d1;
-  --color-text-muted: #8892b0;
+  --color-text-primary: oklch(94% 0.010 80);
+  --color-text-secondary: oklch(84% 0.011 80);
+  --color-text-muted: oklch(68% 0.012 80);
 
 
   /* Font Family - using 'sans' and 'mono' to work with Tailwind v4 */
-  --font-sans: var(--font-calibre), 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
-  --font-mono: var(--font-sf-mono), 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  --font-sans: var(--font-switzer), 'Switzer', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Geist Mono', ui-monospace, monospace;
 
   /* Spacing */
   --spacing-nav: 100px;
@@ -57,10 +58,10 @@
   --animate-scale-in: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 
   /* Box Shadows */
-  --shadow-nav: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  --shadow-nav: 0 10px 30px -10px oklch(6.5% 0.007 75 / 0.7);
   --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --shadow-glow: 0 0 20px rgba(255, 158, 100, 0.3);
-  --shadow-glow-lg: 0 0 40px rgba(255, 158, 100, 0.4);
+  --shadow-glow: 0 0 20px oklch(72% 0.17 45 / 0.3);
+  --shadow-glow-lg: 0 0 40px oklch(72% 0.17 45 / 0.4);
   --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.12);
   --shadow-soft-lg: 0 8px 48px rgba(0, 0, 0, 0.15);
 
@@ -138,7 +139,7 @@
 
 
   ::selection {
-    background-color: rgba(41, 61, 90, 0.99);
+    background-color: oklch(72% 0.17 45 / 0.35);
   }
 
   h1,
@@ -330,7 +331,7 @@
 
   /* Animated gradient background */
   .gradient-bg {
-    background: linear-gradient(-45deg, #000000, #1f1611, #2d1810, #000000);
+    background: linear-gradient(-45deg, var(--color-navy), var(--color-navy-light), oklch(16% 0.012 70), var(--color-navy));
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
   }
