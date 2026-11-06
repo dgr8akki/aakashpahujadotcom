@@ -1,0 +1,36 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "marquee-hero",
+  "theme": "rim",
+  "axes": "dark/grotesk-sans/warm",
+  "hero": "banner",
+  "nav": "slab",
+  "footer": "letter close",
+  "imagery": "screenshots 4, portrait 1",
+  "photos": [],
+  "entry": "none",
+  "sections": [
+   "hero",
+   "grid",
+   "showcase",
+   "split",
+   "index",
+   "rows",
+   "rows",
+   "split",
+   "rows",
+   "statement"
+  ],
+  "signature": "three Chrome Web Store extensions shown as they run",
+  "waived": [
+   "71",
+   "44c",
+   "79"
+  ],
+  "prompt": "portfolio and build-log blog of a senior front-end engineer in Dublin",
+  "date": "2026-11-06"
+ }
+]
