@@ -7,10 +7,9 @@ I'm a Senior Software Engineer working across the stack on an AI-first website b
 ## Main
 
 - [Home](https://www.aakashpahuja.com/): Overview, hero, and introduction
-- [About](https://www.aakashpahuja.com/#about): Background, experience, and career highlights
-- [Skills](https://www.aakashpahuja.com/#skills): Technologies and areas of expertise
-- [Experience](https://www.aakashpahuja.com/#jobs): Work history (Squarespace, Intercom, BlueStacks, Samsung R&D, Coding Ninjas)
-- [Work](https://www.aakashpahuja.com/#projects): Featured projects and open-source work
+- [Extensions](https://www.aakashpahuja.com/#extensions): Chrome extensions on the Web Store (Slop Radar, Intent Guard, Recipe Mode)
+- [Work](https://www.aakashpahuja.com/work): Every side project with its source or live link
+- [About](https://www.aakashpahuja.com/about): Background, full work history (Squarespace, Intercom, BlueStacks, Samsung R&D, Coding Ninjas, Kony), and skills
 - [Contact](https://www.aakashpahuja.com/#contact): Get in touch
 - [Resume](https://www.aakashpahuja.com/resume.pdf): Full résumé (PDF)
 

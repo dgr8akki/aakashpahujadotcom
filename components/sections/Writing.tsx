@@ -7,7 +7,7 @@ export function Writing({ posts, total }: { posts: Post[]; total: number }) {
   if (posts.length === 0) return null;
 
   return (
-    <section id="writing" className="section section--s" aria-labelledby="writing-title">
+    <section id="writing" className="section section--l" aria-labelledby="writing-title">
       <div className="container">
         <div className="head">
           <h2 id="writing-title">Build logs and notes</h2>

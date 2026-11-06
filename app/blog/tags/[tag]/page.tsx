@@ -48,7 +48,6 @@ export default async function TagPage({ params }: Props) {
       </section>
 
       {posts.length === 0 && <p className="empty">No posts with this tag yet.</p>}
-      <div className="page-foot" />
     </div>
   );
 }

@@ -21,11 +21,11 @@ export function Experience({ jobs }: ExperienceProps) {
   if (jobs.length === 0) return null;
 
   return (
-    <section id="jobs" className="section" aria-labelledby="jobs-title">
+    <section id="history" className="section section--l" aria-labelledby="history-title">
       <div className="container">
         <div className="head">
-          <h2 id="jobs-title">From Kony to Squarespace</h2>
-          <p className="lead">Hyderabad, Bengaluru, Gurugram, then Dublin. Open a row for what I shipped.</p>
+          <h2 id="history-title">What I shipped, job by job</h2>
+          <p className="lead">Open a row for the detail.</p>
         </div>
 
         <ul className="ledger">

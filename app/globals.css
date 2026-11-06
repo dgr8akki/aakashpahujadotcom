@@ -1,5 +1,5 @@
-/* Hallmark · shape: Marquee Hero · genre: modern-minimal · theme: Rim (by request) · redesign: full · job: hire · draw: 2ee496
- * hero: Banner (/, /blog, /blog/tags, /blog/[slug]) · nav: slab · footer: letter close · imagery: screenshots 4 (capture.mjs, extension docs), portrait 1 (owner's, graded) · signature: three Chrome Web Store extensions shown as they run, under the name at poster scale
+/* Hallmark · shape: Portfolio Grid (/), Index-First (/work), Long Document (/about) · genre: modern-minimal · theme: Rim (by request) · redesign: full · job: hire · draw: 2ee496
+ * hero: Banner (/, /work, /blog, /blog/tags, /blog/[slug]) · nav: slab · footer: letter close · imagery: screenshots 4 (capture.mjs, extension docs), portrait 1 (owner's, graded) · signature: three Chrome Web Store extensions shown as they run, under the name at poster scale
  * axes: dark/grotesk-sans/warm · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · hero-review: folded into the finish review · finish-review: subagent · 8 findings · 7 resolved 1 no change (the portrait is already sticky on desktop) · gap: PaperTrail has no telling capture */
 /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: P, a portfolio argues little; the page leads with shipped extensions and a ledger of real jobs instead of a pitch */
@@ -7,15 +7,16 @@
 /* Hallmark · dropped the hero paragraph · 58 holds the hero to one sentence; the same facts open the About section */
 /* Hallmark · dropped "Coder by Heart ❤️" closing line · 30a names the emoji; the phrase now heads the About section */
 /* Hallmark · waive 71 · the h3s sit inside ruled index rows beside their line, a table read across · each project row in Some things I've built is a table row, not a head over a block */
-/* Hallmark · waive 44c · Banner posture on /blog and /blog/[slug] · the post list or the article starts inside the first screen, the blog head is a banner by design */
+/* Hallmark · waive 44c · Banner posture on /work, /blog and /blog/[slug] · the post list or the article starts inside the first screen, the blog head is a banner by design */
 /* Hallmark · dismissed 77 · the blog index is one list of seventeen posts, a document not a landing page */
 /* Hallmark · reworded "About Me" to "Coder by heart" · 54 and 19 name category labels; the phrase is the owner's tagline */
 /* Hallmark · reworded "Technical Skills & Expertise" to "The stack, front to back", "Some Things I've Built" to "Fifteen side projects, newest first", "Where I've Worked" to "From Kony to Squarespace", "Other Noteworthy Projects" to "Older experiments", "Get In Touch" to "My inbox is always open." · the finish review named the old heads as template stock; the contact head is the owner's own first line */
 /* Hallmark · dropped the old project covers (a GitHub repo page, an empty terminal, folder icons) · 84 asks for the product itself; Auraform UI was recaptured and the extensions use their real screens */
-/* Hallmark · waive 79 · Banner head on the blog routes; the list, the tags or the article begins under the head inside the first screen · the measured band is the post list itself, not empty paper */
+/* Hallmark · waive 79 · Banner head on /work and the blog routes; the list, the tags or the article begins under the head inside the first screen · the measured band is the post list itself, not empty paper */
 /* Hallmark · reworded "I build AI-first tools for the web." and "Senior Software Engineer 2" from headings to the hero line and a ledger cell · one h1 per page, roles read as table cells */
 /* Hallmark · dismissed kept figures · "30 days" lives in the JavaScript 30 row inside the Older experiments disclosure, kept as written */
 /* Hallmark · reworded "Copy2Clip Pass - Chrome & Firefox Extension" to "Copy2Clip Pass", "Milli - The text editor" to "Milli" · 63 names the WORD - fragment label */
+/* Hallmark · dropped #about, #skills, #jobs, #projects and the company, project and older-experiment links from / · they moved to /about and /work, linked from the nav and from each home section; the owner found one long page congested; the home page keeps one idea per section */
 @import 'tailwindcss';
 @import './tokens.css';
 @import './base.css' layer(base);
@@ -75,6 +76,10 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .section { padding-block: var(--section-gap) 0; }
 .section--l { padding-block-start: var(--section-gap-l); }
 .section--s { padding-block-start: var(--section-gap-s); }
+.section--flush { padding-block-start: 0; }
+.page-top { height: var(--space-3xl); }
+.page-head + .section--flush, .container:has(> .page-head) + .section--flush { padding-block-start: var(--section-gap-s); }
+.more { margin-top: var(--space-2xl); }
 
 .head {
   display: grid;
@@ -82,8 +87,6 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
   column-gap: var(--gap-columns);
   row-gap: var(--space-md);
   align-items: end;
-  padding-top: var(--space-lg);
-  border-top: var(--rule-hair) solid var(--color-rule);
   margin-bottom: var(--space-2xl);
 }
 .head h2 { grid-column: 1 / span 6; letter-spacing: -0.03em; }
@@ -190,17 +193,18 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 @media (max-width: 60rem) { .ext { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 40rem) { .ext { grid-template-columns: minmax(0, 1fr); } }
 
-/* ---------- Work: showcase, split, index ---------- */
+/* ---------- Work: tiles on the home page, the index on /work ---------- */
 
-.feature { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-lg); align-items: center; }
-.feature + .feature { margin-top: var(--space-3xl); }
-.feature__pic { grid-column: 1 / span 8; }
-.feature__pic [data-slot] { aspect-ratio: 2 / 1; }
-.feature__text { grid-column: 9 / span 4; display: grid; gap: var(--space-md); }
-.feature__text p { color: var(--color-ink-2); }
-.feature__text .stack { color: var(--color-muted); font-size: var(--text-sm); }
-.feature--flip .feature__pic { grid-column: 6 / span 7; grid-row: 1; }
-.feature--flip .feature__text { grid-column: 1 / span 4; grid-row: 1; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2xl) var(--gap-columns); margin: 0; padding: 0; list-style: none; }
+.tile { display: grid; gap: var(--space-md); align-content: start; min-width: 0; }
+.tile .shot { margin-bottom: var(--space-xs); }
+.tile > * { min-width: 0; }
+.tile__term { width: 100%; min-height: 0; overflow: hidden; font-size: var(--text-xs); line-height: 1.5; padding: var(--space-lg); }
+.tile [data-slot], .tile__term, .tile__quote { aspect-ratio: 4 / 3; }
+.tile [data-slot] > img { object-position: 0% 30%; }
+.tile h3 { font-size: var(--text-title); letter-spacing: -0.02em; }
+.tile p { color: var(--color-ink-2); max-width: 46ch; }
+.tile__quote { margin: 0; display: flex; align-items: flex-end; padding: var(--space-xl); background: var(--color-paper-2); color: var(--color-ink); font: 500 var(--text-xl) / 1.3 var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
 
 .term {
   margin: 0;
@@ -208,36 +212,48 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
   background: var(--color-paper-3);
   color: var(--color-ink-2);
   font: 400 var(--text-sm) / 1.6 var(--font-outlier);
-  overflow-x: auto;
+  overflow: auto;
   white-space: pre;
 }
-.term b { color: var(--color-ink); font-weight: 400; }
-.term .prompt { color: var(--color-accent); }
 
-.index { margin: var(--space-3xl) 0 0; padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule); }
+.index { margin: 0; padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule); }
 .index__row {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gap-columns);
   row-gap: var(--space-xs);
+  align-items: baseline;
+  padding-block: var(--space-xl);
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+}
+.index__row h3 { grid-column: 1 / span 3; font-size: var(--text-title); letter-spacing: -0.02em; line-height: 1.2; }
+.index__row p { grid-column: 4 / span 5; color: var(--color-ink-2); }
+.index__row .stack { grid-column: 9 / span 2; color: var(--color-muted); font-size: var(--text-sm); }
+.index__row .links { grid-column: 11 / span 2; justify-content: flex-end; }
+
+@media (max-width: 60rem) {
+  .tiles { grid-template-columns: minmax(0, 1fr); }
+  .index__row h3, .index__row p, .index__row .stack, .index__row .links { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
+/* ---------- Experience: one row per company on the home page ---------- */
+
+.roles { margin: 0; padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule); }
+.roles li {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap-columns);
+  row-gap: var(--space-2xs);
+  align-items: baseline;
   padding-block: var(--space-lg);
   border-bottom: var(--rule-hair) solid var(--color-rule-2);
 }
-.index__row h3 { grid-column: 1 / span 3; font-size: var(--text-lg); letter-spacing: -0.01em; line-height: 1.3; }
-.index__row p { grid-column: 4 / span 5; color: var(--color-ink-2); }
-.index__row .stack { grid-column: 9 / span 2; color: var(--color-muted); font-size: var(--text-sm); }
-.index__row .links { grid-column: 11 / span 2; justify-content: flex-end; align-content: start; }
-
-.older { margin-top: var(--space-2xl); }
-.older summary { list-style: none; }
-.older summary::-webkit-details-marker { display: none; }
-.older summary::after { content: '+'; font-family: var(--font-outlier); color: var(--color-muted); }
-.older[open] summary::after { content: '\2212'; }
-.older[open] summary { margin-bottom: var(--space-md); }
-
+.roles .measure { grid-column: 1 / span 2; color: var(--color-muted); font-size: var(--text-sm); }
+.roles__company { grid-column: 3 / span 4; font: 500 var(--text-title) / 1.2 var(--font-display); letter-spacing: -0.02em; }
+.roles__role { grid-column: 7 / span 4; color: var(--color-ink-2); }
+.roles__where { grid-column: 11 / span 2; color: var(--color-muted); font-size: var(--text-sm); text-align: right; }
 @media (max-width: 60rem) {
-  .feature__pic, .feature__text, .feature--flip .feature__pic, .feature--flip .feature__text { grid-column: 1 / -1; grid-row: auto; }
-  .index__row h3, .index__row p, .index__row .stack, .index__row .links { grid-column: 1 / -1; justify-content: flex-start; }
+  .roles .measure, .roles__company, .roles__role, .roles__where { grid-column: 1 / -1; text-align: left; }
 }
 
 /* ---------- Experience: ledger ---------- */
@@ -249,8 +265,8 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gap-columns);
   align-items: baseline;
-  min-height: 72px;
-  padding-block: var(--space-md);
+  min-height: 80px;
+  padding-block: var(--space-lg);
   cursor: pointer;
   list-style: none;
   transition: background-color var(--dur-short) var(--ease-out);
@@ -297,7 +313,7 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .posts .tags { grid-column: 3 / span 8; }
 .posts .tags a { color: var(--color-muted); text-decoration: none; }
 .posts .tags a:hover { color: var(--color-ink); text-decoration: underline; }
-.posts__more { margin-top: var(--space-xl); }
+.posts__more { margin-top: var(--space-2xl); }
 
 @media (max-width: 60rem) {
   .posts time, .posts h3, .posts h2, .posts .mins, .posts .tags { grid-column: 1 / -1; text-align: left; }
@@ -309,8 +325,7 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .about__pic { grid-column: 1 / span 4; position: sticky; top: calc(72px + var(--space-xl)); }
 .about__pic [data-slot] { aspect-ratio: 4 / 5; }
 .about__text { grid-column: 6 / span 7; display: grid; gap: var(--space-lg); }
-.about__text h2 { letter-spacing: -0.03em; margin-bottom: var(--space-md); }
-.about__text p { color: var(--color-ink-2); max-width: 65ch; font-size: var(--text-lead); line-height: 1.55; }
+.about__text p { color: var(--color-ink-2); max-width: 65ch; font-size: var(--text-lg); line-height: 1.65; }
 .about__text p:first-of-type { color: var(--color-ink); }
 .about__text strong { color: var(--color-ink); font-weight: 500; }
 .about__text a { color: var(--color-ink); text-underline-offset: 0.2em; text-decoration-color: var(--color-muted-2); }
@@ -329,8 +344,8 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 
 /* ---------- Contact: the close ---------- */
 
-.close { padding-block: var(--section-gap-l) var(--section-gap); }
-.close__inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.close { padding-block: var(--section-gap-l) 0; }
+.close__inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
 .close h2 { grid-column: 1 / span 9; font-size: var(--text-display); letter-spacing: var(--tracking-display); max-width: 16ch; }
 .close .lead { grid-column: 1 / span 6; color: var(--color-ink-2); }
 .close__mail { grid-column: 1 / -1; font: 500 clamp(1.25rem, 5.6vw, 3.5rem) / 1.1 var(--font-display); letter-spacing: -0.03em; white-space: nowrap; }
@@ -349,7 +364,7 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 
 /* ---------- Blog ---------- */
 
-.page-head { padding-block: var(--space-3xl) var(--space-2xl); }
+.page-head { padding-block: var(--space-3xl); }
 .page-head h1 { letter-spacing: var(--tracking-display); }
 .page-head .lead { margin-top: var(--space-lg); color: var(--color-ink-2); }
 .page-head .links { margin-top: var(--space-lg); }
@@ -361,7 +376,7 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .post-meta a:hover { color: var(--color-ink); text-decoration: underline; }
 .post-title { font-size: var(--text-display-s); max-width: 24ch; }
 
-.prose { max-width: 68ch; padding-bottom: var(--section-gap); color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.7; }
+.prose { max-width: 68ch; color: var(--color-ink-2); font-size: var(--text-lg); line-height: 1.7; }
 .prose > * + * { margin-top: var(--space-lg); }
 .prose h1, .prose h2, .prose h3 { color: var(--color-ink); letter-spacing: -0.02em; max-width: none; }
 .prose h1 { font-size: var(--text-3xl); margin-top: var(--space-2xl); }
@@ -384,7 +399,7 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .prose th { text-align: left; font-weight: 500; color: var(--color-muted); border-bottom: var(--rule-hair) solid var(--color-rule); padding: var(--space-xs) var(--space-sm) var(--space-xs) 0; }
 .prose td { border-bottom: var(--rule-hair) solid var(--color-rule-2); padding: var(--space-xs) var(--space-sm) var(--space-xs) 0; }
 
-.tag-list { columns: 3; column-gap: var(--gap-columns); margin: 0; padding: 0 0 var(--section-gap); list-style: none; border-top: var(--rule-hair) solid var(--color-rule); }
+.tag-list { columns: 3; column-gap: var(--gap-columns); margin: 0; padding: 0; list-style: none; border-top: var(--rule-hair) solid var(--color-rule); }
 .tag-list li { break-inside: avoid; border-bottom: var(--rule-hair) solid var(--color-rule-2); }
 .tag-list a { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md); min-height: 56px; padding-block: var(--space-sm); font-size: var(--text-lg); text-decoration: none; }
 .tag-list a:hover { color: var(--color-accent); }
@@ -396,4 +411,4 @@ summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2
 .lost .btn { justify-self: start; }
 
 .empty { padding-block: var(--space-2xl); color: var(--color-muted); }
-.page-foot { height: var(--section-gap); }
+#main { padding-bottom: var(--section-gap); }

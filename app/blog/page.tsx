@@ -29,7 +29,6 @@ export default function BlogPage() {
       </section>
 
       {posts.length === 0 && <p className="empty">No posts yet.</p>}
-      <div className="page-foot" />
     </div>
   );
 }

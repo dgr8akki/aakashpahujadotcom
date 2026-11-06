@@ -20,7 +20,7 @@ const aboutMarkdownComponents: Components = {
 
 export function About({ data }: AboutProps) {
   return (
-    <section id="about" className="section section--l" aria-labelledby="about-title">
+    <section id="about" className="section section--flush" aria-label="Background">
       <div className="container about">
         <figure className="about__pic shot ticks">
           <div data-slot="portrait" data-alt="A portrait of Aakash">
@@ -35,7 +35,6 @@ export function About({ data }: AboutProps) {
           </div>
         </figure>
         <div className="about__text">
-          <h2 id="about-title">Coder by heart</h2>
           <ReactMarkdown components={aboutMarkdownComponents}>{data.content}</ReactMarkdown>
         </div>
       </div>

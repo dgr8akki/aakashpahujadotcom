@@ -17,11 +17,9 @@ export const siteConfig = {
 
 export const navLinks = [
   { name: 'Extensions', url: '/#extensions' },
-  { name: 'Work', url: '/#projects' },
-  { name: 'Experience', url: '/#jobs' },
+  { name: 'Work', url: '/work' },
+  { name: 'About', url: '/about' },
   { name: 'Blog', url: '/blog' },
-  { name: 'About', url: '/#about' },
-  { name: 'Skills', url: '/#skills' },
   { name: 'Contact', url: '/#contact' },
 ];
 
