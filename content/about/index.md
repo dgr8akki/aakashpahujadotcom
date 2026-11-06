@@ -14,5 +14,3 @@ Before moving to Dublin, I worked with [BlueStacks](https://www.bluestacks.com/)
 I'm an active open-source contributor with **145+ public repositories** on GitHub and a passion for building tools that developers love. I've created browser extensions for Chrome and Mozilla, built MCP servers and agentic developer tooling, contributed to various awesome lists, and written educational resources that help developers learn and grow.
 
 I graduated with a Bachelor of Technology in Computer Science from [Maharishi Markandeshwar University](https://www.mmumullana.org/), and began my career at [Kony](https://www.kony.com/), where I worked on diverse projects improving CI/CD pipelines and building scalable marketplace platforms.
-
-**Coder by Heart** ❤️ - I'm passionate about scalable architectures, user-centric solutions, and driving innovation through impactful digital experiences.

@@ -1,190 +1,131 @@
-'use client';
-
-import { m, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
-import { useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFolder } from '@fortawesome/free-regular-svg-icons';
-import type { FeaturedProject } from '@/lib/content';
-import { fadeInUp, staggerContainer, defaultViewport, easings } from '@/lib/animations';
+import type { FeaturedProject, Project } from '@/lib/content';
 
 interface FeaturedProjectsProps {
   projects: FeaturedProject[];
+  older: Project[];
 }
 
-export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
+function ProjectLinks({ github, external, title }: { github?: string; external?: string; title: string }) {
+  return (
+    <ul className="links">
+      {external && (
+        <li>
+          <a className="link" href={external} target="_blank" rel="noopener noreferrer" aria-label={`${title}, live`}>
+            Live
+          </a>
+        </li>
+      )}
+      {github && (
+        <li>
+          <a className="link" href={github} target="_blank" rel="noopener noreferrer" aria-label={`${title} on GitHub`}>
+            GitHub
+          </a>
+        </li>
+      )}
+    </ul>
+  );
+}
+
+// ponytail: real `engram --help` output (v1.0.0), pasted as text so it stays crisp and searchable
+const ENGRAM_HELP = `Usage: engram [OPTIONS] COMMAND [ARGS]...
+
+  Engram — your local semantic knowledge base.
+
+Commands:
+  add        Save a thought to your knowledge base.
+  hooks      Manage Engram memory hooks for AI coding tools.
+  install    Configure Engram for all detected AI coding tools.
+  search     Semantic search across your thoughts.
+  serve      Start the HTTP REST server (for tools without MCP support).
+  stats      Show knowledge base statistics.`;
+
+export function FeaturedProjects({ projects, older }: FeaturedProjectsProps) {
   if (projects.length === 0) return null;
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const auraform = projects.find((p) => p.title === 'Auraform UI');
+  const engram = projects.find((p) => p.title === 'Engram');
+  const rest = projects.filter((p) => p !== auraform && p !== engram);
 
   return (
-    <section id="projects" ref={containerRef} className="section relative py-32 overflow-hidden">
-      {/* Background decoration */}
-      <m.div
-        style={{ x }}
-        className="absolute top-1/3 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"
-      />
-
-      <m.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={defaultViewport}
-        className="relative z-10"
-      >
-        {/* Section heading */}
-        <m.div variants={fadeInUp} className="mb-16">
-          <div className="flex items-center gap-4 mb-3">
-            <span className="font-mono text-accent text-xl font-semibold">04.</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-lightest m-0">
-              Some Things I've Built
-            </h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-slate/20 to-transparent" />
-          </div>
-        </m.div>
-
-        {/* Vertical scroll container */}
-        <div className="relative">
-          <m.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={defaultViewport}
-            className="flex flex-col gap-12"
-          >
-            {projects.map((project, i) => (
-              <m.div
-                key={project.title}
-                variants={fadeInUp}
-                whileHover={{ y: -8, transition: { duration: 0.4, ease: easings.spring } }}
-                className="group relative w-full"
-              >
-                <div className="glass-card p-0 overflow-hidden">
-                  <div className="grid lg:grid-cols-5 gap-0 lg:gap-6">
-                    {/* Project Image */}
-                    <div className="lg:col-span-3 relative aspect-video lg:aspect-auto lg:h-full min-h-[200px]">
-                      <div className="relative w-full h-full overflow-hidden">
-                        {project.cover ? (
-                          <a
-                            href={project.external || project.github || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full h-full"
-                          >
-                            {/* Glow effect on hover */}
-                            <div className="absolute -inset-2 bg-gradient-to-r from-accent/20 to-accent-pink/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-                            
-                            <div className="relative w-full h-full">
-                              <Image
-                                src={project.cover}
-                                alt={project.title}
-                                fill
-                                className="object-cover transform transition-transform duration-700 group-hover:scale-110"
-                              />
-                              {/* Gradient overlay */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-accent-pink/20 opacity-60 group-hover:opacity-20 transition-opacity duration-500" />
-                            </div>
-                          </a>
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-navy-light to-navy">
-                            <FontAwesomeIcon
-                              icon={faFolder}
-                              className="text-accent"
-                              style={{ width: 64, height: 64 }}
-                            />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Project Content */}
-                    <div className="lg:col-span-2 p-8 lg:p-6 flex flex-col justify-center">
-                      {/* Featured badge */}
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                        <p className="font-mono text-xs text-accent uppercase tracking-widest">
-                          Featured Project
-                        </p>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-2xl lg:text-3xl font-bold text-slate-lightest mb-3 group-hover:text-gradient transition-all duration-300">
-                        <a
-                          href={project.external || project.github || '#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {project.title}
-                        </a>
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-light text-sm lg:text-base leading-relaxed mb-6">
-                        {project.description}
-                      </p>
-
-                      {/* Tech stack */}
-                      {project.tech.length > 0 && (
-                        <div className="mb-6">
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.map((tech) => (
-                              <span
-                                key={tech}
-                                className="px-3 py-1 text-xs font-mono bg-accent/10 text-accent rounded-full border border-accent/20"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Links */}
-                      <div className="flex gap-4 mt-auto">
-                        {project.github && (
-                          <m.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="GitHub"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="text-slate-light hover:text-accent transition-colors"
-                          >
-                            <FontAwesomeIcon icon={faGithub} style={{ width: 24, height: 24 }} />
-                          </m.a>
-                        )}
-                        {project.external && (
-                          <m.a
-                            href={project.external}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="External Link"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="text-slate-light hover:text-accent transition-colors"
-                          >
-                            <FontAwesomeIcon icon={faExternalLinkAlt} style={{ width: 24, height: 24 }} />
-                          </m.a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </m.div>
-            ))}
-          </m.div>
-
+    <section id="projects" className="section" aria-labelledby="projects-title">
+      <div className="container">
+        <div className="head">
+          <h2 id="projects-title">Fifteen side projects, newest first</h2>
+          <p className="lead">Agents, RAG, terminal tools and a few old experiments, each with its source or a live link.</p>
         </div>
-      </m.div>
+
+        {auraform && (
+          <article className="feature">
+            <figure className="feature__pic shot ticks">
+              <div
+                data-slot="work-auraform"
+                data-kind="product"
+                data-alt="Auraform UI's dark showcase in Storybook: buttons, input, toggle, slider, knob, stepper and rating"
+              >
+                <img
+                  src={auraform.cover}
+                  alt="Auraform UI components in the dark gray theme: buttons, a text input, toggle, slider, knob, stepper and star rating."
+                  width={1440}
+                  height={700}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div className="feature__text">
+              <h3>{auraform.title}</h3>
+              <p>{auraform.description}</p>
+              <p className="stack">{auraform.tech.join(', ')}</p>
+              <ProjectLinks github={auraform.github} external={auraform.external} title={auraform.title} />
+            </div>
+          </article>
+        )}
+
+        {engram && (
+          <article className="feature feature--flip">
+            <figure className="feature__pic">
+              <pre className="term" aria-label="Output of engram --help">
+                <span className="prompt">$</span> <b>engram --help</b>
+                {'\n'}
+                {ENGRAM_HELP}
+              </pre>
+            </figure>
+            <div className="feature__text">
+              <h3>{engram.title}</h3>
+              <p>{engram.description}</p>
+              <p className="stack">{engram.tech.join(', ')}</p>
+              <ProjectLinks github={engram.github} external={engram.external} title={engram.title} />
+            </div>
+          </article>
+        )}
+
+        <ul className="index" aria-label="More projects">
+          {rest.map((project) => (
+            <li key={project.title} className="index__row">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <span className="stack">{project.tech.join(', ')}</span>
+              <ProjectLinks github={project.github} external={project.external} title={project.title} />
+            </li>
+          ))}
+        </ul>
+
+        {older.length > 0 && (
+          <details className="older">
+            <summary className="btn btn--quiet">Older experiments ({older.length})</summary>
+            <ul className="index" aria-label="Older experiments">
+              {older.map((project) => (
+                <li key={project.title} className="index__row">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <span className="stack">{project.tech.join(', ')}</span>
+                  <ProjectLinks github={project.github} external={project.external} title={project.title} />
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+      </div>
     </section>
   );
 }
