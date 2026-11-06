@@ -1,35 +1,31 @@
-'use client';
-
-import { socialLinks } from '@/lib/config';
-import { Icon, IconName } from '@/components/ui/Icons';
+import { siteConfig, socialLinks } from '@/lib/config';
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center py-6 px-6 text-center">
-      {/* Mobile Social Icons */}
-      <div className="flex items-center justify-center gap-4 mb-4 md:hidden">
-        {socialLinks.map((social) => (
-          <a
-            key={social.name}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.name}
-            className="p-2 text-slate-light hover:text-accent hover:-translate-y-1 transition-all duration-300"
-          >
-            <Icon name={social.icon as IconName} size={20} />
-          </a>
-        ))}
+    <footer className="footer">
+      <div className="container footer__inner">
+        <p className="footer__sign">Aakash, in Dublin</p>
+        <ul className="links" aria-label="Elsewhere">
+          <li>
+            <a href={`mailto:${siteConfig.email}`}>Email</a>
+          </li>
+          {socialLinks.map((social) => (
+            <li key={social.name}>
+              <a href={social.url} target="_blank" rel="noopener noreferrer">
+                {social.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          className="footer__credit"
+          href="https://github.com/dgr8akki/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Designed and built by Aakash Pahuja
+        </a>
       </div>
-
-      <a
-        href="https://github.com/dgr8akki/portfolio"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-mono text-xs text-slate hover:text-accent transition-colors"
-      >
-        <div>Designed & Built by Aakash Pahuja</div>
-      </a>
     </footer>
   );
 }
