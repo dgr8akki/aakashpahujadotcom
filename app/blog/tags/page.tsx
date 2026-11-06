@@ -13,34 +13,28 @@ export default function TagsPage() {
   const tags = getAllTags();
 
   return (
-    <main className="section pt-[150px]">
-      <span className="breadcrumb">
-        <span className="arrow">←</span>
-        <Link href="/blog">All posts</Link>
-      </span>
+    <div className="container">
+      <header className="page-head">
+        <Link className="back" href="/blog">
+          All posts
+        </Link>
+        <h1>Tags</h1>
+      </header>
 
-      <h1 className="text-6xl md:text-7xl font-semibold text-slate-lightest mb-12">
-        Tags
-      </h1>
-
-      <ul className="fancy-list space-y-4">
+      <ul className="tag-list">
         {tags.map(({ tag, count }) => (
-          <li key={tag} className="!pl-0 !before:hidden text-2xl">
-            <TrackedTagLink
-              href={`/blog/tags/${kebabCase(tag)}`}
-              tag={tag}
-              className="text-slate-light hover:text-accent transition-colors"
-            >
-              {tag}{' '}
-              <span className="font-mono text-base text-slate">({count})</span>
+          <li key={tag}>
+            <TrackedTagLink href={`/blog/tags/${kebabCase(tag)}`} tag={tag}>
+              {tag}
+              <span className="measure">
+                {count} {count === 1 ? 'post' : 'posts'}
+              </span>
             </TrackedTagLink>
           </li>
         ))}
       </ul>
 
-      {tags.length === 0 && (
-        <p className="text-slate text-center py-12">No tags yet.</p>
-      )}
-    </main>
+      {tags.length === 0 && <p className="empty">No tags yet.</p>}
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getAllTags, getPostsByTag } from '@/lib/content';
-import { formatDate, kebabCase } from '@/lib/utils';
-import { TrackedBlogLink, TrackedTagLink } from '@/components/blog/TrackedLinks';
+import { kebabCase } from '@/lib/utils';
+import { PostList } from '@/components/blog/PostList';
 import type { Metadata } from 'next';
 
 interface Props {
@@ -30,61 +30,25 @@ export default async function TagPage({ params }: Props) {
   const originalTag = tags.find((t) => kebabCase(t.tag) === tag)?.tag || tag;
 
   return (
-    <main className="section pt-[150px]">
-      <span className="breadcrumb">
-        <span className="arrow">←</span>
-        <Link href="/blog">All posts</Link>
-      </span>
-
-      <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
-        <h1 className="text-4xl md:text-5xl font-semibold text-slate-lightest">
-          #{originalTag}
-        </h1>
-        <Link href="/blog/tags" className="inline-link font-mono text-sm">
-          View all tags
+    <div className="container">
+      <header className="page-head">
+        <Link className="back" href="/blog">
+          All posts
         </Link>
+        <h1>{originalTag}</h1>
+        <p className="links">
+          <Link className="link" href="/blog/tags">
+            View all tags
+          </Link>
+        </p>
       </header>
 
-      <ul className="fancy-list space-y-8">
-        {posts.map((post) => (
-          <li key={post.slug} className="!pl-0 !before:hidden">
-            <article>
-              <h2 className="text-2xl font-medium mb-2">
-                <TrackedBlogLink
-                  href={`/blog/${post.slug}`}
-                  slug={post.slug}
-                  title={post.title}
-                  className="text-slate-light hover:text-accent transition-colors"
-                >
-                  {post.title}
-                </TrackedBlogLink>
-              </h2>
-              <p className="subtitle flex flex-wrap items-center gap-2">
-                <time>{formatDate(post.date)}</time>
-                <span>—</span>
-                <span>{post.readingTime}</span>
-                <span>—</span>
-                {post.tags.map((t) => (
-                  <TrackedTagLink
-                    key={t}
-                    href={`/blog/tags/${kebabCase(t)}`}
-                    tag={t}
-                    className="tag"
-                  >
-                    #{t}
-                  </TrackedTagLink>
-                ))}
-              </p>
-            </article>
-          </li>
-        ))}
-      </ul>
+      <section aria-label="Posts">
+        <PostList posts={posts} />
+      </section>
 
-      {posts.length === 0 && (
-        <p className="text-slate text-center py-12">
-          No posts with this tag yet.
-        </p>
-      )}
-    </main>
+      {posts.length === 0 && <p className="empty">No posts with this tag yet.</p>}
+      <div className="page-foot" />
+    </div>
   );
 }

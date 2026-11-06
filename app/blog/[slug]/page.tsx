@@ -44,38 +44,35 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  return (
-    <main className="section pt-[150px]">
-      <span className="breadcrumb">
-        <span className="arrow">←</span>
-        <Link href="/blog">All posts</Link>
-      </span>
+  // ponytail: posts open with their own "## Title"; the page header already shows it
+  const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const body = post.content.replace(/^\s*#{1,2}\s+(.+)\n/, (line, heading: string) =>
+    norm(heading) === norm(post.title) ? '' : line
+  );
 
-      <header className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-semibold text-slate-lightest mb-4">
-          {post.title}
-        </h1>
-        <p className="subtitle flex flex-wrap items-center gap-2">
-          <time>{formatDate(post.date)}</time>
-          <span>—</span>
-          <span>{post.readingTime}</span>
-          <span>—</span>
+  return (
+    <div className="container">
+      <header className="page-head">
+        <Link className="back" href="/blog">
+          All posts
+        </Link>
+        <h1 className="post-title">{post.title}</h1>
+        <div className="post-meta">
+          <time className="measure" dateTime={post.date}>
+            {formatDate(post.date)}
+          </time>
+          <span className="measure">{post.readingTime}</span>
           {post.tags.map((tag) => (
-            <TrackedTagLink
-              key={tag}
-              href={`/blog/tags/${kebabCase(tag)}`}
-              tag={tag}
-              className="tag"
-            >
-              #{tag}
+            <TrackedTagLink key={tag} href={`/blog/tags/${kebabCase(tag)}`} tag={tag}>
+              {tag}
             </TrackedTagLink>
           ))}
-        </p>
+        </div>
       </header>
 
-      <article className="prose prose-invert prose-xl max-w-none">
-        <MDXContent content={post.content} />
+      <article className="prose">
+        <MDXContent content={body} />
       </article>
-    </main>
+    </div>
   );
 }
